@@ -23,6 +23,19 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+		// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-security
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '2.1.1.RELEASE'
+
+	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.1.1.RELEASE'
+	
+	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-jdbc
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-jdbc', version: '2.1.1.RELEASE'
+	
+	// https://mvnrepository.com/artifact/mysql/mysql-connector-java
+	compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.47'
+	
+	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-devtools
+	compile group: 'org.springframework.boot', name: 'spring-boot-devtools', version: '2.1.1.RELEASE'
+	
 }
