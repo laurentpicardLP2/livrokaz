@@ -140,7 +140,6 @@ CREATE TABLE Ordering(
         dateOrdering           Date NOT NULL ,
         dateDelivery           Date NOT NULL ,
         shippingFees           Double NOT NULL ,
-        userId                 Int NOT NULL ,
         totalAmount            Double NOT NULL ,
         userId_R_Ordering_User Int NOT NULL
 	,CONSTRAINT Ordering_PK PRIMARY KEY (orderingId)
