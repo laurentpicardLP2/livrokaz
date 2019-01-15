@@ -1,7 +1,9 @@
-package model;
+package co.jlv.livrokaz.model;
 
 import java.io.Serializable;
-import javax.persistence.*;
+
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
 
 /**
  * The primary key class for the R_Ordering_GoogleBooks database table.
