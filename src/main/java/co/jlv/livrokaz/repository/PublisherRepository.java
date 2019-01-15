@@ -1,9 +1,9 @@
 package co.jlv.livrokaz.repository;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import co.jlv.livrokaz.model.Publisher;
 
-public interface PublisherRepository extends CrudRepository<Publisher, Integer>{
+public interface PublisherRepository extends JpaRepository<Publisher, Integer>{
 
 }
