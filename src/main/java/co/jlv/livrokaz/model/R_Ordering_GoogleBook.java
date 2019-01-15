@@ -27,12 +27,12 @@ public class R_Ordering_GoogleBook implements Serializable {
 
 	//bi-directional many-to-one association to GoogleBook
 	@ManyToOne
-	@JoinColumn(name="bookId")
+	@JoinColumn(name="bookId", insertable = false, updatable = false)
 	private GoogleBook googleBook;
 
 	//bi-directional many-to-one association to Ordering
 	@ManyToOne
-	@JoinColumn(name="orderingId")
+	@JoinColumn(name="orderingId", insertable = false, updatable = false)
 	private Ordering ordering;
 
 	public R_Ordering_GoogleBook() {

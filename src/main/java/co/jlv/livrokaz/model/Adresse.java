@@ -11,7 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.NamedQuery;
 
-import org.springframework.boot.autoconfigure.security.SecurityProperties.User;
 
 /**
  * The persistent class for the Adresse database table.
