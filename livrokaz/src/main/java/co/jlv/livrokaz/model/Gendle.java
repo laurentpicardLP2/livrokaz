@@ -1,0 +1,68 @@
+package model;
+
+import java.io.Serializable;
+import javax.persistence.*;
+import java.util.List;
+
+
+/**
+ * The persistent class for the Gendle database table.
+ * 
+ */
+@Entity
+@NamedQuery(name="Gendle.findAll", query="SELECT g FROM Gendle g")
+public class Gendle implements Serializable {
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int gendleId;
+
+	private String typeGendle;
+
+	//bi-directional many-to-one association to GoogleBook
+	@OneToMany(mappedBy="gendle")
+	private List<GoogleBook> googleBooks;
+
+	public Gendle() {
+	}
+
+	public int getGendleId() {
+		return this.gendleId;
+	}
+
+	public void setGendleId(int gendleId) {
+		this.gendleId = gendleId;
+	}
+
+	public String getTypeGendle() {
+		return this.typeGendle;
+	}
+
+	public void setTypeGendle(String typeGendle) {
+		this.typeGendle = typeGendle;
+	}
+
+	public List<GoogleBook> getGoogleBooks() {
+		return this.googleBooks;
+	}
+
+	public void setGoogleBooks(List<GoogleBook> googleBooks) {
+		this.googleBooks = googleBooks;
+	}
+
+	public GoogleBook addGoogleBook(GoogleBook googleBook) {
+		getGoogleBooks().add(googleBook);
+		googleBook.setGendle(this);
+
+		return googleBook;
+	}
+
+	public GoogleBook removeGoogleBook(GoogleBook googleBook) {
+		getGoogleBooks().remove(googleBook);
+		googleBook.setGendle(null);
+
+		return googleBook;
+	}
+
+}
