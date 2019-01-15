@@ -33,6 +33,15 @@ public class Author implements Serializable {
 
 	public Author() {
 	}
+	
+	
+
+	public Author(String fullName) {
+		super();
+		this.fullName = fullName;
+	}
+
+
 
 	public int getAuthorId() {
 		return this.authorId;

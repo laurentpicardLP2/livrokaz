@@ -88,6 +88,34 @@ public class GoogleBook implements Serializable {
 	//bi-directional many-to-one association to R_Ordering_GoogleBook
 	@OneToMany(mappedBy="googleBook")
 	private List<R_Ordering_GoogleBook> ROrderingGoogleBooks;
+	
+	
+
+	public GoogleBook(String bookId, int availableQuantity, String categorie, String codeISBN, String description,
+			String imgThumbnail, byte isEbook, String langage, int pageCount, double price, Date publishReleased,
+			String textSnippet, String title, Gendle gendle, Publisher publisher, List<Author> authors,
+			List<R_Ordering_GoogleBook> rOrderingGoogleBooks) {
+		super();
+		this.bookId = bookId;
+		this.availableQuantity = availableQuantity;
+		this.categorie = categorie;
+		this.codeISBN = codeISBN;
+		this.description = description;
+		this.imgThumbnail = imgThumbnail;
+		this.isEbook = isEbook;
+		this.langage = langage;
+		this.pageCount = pageCount;
+		this.price = price;
+		this.publishReleased = publishReleased;
+		this.textSnippet = textSnippet;
+		this.title = title;
+		this.gendle = gendle;
+		this.publisher = publisher;
+		this.authors = authors;
+		ROrderingGoogleBooks = rOrderingGoogleBooks;
+	}
+	
+	
 
 	public GoogleBook() {
 	}
