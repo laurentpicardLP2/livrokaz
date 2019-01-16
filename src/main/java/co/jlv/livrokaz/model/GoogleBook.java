@@ -31,8 +31,8 @@ public class GoogleBook implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private String bookId;
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private int bookId;
 
 	private int availableQuantity;
 
@@ -46,7 +46,7 @@ public class GoogleBook implements Serializable {
 	@Lob
 	private String imgThumbnail;
 
-	private byte isEbook;
+	private boolean isEbook;
 
 	private String langage;
 
@@ -54,8 +54,8 @@ public class GoogleBook implements Serializable {
 
 	private double price;
 
-	@Temporal(TemporalType.DATE)
-	private Date publishReleased;
+	//@Temporal(TemporalType.DATE)
+	private String publishReleased;
 
 	@Lob
 	private String textSnippet;
@@ -91,12 +91,11 @@ public class GoogleBook implements Serializable {
 	
 	
 
-	public GoogleBook(String bookId, int availableQuantity, String categorie, String codeISBN, String description,
-			String imgThumbnail, byte isEbook, String langage, int pageCount, double price, Date publishReleased,
-			String textSnippet, String title, Gendle gendle, Publisher publisher, List<Author> authors,
-			List<R_Ordering_GoogleBook> rOrderingGoogleBooks) {
+	/*public GoogleBook( int availableQuantity, String categorie, String codeISBN, String description,
+			String imgThumbnail, boolean isEbook, String langage, int pageCount, double price, String publishReleased,
+			String textSnippet, String title, Gendle gendle, Publisher publisher, List<Author> authors/*,
+			List<R_Ordering_GoogleBook> rOrderingGoogleBooks*//*) {
 		super();
-		this.bookId = bookId;
 		this.availableQuantity = availableQuantity;
 		this.categorie = categorie;
 		this.codeISBN = codeISBN;
@@ -112,7 +111,33 @@ public class GoogleBook implements Serializable {
 		this.gendle = gendle;
 		this.publisher = publisher;
 		this.authors = authors;
-		ROrderingGoogleBooks = rOrderingGoogleBooks;
+		
+	}*/
+	
+	public GoogleBook( 
+			Gendle gendle, Publisher publisher, List<Author> authors, String publishReleased,
+			int availableQuantity, String categorie, String codeISBN, String description,
+			String imgThumbnail,boolean isEbook,String langage,int pageCount,double price,
+			String textSnippet, String title/*,
+			List<R_Ordering_GoogleBook> rOrderingGoogleBooks*/) {
+		super();
+		
+		this.gendle = gendle;
+		this.publisher = publisher;
+		this.authors = authors;
+		this.publishReleased = publishReleased;
+		this.availableQuantity = availableQuantity;
+		this.categorie = categorie;
+		this.codeISBN = codeISBN;
+		this.description = description; 
+		this.imgThumbnail = imgThumbnail;
+		this.isEbook = isEbook;
+		this.langage = langage;
+		this.pageCount = pageCount;
+		this.price = price;
+		this.textSnippet = textSnippet;
+		this.title = title;
+		//ROrderingGoogleBooks = rOrderingGoogleBooks;
 	}
 	
 	
@@ -120,11 +145,11 @@ public class GoogleBook implements Serializable {
 	public GoogleBook() {
 	}
 
-	public String getBookId() {
+	public int getBookId() {
 		return this.bookId;
 	}
 
-	public void setBookId(String bookId) {
+	public void setBookId(int bookId) {
 		this.bookId = bookId;
 	}
 
@@ -168,11 +193,11 @@ public class GoogleBook implements Serializable {
 		this.imgThumbnail = imgThumbnail;
 	}
 
-	public byte getIsEbook() {
+	public boolean getIsEbook() {
 		return this.isEbook;
 	}
 
-	public void setIsEbook(byte isEbook) {
+	public void setIsEbook(boolean isEbook) {
 		this.isEbook = isEbook;
 	}
 
@@ -200,11 +225,11 @@ public class GoogleBook implements Serializable {
 		this.price = price;
 	}
 
-	public Date getPublishReleased() {
+	public String getPublishReleased() {
 		return this.publishReleased;
 	}
 
-	public void setPublishReleased(Date publishReleased) {
+	public void setPublishReleased(String publishReleased) {
 		this.publishReleased = publishReleased;
 	}
 

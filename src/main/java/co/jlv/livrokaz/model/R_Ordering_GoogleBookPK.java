@@ -15,17 +15,17 @@ public class R_Ordering_GoogleBookPK implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Column(insertable=false, updatable=false)
-	private String bookId;
+	private int bookId;
 
 	@Column(insertable=false, updatable=false)
 	private int orderingId;
 
 	public R_Ordering_GoogleBookPK() {
 	}
-	public String getBookId() {
+	public int getBookId() {
 		return this.bookId;
 	}
-	public void setBookId(String bookId) {
+	public void setBookId(int bookId) {
 		this.bookId = bookId;
 	}
 	public int getOrderingId() {
@@ -44,14 +44,13 @@ public class R_Ordering_GoogleBookPK implements Serializable {
 		}
 		R_Ordering_GoogleBookPK castOther = (R_Ordering_GoogleBookPK)other;
 		return 
-			this.bookId.equals(castOther.bookId)
+			this.bookId==castOther.bookId
 			&& (this.orderingId == castOther.orderingId);
 	}
 
 	public int hashCode() {
 		final int prime = 31;
 		int hash = 17;
-		hash = hash * prime + this.bookId.hashCode();
 		hash = hash * prime + this.orderingId;
 		
 		return hash;

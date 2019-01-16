@@ -21,7 +21,7 @@ public class Gendle implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int gendleId;
 
 	private String typeGendle;
@@ -32,6 +32,11 @@ public class Gendle implements Serializable {
 
 	public Gendle() {
 	}
+	
+	public Gendle(String typeGendle) {
+		this.typeGendle = typeGendle;
+	}
+
 
 	public int getGendleId() {
 		return this.gendleId;

@@ -21,7 +21,7 @@ public class Publisher implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int publisherId;
 
 	private String namePublisher;
@@ -31,6 +31,10 @@ public class Publisher implements Serializable {
 	private List<GoogleBook> googleBooks;
 
 	public Publisher() {
+	}
+	
+	public Publisher(String namePublisher) {
+		this.namePublisher = namePublisher;
 	}
 
 	public int getPublisherId() {
