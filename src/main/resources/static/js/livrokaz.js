@@ -53,18 +53,16 @@ $(document).ready(function(){
  */
 function loadDatatable() {
 	$('#livrokazTable').DataTable({
-		paging: false,
-		"searching": false,
-		"info": false,
 		"columnDefs": [
 	            {
 	                "targets": [ 0 ],
-	                "sortable" : true
+	                "sortable" : true,
+	                "visible": true
 	            },
 	            {
 	                "targets": [ 1 ],
 	                "sortable" : true,
-	                "visible": true
+	                "visible": true,
 	            },
 	            {
 	                "targets": [ 2 ],
@@ -88,7 +86,7 @@ function getAuthors() {
     var id = $("#id").val(); //on récupère la variable du formulaire 
     
   //Vidage de la liste déroulante
-	$("#listeDeroulanteAuthor").children().remove(); 
+	$("#listeDeroulanteAuthors").children().remove(); 
 
     // on lance la méthode ajax pour faire le lien avec les méthodes back du constructeur
 	$.ajax({
@@ -104,8 +102,7 @@ function getAuthors() {
 			authors = data;
 			
 			var listeDeroulante = document.getElementById("listeDeroulanteAuthors");
-			
-			
+			$("#listeDeroulanteAuthors").children().remove(); 
 			for (var i = 0; i < authors.length; i++) {
 				
 		        option = document.createElement("option");
