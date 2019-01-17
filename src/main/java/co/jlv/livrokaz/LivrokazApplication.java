@@ -141,8 +141,8 @@ public class LivrokazApplication implements CommandLineRunner {
 		langage = "fr";
 		pageCount = 370;
 		price = 34.50;
-		textSnippet = "textSnippet";
-		title = "title";
+		textSnippet = "textSnippet_2";
+		title = "title_2";
 		
 		
 		gb = new GoogleBook(gendle, publisher, authors, sDate, 

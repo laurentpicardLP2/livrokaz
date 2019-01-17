@@ -19,6 +19,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 /**
  * The persistent class for the GoogleBooks database table.
@@ -249,6 +251,7 @@ public class GoogleBook implements Serializable {
 		this.title = title;
 	}
 
+	@JsonIgnore
 	public Gendle getGendle() {
 		return this.gendle;
 	}
@@ -257,6 +260,7 @@ public class GoogleBook implements Serializable {
 		this.gendle = gendle;
 	}
 
+	@JsonIgnore
 	public Publisher getPublisher() {
 		return this.publisher;
 	}
@@ -264,7 +268,8 @@ public class GoogleBook implements Serializable {
 	public void setPublisher(Publisher publisher) {
 		this.publisher = publisher;
 	}
-
+	
+	@JsonIgnore
 	public List<Author> getAuthors() {
 		return this.authors;
 	}
@@ -273,6 +278,7 @@ public class GoogleBook implements Serializable {
 		this.authors = authors;
 	}
 
+	@JsonIgnore
 	public List<R_Ordering_GoogleBook> getROrderingGoogleBooks() {
 		return this.ROrderingGoogleBooks;
 	}
@@ -281,6 +287,7 @@ public class GoogleBook implements Serializable {
 		this.ROrderingGoogleBooks = ROrderingGoogleBooks;
 	}
 
+	@JsonIgnore
 	public R_Ordering_GoogleBook addROrderingGoogleBook(R_Ordering_GoogleBook ROrderingGoogleBook) {
 		getROrderingGoogleBooks().add(ROrderingGoogleBook);
 		ROrderingGoogleBook.setGoogleBook(this);
