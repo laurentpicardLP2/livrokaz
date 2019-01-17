@@ -1,22 +1,20 @@
 package co.jlv.livrokaz;
 
-import java.sql.Date;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.nio.charset.Charset;
+import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
 import java.util.List;
-import java.util.Optional;
-
-import javax.persistence.Lob;
-
+import org.apache.commons.io.IOUtils;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.data.domain.Example;
-
 import co.jlv.livrokaz.model.Author;
 import co.jlv.livrokaz.model.Gendle;
 import co.jlv.livrokaz.model.GoogleBook;
@@ -27,29 +25,27 @@ import co.jlv.livrokaz.repository.GoogleBookRepository;
 import co.jlv.livrokaz.repository.PublisherRepository;
 
 
-
 @SpringBootApplication
 public class LivrokazApplication implements CommandLineRunner {
-	
+
 	@Autowired
 	private GoogleBookRepository googleBookRepo;
-	
+
 	@Autowired
 	private GendleRepository gendleRepo;
-	
+
 	@Autowired
 	private PublisherRepository publisherRepo;
-	
+
 	@Autowired
 	private AuthorRepository authorRepo;
 
-    public static void main(String[] args) {
-        SpringApplication.run(LivrokazApplication.class, args);
-    }
-    
-    
+	public static void main(String[] args) {
+		SpringApplication.run(LivrokazApplication.class, args);
+	}
+
 	@Override
-	public void run(String... args) throws Exception {
+	public void run(String... args) throws Exception, JSONException, MalformedURLException, IOException, ClassNotFoundException, SQLException  {
 		GoogleBook gb;
 		Gendle gendle;
 		Publisher publisher;
@@ -68,91 +64,218 @@ public class LivrokazApplication implements CommandLineRunner {
 		String textSnippet;
 		String title;
 
-		
-		// Clean up database tables
-    	//googleBookRepo.deleteAllInBatch();
-		
-		gendle=gendleRepo.findByGendle("Roman");
-		if(gendle==null) {
-			gendleRepo.save(new Gendle("Roman"));
-		}
-		gendle=gendleRepo.findByGendle("Documentaire");
-		if(gendle==null) {
-			gendleRepo.save(new Gendle("Documentaire"));
-		}
-		gendle=gendleRepo.findByGendle("Philosophie");
-		if(gendle==null) {
-			gendleRepo.save(new Gendle("Philosophie"));
-		}
-	
-		
-		publisher = publisherRepo.findByPublisher("Les chevaliers de la rosette");
-		if(publisher == null) {
-			publisherRepo.save(new Publisher("Les chevaliers de la rosette"));
-		}
-		publisher = publisherRepo.findByPublisher("Les éditions du placard");
-		if(publisher == null) {
-			publisherRepo.save(new Publisher("Les éditions du placard"));
-		}
-		publisher = publisherRepo.findByPublisher("Les éditions du seuil");
-		if(publisher == null) {
-			publisherRepo.save(new Publisher("Les éditions du seuil"));
-		}
-		
-		author = authorRepo.findByAuthor("Victor Hugo");
-		if(author == null) {
-			authorRepo.save(new Author("Victor Hugo"));
-		}
-		author = authorRepo.findByAuthor("Honore de Balzac");
-		if(author == null) {
-			authorRepo.save(new Author("Honore de Balzac"));
-		}
-		author = authorRepo.findByAuthor("Emile Zola");
-		if(author == null) {
-			authorRepo.save(new Author("Emile Zola"));
-		}
-		
-		
-		gendle = gendleRepo.findByGendle("Philosophie");
-		publisher = publisherRepo.findByPublisher("Les chevaliers de la rosette");
-		authors.add(authorRepo.findByAuthor("Victor Hugo"));
-		authors.add(authorRepo.findByAuthor("Honore de Balzac"));
-		
-		
-		/*Date myDate = new Date(0);
-		System.out.println(myDate);
-		System.out.println(new SimpleDateFormat("MM-dd-yyyy").format(myDate));
-		System.out.println(new SimpleDateFormat("yyyy-MM-dd").format(myDate));
-		System.out.println(myDate);*/
-		
-		
-		
+		String url = "https://www.googleapis.com/books/v1/volumes?q=cooking&maxResults=40&key=AIzaSyAPOsreRHHdYcdZ4pX7YNXBujTndpGJF9k";
 
-		//java.sql.Date sDate = new java.sql.Date(new java.util.Date().getTime());
+		String jsonText = IOUtils.toString(new URL(url), Charset.forName("UTF-8"));
 
+		GoogleBook googleBooks = new GoogleBook();
+
+		String jsonTxt = IOUtils.toString(new URL(url), Charset.forName("UTF-8"));
+
+		JSONObject json = new JSONObject(jsonTxt);
+		JSONArray items = null;
+		JSONObject item = null;
+		JSONObject searchInfo = null;
+
+		try {
+			items = json.getJSONArray("items");
+			item = (JSONObject) items.get(5);
+
+		} catch(JSONException e) {  
+		}
+
+		try {
+			searchInfo = item.getJSONObject("searchInfo");
+		} catch(JSONException e) {
+		}
+
+		JSONObject saleInfo = item.getJSONObject("saleInfo");
+		JSONObject volumeInfo = item.getJSONObject("volumeInfo");
+		JSONObject imageLink = volumeInfo.getJSONObject("imageLinks");
+		JSONArray industryIdentifiers = volumeInfo.getJSONArray("industryIdentifiers");
+		JSONObject ISBN_1010 = (JSONObject) industryIdentifiers.get(0);
+
+
+/*****************************************************************
+**************************** GENDLE ******************************
+******************************************************************/
+
+		gendle=gendleRepo.findByGendle("Cuisine");
+		if(gendle==null) {
+			gendleRepo.save(new Gendle("Cuisine"));
+			gendle=gendleRepo.findByGendle("Cuisine");
+		}
+
+/*****************************************************************
+************************* PUBLISHER ******************************
+*******************************************************************/
+
+		String publisherS = "";
+
+
+		try {
+			publisherS = volumeInfo.getString("publisher");
+
+		} catch(JSONException e) {
+			publisherS = "unknown";
+
+		}finally {
+
+			publisherS = volumeInfo.getString("publisher");
+			publisher = publisherRepo.findByPublisher(publisherS);
+			if(publisher == null) {
+				publisherRepo.save(new Publisher(publisherS));
+			}
+		}
+
+/*****************************************************************
+************************* AUTHORS ********************************
+******************************************************************/
 		
-		sDate="1895-01-20";
+		JSONArray authorsAr = null;
+		//authors = null;
+
+		try {
+			authorsAr = volumeInfo.getJSONArray("authors"); 
+			for (int i = 0; i < authorsAr.length(); i++) {
+
+				author = authorRepo.findByAuthor(authorsAr.getString(i));
+				if(author == null) {
+					authorRepo.save(new Author(authorsAr.getString(i)));
+				}
+				authors.add(authorRepo.findByAuthor(authorsAr.getString(i)));
+			}
+
+		} catch(JSONException e) {
+			authors = null;
+
+		}
+
+/*****************************************************************
+************************** TITLE *********************************
+******************************************************************/
+		title = volumeInfo.getString("title");
+
+/*****************************************************************
+*********************** PUBLISHED DATE ***************************
+******************************************************************/ 
+		sDate = "";
+
+		try {
+			sDate = volumeInfo.getString("publishedDate");
+
+		} catch (JSONException e) {
+			sDate = "unknown";
+
+		} 
+
+/*****************************************************************
+************************ ISBN_10 *********************************
+******************************************************************/
+		codeISBN = "";
+
+		try {
+			codeISBN = ISBN_1010.getString("identifier");
+			codeISBN = codeISBN.substring(codeISBN.indexOf(":")+1);
+
+
+		}catch(JSONException e) {
+			codeISBN = "unknown";
+
+		}
+
+/*****************************************************************
+************************* PAGE COUNT *****************************
+******************************************************************/
+		pageCount = 0;
+
+		try {
+			pageCount = volumeInfo.getInt("pageCount");
+
+		}catch(JSONException e) {
+			pageCount = 0;
+
+		}
+
+/*****************************************************************
+************************** THUMBNAIL *****************************
+******************************************************************/
+		imgThumbnail = "";
+
+		try {
+			imgThumbnail = imageLink.getString("smallThumbnail");
+
+		}catch(JSONException e) {
+			imgThumbnail = "can't find thumbnail";
+
+		}
+
+
+/*****************************************************************
+**************************** PRICE *******************************
+******************************************************************/
+		price = 0;
+
+		try {
+			JSONObject listPrice = saleInfo.getJSONObject("listPrice");
+			price = listPrice.getDouble("amount");
+
+		} catch(JSONException e) {
+			price =0;
+
+		} 
+/*****************************************************************
+*************************** SNIPPET ******************************
+******************************************************************/
+		textSnippet = "";
+
+		try {
+			textSnippet = searchInfo.getString("textSnippet");
+		} catch (JSONException e) {
+
+			textSnippet = "can't find snippet";
+		}catch(NullPointerException n) {
+			textSnippet = "can't find snippet";
+		}
+
+
+
+/*****************************************************************
+************************* DESCRIPTION ****************************
+******************************************************************/
+		description = "";
+
+		try {
+			description = volumeInfo.getString("description");
+		} catch (JSONException e) {
+			description = "can't find description";
+
+		} catch(NullPointerException n) {
+			description = "can't find description";
+
+		}
+
+/*****************************************************************
+*************************** eBOOK ********************************
+******************************************************************/
+		isEbook = true;
+
+		try {
+			isEbook = saleInfo.getBoolean("isEbook");
+
+		} catch(JSONException e) {
+			isEbook = false;
+		}
+
 		availableQuantity = 10;
 		categorie = "Cuisine";
-		codeISBN = "12-AZE444";
-		description = "description"; 
-		imgThumbnail = "http://imgThumbnail";
-		isEbook = false;
 		langage = "fr";
-		pageCount = 370;
-		price = 34.50;
-		textSnippet = "textSnippet_2";
-		title = "title_2";
-		
-		
+
 		gb = new GoogleBook(gendle, publisher, authors, sDate, 
 				availableQuantity, categorie, codeISBN, description, imgThumbnail,
 				isEbook, langage, pageCount, price, textSnippet, title);
 		googleBookRepo.save(gb);
-		/*List<Author>authorsVerif = gb.getAuthors();
-		for(Author a : authorsVerif) {
-			System.out.println(a.getFullName());
-		}*/
-		
+
+
 	}
 }
