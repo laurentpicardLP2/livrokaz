@@ -17,7 +17,7 @@ $(document).ready(function(){
 	   // console.log(dataRow);
 	    $("#id").val(dataRow.bookId);
 		$("#title").val(dataRow.title);
-		$("#categorie").val(dataRow.categorie);
+		$("#price").val(dataRow.price);
 		
 		getAuthors();
 		
@@ -27,17 +27,17 @@ $(document).ready(function(){
 	
 	//Click sur Ajouter
 	$("#btn-post").click(function() { 
-		ajouterJedi($("#btn-post"), "GET", table);
+		ajouterLivre($("#btn-post"), "GET", table);
 	});
 	
 	//Click sur Modifier
 	$("#btn-put").click(function() { 
-		ajouterJedi($("#btn-post"), "PUT", table);
+		modifierLivre($("#btn-put"), "PUT");
 	});
 	
 	//click sur Supprimer
 	$("#btn-delete").click(function() {
-		supprimerJedi(table);
+		supprimerLivre();
 		resetForm();
 	});
 	
@@ -121,16 +121,97 @@ function getAuthors() {
 	});
     
     // on recharge les données via la méthode reload()
+	/*setTimeout( function () {
+		var table = $('#livrokazTable').DataTable();
+	    table.ajax.reload();
+	}, 600 ); */	
+}
+
+
+function modifierLivre(button, httpVerb) {
+	
+	// on récupère les valeurs saisies	
+	var id = $("#id").val();
+	var title = $("#title").val();
+	var price = $("#price").val();
+	
+	
+	// on initialise l'url du back
+	var url = "/livrokaz/updateBook/title="+title+"&price="+price+"&id="+id;
+	
+	
+	// on désactive le bouton en cours 
+	button.prop("disabled", true);
+	
+	console.log(url);
+
+	// on lance la méthode ajax pour faire le lien avec les méthodes back du constructeur
+	$.ajax({
+		type : httpVerb,						// méthode GET ou PUT
+		contentType : "application/json",		
+		url : url,								
+		data : {},		
+		dataType : 'json',						
+		cache : false,							
+		timeout : 600000,						
+		success : function(data) {				
+
+			console.log("SUCCESS : ", data);
+			button.prop("disabled", false);
+
+			resetForm()
+			
+		},
+		error : function(e) {			
+
+			console.log("ERROR : ", e);
+			button.prop("disabled", false);
+
+		}
+	});
+	
+	setTimeout( function () {
+	var table = $('#livrokazTable').DataTable();
+    table.ajax.reload();
+}, 600 ); 
+}
+
+
+function supprimerLivre() {
+    var id = $("#id").val(); //on récupère la variable du formulaire 
+
+    // on lance la méthode ajax pour faire le lien avec les méthodes back du constructeur
+    $.ajax({
+        type : "DELETE",                            // méthode GET
+        contentType : "application/json",        // type de données
+        url : "/livrokaz/delbook/" + id,                // url destinatrice
+        data : {},                                // tableau vide pour recevoir la reponse body du controleur
+        dataType : 'json',                        // on précise le mode de transfert
+        cache : false,                            // pas de cache sollicité
+        timeout : 600000,                        // délai d'attente
+        success : function(data) {                // si ok
+
+            console.log("SUCCESS : ", data);
+            resetForm()
+        },
+        error : function(e) {
+            console.log("ERROR : ", e);
+        }
+    });
+    
+ // on recharge les données via la méthode reload()
 	setTimeout( function () {
 		var table = $('#livrokazTable').DataTable();
 	    table.ajax.reload();
 	}, 600 ); 
-	
-	//Remplissage liste déroulante
-	var listeDeroulante = document.getElementById("listeDeroulanteAuthors");
-	
+}
+
+function resetForm() {
+	$('#livrokaz-form')[0].reset();
+	$("#listeDeroulanteAuthors").children().remove(); 
 	
 }
+
 
 
 
