@@ -9,32 +9,17 @@ $(document).ready(function(){
 	
 	// déclaration d'une variable table;
 	var table = $('#livrokazTable').DataTable();
+	console.log(table);
 	
 	//Double click sur une ligne
 	$('#livrokazTable tbody').on( 'dblclick', 'tr', function () {
 	    let dataRow = table.row( this ).data();
-	    console.log(dataRow);
+	   // console.log(dataRow);
 	    $("#id").val(dataRow.bookId);
 		$("#title").val(dataRow.title);
 		$("#categorie").val(dataRow.categorie);
 		
-		//Vidage de la liste déroulante
-		$("#listeDeroulanteAuthor").children().remove(); 
-		
-		//Remplissage liste déroulante
-		var listeDeroulante = document.getElementById("listeDeroulanteAuthor");
-		
-		/*for (var i = 0; i < armes.length; i++) {
-            option = document.createElement("option");
-            option.textContent = armes[i].model;
-            listeDeroulante.appendChild(option);
-            
-            for(var j = 0; j < categories.length; j++) {
-            	if (armes[i].model == categories[j].description){
-                    document.getElementById("checkboxes-" + j).checked = true;
-                }
-            }
-        }*/
+		getAuthors();
 		
 		
 	} );
@@ -99,80 +84,57 @@ function loadDatatable() {
 	
 }
 
-function getPublisher() {
+function getAuthors() {
     var id = $("#id").val(); //on récupère la variable du formulaire 
+    
+  //Vidage de la liste déroulante
+	$("#listeDeroulanteAuthor").children().remove(); 
 
     // on lance la méthode ajax pour faire le lien avec les méthodes back du constructeur
-    $.ajax({
-        type : "DELETE",                            // méthode GET
-        contentType : "application/json",        // type de données
-        url : "/jedi/deluser/" + id,                // url destinatrice
-        data : {},                                // tableau vide pour recevoir la reponse body du controleur
-        dataType : 'json',                        // on précise le mode de transfert
-        cache : false,                            // pas de cache sollicité
-        timeout : 600000,                        // délai d'attente
-        success : function(data) {                // si ok
-
-            console.log("SUCCESS : ", data);
-            resetForm()
-        },
-        error : function(e) {
-            console.log("ERROR : ", e);
-        }
-    });
-    
-    // on recharge les données via la méthode reload()
-	setTimeout( function () {
-	    table.ajax.reload();
-	}, 300 ); 
-}
-
-
-
-function loadCheckboxes() {
-	// on lance la méthode ajax pour faire le lien avec les méthodes back du constructeur
 	$.ajax({
 		type : "GET",						    // méthode GET
 		contentType : "application/json",		// type de données
-		url : "/jedi/categories",				// url destinatrice
+		url : "/livrokaz/authors/" + id,	
 		data : {},		                        // tableau vide pour recevoir la reponse body du controleur
 		dataType : 'json',						// on précise le mode de transfert
 		cache : false,							// pas de cache sollicité
 		timeout : 600000,						// délai d'attente
 		success : function(data) {				// si ok
 
-			categories = data;
-			//Vidage des checkboxes
-			$("#checkboxes").children().remove(); 
+			authors = data;
 			
-			//Remplissage checkboxes
-			var divCheckboxes = document.getElementById("checkboxes");
-			var div = "";
-			var label = "";
-			var input = "";
-		
-			for (var i = 0; i < categories.length; i++) {
-				div = document.createElement("div");
-				div.className = "form-check";
-				divCheckboxes.appendChild(div);
-				label = document.createElement("label");
-				label.className = "form-check-label";
-				label.setAttribute("for", "checkboxes-" + i);
-				input = document.createElement("input");
-				input.className = "form-check-input";
-				input.id = "checkboxes-" + i;
-				input.setAttribute("type", "checkbox");
-				div.appendChild(input);
-				div.appendChild(label);
-				label.textContent = categories[i].description + " (puissance : " + categories[i].puissance + ")";
-				console.log(document.getElementById("checkboxes-" + i));
-			}
+			var listeDeroulante = document.getElementById("listeDeroulanteAuthors");
+			
+			
+			for (var i = 0; i < authors.length; i++) {
+				
+		        option = document.createElement("option");
+		        option.textContent = authors[i].fullName;
+		        listeDeroulante.appendChild(option);
+		        
+		        
+		    }
+			
+			
+			
 		},
 		error : function(e) {
 			console.log("ERROR : ", e);
 		}
 	});
+    
+    // on recharge les données via la méthode reload()
+	setTimeout( function () {
+		var table = $('#livrokazTable').DataTable();
+	    table.ajax.reload();
+	}, 600 ); 
+	
+	//Remplissage liste déroulante
+	var listeDeroulante = document.getElementById("listeDeroulanteAuthors");
+	
+	
 }
+
 
 
 
