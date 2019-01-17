@@ -14,28 +14,17 @@ $(document).ready(function(){
 	$('#livrokazTable tbody').on( 'dblclick', 'tr', function () {
 	    let dataRow = table.row( this ).data();
 	    console.log(dataRow);
-	    $("#id").val(dataRow.id);
-		$("#prenom").val(dataRow.prenom);
-		$("#nom").val(dataRow.nom);
+	    $("#id").val(dataRow.bookId);
+		$("#title").val(dataRow.title);
+		$("#categorie").val(dataRow.categorie);
 		
 		//Vidage de la liste déroulante
-		$("#listeDeroulanteArme").children().remove(); 
+		$("#listeDeroulanteAuthor").children().remove(); 
 		
 		//Remplissage liste déroulante
-		var listeDeroulante = document.getElementById("listeDeroulanteArme");
-		var armes = dataRow.armes;			
-		var option = "";
+		var listeDeroulante = document.getElementById("listeDeroulanteAuthor");
 		
-		//alert("listeCategories = " + listeCategories);
-		
-		//Réinitialisation des check box
-		for(var i = 0; i < categories.length ; i++){
-			document.getElementById("checkboxes-" + i).checked = false;
-		}
-
-		console.log(categories);
-		console.log(armes);
-        for (var i = 0; i < armes.length; i++) {
+		/*for (var i = 0; i < armes.length; i++) {
             option = document.createElement("option");
             option.textContent = armes[i].model;
             listeDeroulante.appendChild(option);
@@ -45,7 +34,9 @@ $(document).ready(function(){
                     document.getElementById("checkboxes-" + j).checked = true;
                 }
             }
-        }
+        }*/
+		
+		
 	} );
 	
 	
