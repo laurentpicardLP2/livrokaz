@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.NamedQuery;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 
 
@@ -59,6 +61,7 @@ public class Author implements Serializable {
 		this.fullName = fullName;
 	}
 
+	@JsonIgnore
 	public List<GoogleBook> getGoogleBooks() {
 		return this.googleBooks;
 	}
