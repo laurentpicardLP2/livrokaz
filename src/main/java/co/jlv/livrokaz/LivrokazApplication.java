@@ -5,6 +5,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.Charset;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -293,10 +294,16 @@ public class LivrokazApplication implements CommandLineRunner {
 						price = listPrice.getDouble("amount");
 			
 					} catch(JSONException e) {
-						price =0;
+						price = 0;
 			
 					} 
 			}
+				if(price == 0) {
+					int ent = (int) Math.floor(Math.random() * 100);
+					int dec = (int) Math.floor(Math.random() * 100);
+					price = ent + (dec * 0.01);
+				}
+				
 		/*****************************************************************
 		*************************** SNIPPET ******************************
 		******************************************************************/
