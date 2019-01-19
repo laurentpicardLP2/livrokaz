@@ -1,0 +1,345 @@
+{
+ "kind": "books#volumes",
+ "totalItems": 563,
+ "items": [
+  {
+   "kind": "books#volume",
+   "id": "bKVCtH4AjwgC",
+   "etag": "dWFHWv21Zns",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/bKVCtH4AjwgC",
+   "volumeInfo": {
+    "title": "On Food and Cooking",
+    "subtitle": "The Science and Lore of the Kitchen",
+    "authors": [
+     "Harold McGee"
+    ],
+    "publisher": "Simon and Schuster",
+    "publishedDate": "2007-03-20",
+    "description": "Harold McGee's On Food and Cooking is a kitchen classic. Hailed by Time magazine as \"a minor masterpiece\" when it first appeared in 1984, On Food and Cooking is the bible to which food lovers and professional chefs worldwide turn for an understanding of where our foods come from, what exactly they're made of, and how cooking transforms them into something new and delicious. Now, for its twentieth anniversary, Harold McGee has prepared a new, fully revised and updated edition of On Food and Cooking. He has rewritten the text almost completely, expanded it by two-thirds, and commissioned more than 100 new illustrations. As compulsively readable and engaging as ever, the new On Food and Cooking provides countless eye-opening insights into food, its preparation, and its enjoyment. On Food and Cooking pioneered the translation of technical food science into cook-friendly kitchen science and helped give birth to the inventive culinary movement known as \"molecular gastronomy.\" Though other books have now been written about kitchen science, On Food and Cooking remains unmatched in the accuracy, clarity, and thoroughness of its explanations, and the intriguing way in which it blends science with the historical evolution of foods and cooking techniques. Among the major themes addressed throughout this new edition are: Traditional and modern methods of food production and their influences on food quality The great diversity of methods by which people in different places and times have prepared the same ingredients Tips for selecting the best ingredients and preparing them successfully The particular substances that give foods their flavors and that give us pleasure Our evolving knowledge of the health benefits and risks of foods On Food and Cooking is an invaluable and monumental compendium of basic information about ingredients, cooking methods, and the pleasures of eating. It will delight and fascinate anyone who has ever cooked, savored, or wondered about food.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_10",
+      "identifier": "1416556370"
+     },
+     {
+      "type": "ISBN_13",
+      "identifier": "9781416556374"
+     }
+    ],
+    "readingModes": {
+     "text": true,
+     "image": false
+    },
+    "pageCount": 896,
+    "printType": "BOOK",
+    "categories": [
+     "Cooking"
+    ],
+    "averageRating": 4.5,
+    "ratingsCount": 50,
+    "maturityRating": "NOT_MATURE",
+    "allowAnonLogging": true,
+    "contentVersion": "0.12.9.0.preview.2",
+    "panelizationSummary": {
+     "containsEpubBubbles": false,
+     "containsImageBubbles": false
+    },
+    "imageLinks": {
+     "smallThumbnail": "http://books.google.com/books/content?id=bKVCtH4AjwgC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+     "thumbnail": "http://books.google.com/books/content?id=bKVCtH4AjwgC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.fr/books?id=bKVCtH4AjwgC&printsec=frontcover&dq=cooking&hl=&cd=1&source=gbs_api",
+    "infoLink": "https://play.google.com/store/books/details?id=bKVCtH4AjwgC&source=gbs_api",
+    "canonicalVolumeLink": "https://market.android.com/details?id=book-bKVCtH4AjwgC"
+   },
+   "saleInfo": {
+    "country": "FR",
+    "saleability": "FOR_SALE",
+    "isEbook": true,
+    "listPrice": {
+     "amount": 18.56,
+     "currencyCode": "EUR"
+    },
+    "retailPrice": {
+     "amount": 18.56,
+     "currencyCode": "EUR"
+    },
+    "buyLink": "https://play.google.com/store/books/details?id=bKVCtH4AjwgC&rdid=book-bKVCtH4AjwgC&rdot=1&source=gbs_api",
+    "offers": [
+     {
+      "finskyOfferType": 1,
+      "listPrice": {
+       "amountInMicros": 1.856E7,
+       "currencyCode": "EUR"
+      },
+      "retailPrice": {
+       "amountInMicros": 1.856E7,
+       "currencyCode": "EUR"
+      },
+      "giftable": true
+     }
+    ]
+   },
+   "accessInfo": {
+    "country": "FR",
+    "viewability": "PARTIAL",
+    "embeddable": true,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED_FOR_ACCESSIBILITY",
+    "epub": {
+     "isAvailable": true,
+     "acsTokenLink": "http://books.google.fr/books/download/On_Food_and_Cooking-sample-epub.acsm?id=bKVCtH4AjwgC&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://play.google.com/books/reader?id=bKVCtH4AjwgC&hl=&printsec=frontcover&source=gbs_api",
+    "accessViewStatus": "SAMPLE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "Among the major themes addressed throughout this new edition are: Traditional and modern methods of food production and their influences on food quality The great diversity of methods by which people in different places and times have ..."
+   }
+  },
+  {
+   "kind": "books#volume",
+   "id": "ZpY17mjFHywC",
+   "etag": "yelTrajj0eo",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/ZpY17mjFHywC",
+   "volumeInfo": {
+    "title": "Boston Cooking School Cook Book",
+    "subtitle": "A Reprint of the 1884 Classic",
+    "authors": [
+     "Mary Johnson Lincoln"
+    ],
+    "publisher": "Courier Corporation",
+    "publishedDate": "1884",
+    "description": "Clearly written, extremely thorough volume revolutionized cooking in the 19th century, with hundreds of recipes ranging from baked goods, soups, salads, cakes and sauces to pastries, pies, poultry, fish and meat. Ground-breaking, culinary encyclopedia elevated cooking and related activities to an art form that could be practiced by even the most inexperienced homemaker. \"Glimpse the culinary delights of the past with this wonderful cookbook. . . . This book is a treat for anyone who enjoys cooking or Americana.\"—Victorian Decorating & Lifestyle.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_10",
+      "identifier": "0486291960"
+     },
+     {
+      "type": "ISBN_13",
+      "identifier": "9780486291963"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": true
+    },
+    "pageCount": 536,
+    "printType": "BOOK",
+    "categories": [
+     "Cooking"
+    ],
+    "maturityRating": "NOT_MATURE",
+    "allowAnonLogging": false,
+    "contentVersion": "1.1.1.0.preview.1",
+    "imageLinks": {
+     "smallThumbnail": "http://books.google.com/books/content?id=ZpY17mjFHywC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+     "thumbnail": "http://books.google.com/books/content?id=ZpY17mjFHywC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.fr/books?id=ZpY17mjFHywC&printsec=frontcover&dq=cooking&hl=&cd=2&source=gbs_api",
+    "infoLink": "http://books.google.fr/books?id=ZpY17mjFHywC&dq=cooking&hl=&source=gbs_api",
+    "canonicalVolumeLink": "https://books.google.com/books/about/Boston_Cooking_School_Cook_Book.html?hl=&id=ZpY17mjFHywC"
+   },
+   "saleInfo": {
+    "country": "FR",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "FR",
+    "viewability": "PARTIAL",
+    "embeddable": true,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://play.google.com/books/reader?id=ZpY17mjFHywC&hl=&printsec=frontcover&source=gbs_api",
+    "accessViewStatus": "SAMPLE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "&quot;Glimpse the culinary delights of the past with this wonderful cookbook. . . . This book is a treat for anyone who enjoys cooking or Americana.&quot;—Victorian Decorating &amp; Lifestyle."
+   }
+  },
+  {
+   "kind": "books#volume",
+   "id": "1FVLv7WS4C4C",
+   "etag": "zViV+DFaqr0",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/1FVLv7WS4C4C",
+   "volumeInfo": {
+    "title": "Essentials of Classic Italian Cooking",
+    "authors": [
+     "Marcella Hazan"
+    ],
+    "publisher": "Knopf",
+    "publishedDate": "2011-07-20",
+    "description": "The most important, consulted, and enjoyed Italian cookbook of all time, from the woman who introduced Americans to a whole new world of Italian food. Essentials of Italian Cooking is a culinary bible for anyone looking to master the art of Italian cooking, bringing together Marcella Hazan’s most beloved books, The Classic Italian Cook Book and More Classic Italian Cooking, in a single volume, updated and expanded with new entries and 50 new recipes. Designed as a basic manual for cooks of all levels of expertise—from beginners to accomplished professionals—it offers both an accessible and comprehensive guide to techniques and ingredients and a collection of the most delicious recipes from the Italian repertoire. As home cooks who have used Marcella’s classic books for years (and whose copies are now splattered and worn) know, there is no one more gifted at teaching us just what we need to know about the taste and texture of a dish and how to achieve it, and there is no one more passionate and inspiring about authentic Italian food.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_10",
+      "identifier": "0307958302"
+     },
+     {
+      "type": "ISBN_13",
+      "identifier": "9780307958303"
+     }
+    ],
+    "readingModes": {
+     "text": true,
+     "image": false
+    },
+    "pageCount": 704,
+    "printType": "BOOK",
+    "categories": [
+     "Cooking"
+    ],
+    "averageRating": 4.5,
+    "ratingsCount": 13,
+    "maturityRating": "NOT_MATURE",
+    "allowAnonLogging": true,
+    "contentVersion": "1.2.2.0.preview.2",
+    "panelizationSummary": {
+     "containsEpubBubbles": false,
+     "containsImageBubbles": false
+    },
+    "imageLinks": {
+     "smallThumbnail": "http://books.google.com/books/content?id=1FVLv7WS4C4C&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+     "thumbnail": "http://books.google.com/books/content?id=1FVLv7WS4C4C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.fr/books?id=1FVLv7WS4C4C&printsec=frontcover&dq=cooking&hl=&cd=3&source=gbs_api",
+    "infoLink": "https://play.google.com/store/books/details?id=1FVLv7WS4C4C&source=gbs_api",
+    "canonicalVolumeLink": "https://market.android.com/details?id=book-1FVLv7WS4C4C"
+   },
+   "saleInfo": {
+    "country": "FR",
+    "saleability": "FOR_SALE",
+    "isEbook": true,
+    "listPrice": {
+     "amount": 28.67,
+     "currencyCode": "EUR"
+    },
+    "retailPrice": {
+     "amount": 19.99,
+     "currencyCode": "EUR"
+    },
+    "buyLink": "https://play.google.com/store/books/details?id=1FVLv7WS4C4C&rdid=book-1FVLv7WS4C4C&rdot=1&source=gbs_api",
+    "offers": [
+     {
+      "finskyOfferType": 1,
+      "listPrice": {
+       "amountInMicros": 2.867E7,
+       "currencyCode": "EUR"
+      },
+      "retailPrice": {
+       "amountInMicros": 1.999E7,
+       "currencyCode": "EUR"
+      },
+      "giftable": true
+     }
+    ]
+   },
+   "accessInfo": {
+    "country": "FR",
+    "viewability": "PARTIAL",
+    "embeddable": true,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED_FOR_ACCESSIBILITY",
+    "epub": {
+     "isAvailable": true,
+     "acsTokenLink": "http://books.google.fr/books/download/Essentials_of_Classic_Italian_Cooking-sample-epub.acsm?id=1FVLv7WS4C4C&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://play.google.com/books/reader?id=1FVLv7WS4C4C&hl=&printsec=frontcover&source=gbs_api",
+    "accessViewStatus": "SAMPLE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "Essentials of Italian Cooking is a culinary bible for anyone looking to master the art of Italian cooking, bringing together Marcella Hazan’s most beloved books, The Classic Italian Cook Book and More Classic Italian Cooking, in a single ..."
+   }
+  },
+  {
+   "kind": "books#volume",
+   "id": "2gLHReHXK80C",
+   "etag": "aIteQWSyKmQ",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/2gLHReHXK80C",
+   "volumeInfo": {
+    "title": "Cooking, Cuisine and Class",
+    "subtitle": "A Study in Comparative Sociology",
+    "authors": [
+     "Jack Goody"
+    ],
+    "publisher": "Cambridge University Press",
+    "publishedDate": "1982-06-24",
+    "description": "The preparation, serving and eating of food are common features of all human societies, and have been the focus of study for numerous anthropologists - from Sir James Frazer onwards - from a variety of theoretical and empirical perspectives. It is in the context of this previous anthropological work that Jack Goody sets his own observations on cooking in West Africa. He criticises those approaches which overlook the comparative historical dimension of culinary, and other, cultural differences that emerge in class societies, both of which elements he particularly emphasises in this book. The central question that Professor Goody addresses here is why a differentiated 'haute cuisine' has not emerged in Africa, as it has in other parts of the world. His account of cooking in West Africa is followed by a survey of the culinary practices of the major Eurasian societies throughout history - ranging from Ancient Egypt, Imperial Rome and medieval China to early modern Europe - in which he relates the differences in food preparation and consumption emerging in these societies to differences in their socio-economic structures, specifically in modes of production and communication. He concludes with an examination of the world-wide rise of 'industrial food' and its impact on Third World societies, showing that the ability of the latter to resist cultural domination in food, as in other things, is related to the nature of their pre-existing socio-economic structures. The arguments presented here will interest all social scientists and historians concerned with cultural history and social theory.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_10",
+      "identifier": "0521286964"
+     },
+     {
+      "type": "ISBN_13",
+      "identifier": "9780521286961"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": true
+    },
+    "pageCount": 253,
+    "printType": "BOOK",
+    "categories": [
+     "Social Science"
+    ],
+    "maturityRating": "NOT_MATURE",
+    "allowAnonLogging": false,
+    "contentVersion": "1.0.1.0.preview.1",
+    "imageLinks": {
+     "smallThumbnail": "http://books.google.com/books/content?id=2gLHReHXK80C&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+     "thumbnail": "http://books.google.com/books/content?id=2gLHReHXK80C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.fr/books?id=2gLHReHXK80C&printsec=frontcover&dq=cooking&hl=&cd=4&source=gbs_api",
+    "infoLink": "http://books.google.fr/books?id=2gLHReHXK80C&dq=cooking&hl=&source=gbs_api",
+    "canonicalVolumeLink": "https://books.google.com/books/about/Cooking_Cuisine_and_Class.html?hl=&id=2gLHReHXK80C"
+   },
+   "saleInfo": {
+    "country": "FR",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "FR",
+    "viewability": "PARTIAL",
+    "embeddable": true,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://play.google.com/books/reader?id=2gLHReHXK80C&hl=&printsec=frontcover&source=gbs_api",
+    "accessViewStatus": "SAMPLE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "It is in the context of this previous anthropological work that Jack Goody sets his own observations on cooking in West Africa."
+   }
+  }
+ ]
+}

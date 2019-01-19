@@ -1,0 +1,322 @@
+{
+ "kind": "books#volumes",
+ "totalItems": 723,
+ "items": [
+  {
+   "kind": "books#volume",
+   "id": "-nmNsArK9aoC",
+   "etag": "NIYd9+lDi7o",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/-nmNsArK9aoC",
+   "volumeInfo": {
+    "title": "Comics",
+    "subtitle": "The Beginning Collector",
+    "authors": [
+     "Vincent Cecolini",
+     "John Nubbin"
+    ],
+    "publisher": "Bdd Promotional Book Company",
+    "publishedDate": "1992-09-01",
+    "description": "Comics is an essential sourcebook for anyone starting a comic book collection.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_10",
+      "identifier": "0792454766"
+     },
+     {
+      "type": "ISBN_13",
+      "identifier": "9780792454762"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": false
+    },
+    "pageCount": 120,
+    "printType": "BOOK",
+    "categories": [
+     "Antiques & Collectibles"
+    ],
+    "averageRating": 4.0,
+    "ratingsCount": 1,
+    "maturityRating": "NOT_MATURE",
+    "allowAnonLogging": false,
+    "contentVersion": "0.0.1.0.preview.0",
+    "imageLinks": {
+     "smallThumbnail": "http://books.google.com/books/content?id=-nmNsArK9aoC&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+     "thumbnail": "http://books.google.com/books/content?id=-nmNsArK9aoC&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.fr/books?id=-nmNsArK9aoC&q=comics&dq=comics&hl=&cd=1&source=gbs_api",
+    "infoLink": "http://books.google.fr/books?id=-nmNsArK9aoC&dq=comics&hl=&source=gbs_api",
+    "canonicalVolumeLink": "https://books.google.com/books/about/Comics.html?hl=&id=-nmNsArK9aoC"
+   },
+   "saleInfo": {
+    "country": "FR",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "FR",
+    "viewability": "NO_PAGES",
+    "embeddable": false,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://play.google.com/books/reader?id=-nmNsArK9aoC&hl=&printsec=frontcover&source=gbs_api",
+    "accessViewStatus": "NONE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "Comics is an essential sourcebook for anyone starting a comic book collection."
+   }
+  },
+  {
+   "kind": "books#volume",
+   "id": "iSVRBgAAQBAJ",
+   "etag": "A7hH+F8W+j8",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/iSVRBgAAQBAJ",
+   "volumeInfo": {
+    "title": "Kingsman Services secrets",
+    "authors": [
+     "Mark Millar",
+     "Dave Gibbons",
+     "Matthew Vaughn"
+    ],
+    "publisher": "Panini",
+    "publishedDate": "2015-02-11",
+    "description": "L'agent secret Jack London travaille sur l'affaire la plus passionnante de sa carrière. Mais en même temps, il s'occupe de son neveu Gary et le forme pour devenir le prochain James Bond. Ensemble, ils vont enquêter sur la disparition de nombreuses célébrités et découvrir une gigantesque conspiration !",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_13",
+      "identifier": "9782809451030"
+     },
+     {
+      "type": "ISBN_10",
+      "identifier": "2809451036"
+     }
+    ],
+    "readingModes": {
+     "text": true,
+     "image": true
+    },
+    "pageCount": 160,
+    "printType": "BOOK",
+    "categories": [
+     "Comics & Graphic Novels"
+    ],
+    "maturityRating": "NOT_MATURE",
+    "allowAnonLogging": true,
+    "contentVersion": "1.2.2.0.preview.3",
+    "panelizationSummary": {
+     "containsEpubBubbles": true,
+     "containsImageBubbles": true,
+     "epubBubbleVersion": "15b730aa26b77703",
+     "imageBubbleVersion": "15b730aa26b77703"
+    },
+    "imageLinks": {
+     "smallThumbnail": "http://books.google.com/books/content?id=iSVRBgAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+     "thumbnail": "http://books.google.com/books/content?id=iSVRBgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    },
+    "language": "fr",
+    "previewLink": "http://books.google.fr/books?id=iSVRBgAAQBAJ&printsec=frontcover&dq=comics&hl=&cd=2&source=gbs_api",
+    "infoLink": "https://play.google.com/store/books/details?id=iSVRBgAAQBAJ&source=gbs_api",
+    "canonicalVolumeLink": "https://market.android.com/details?id=book-iSVRBgAAQBAJ"
+   },
+   "saleInfo": {
+    "country": "FR",
+    "saleability": "FOR_SALE",
+    "isEbook": true,
+    "listPrice": {
+     "amount": 8.99,
+     "currencyCode": "EUR"
+    },
+    "retailPrice": {
+     "amount": 8.99,
+     "currencyCode": "EUR"
+    },
+    "buyLink": "https://play.google.com/store/books/details?id=iSVRBgAAQBAJ&rdid=book-iSVRBgAAQBAJ&rdot=1&source=gbs_api",
+    "offers": [
+     {
+      "finskyOfferType": 1,
+      "listPrice": {
+       "amountInMicros": 8990000.0,
+       "currencyCode": "EUR"
+      },
+      "retailPrice": {
+       "amountInMicros": 8990000.0,
+       "currencyCode": "EUR"
+      },
+      "giftable": true
+     }
+    ]
+   },
+   "accessInfo": {
+    "country": "FR",
+    "viewability": "PARTIAL",
+    "embeddable": true,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": true,
+     "acsTokenLink": "http://books.google.fr/books/download/Kingsman_Services_secrets-sample-epub.acsm?id=iSVRBgAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+    },
+    "pdf": {
+     "isAvailable": true,
+     "acsTokenLink": "http://books.google.fr/books/download/Kingsman_Services_secrets-sample-pdf.acsm?id=iSVRBgAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+    },
+    "webReaderLink": "http://play.google.com/books/reader?id=iSVRBgAAQBAJ&hl=&printsec=frontcover&source=gbs_api",
+    "accessViewStatus": "SAMPLE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "L&#39;agent secret Jack London travaille sur l&#39;affaire la plus passionnante de sa carrière."
+   }
+  },
+  {
+   "kind": "books#volume",
+   "id": "LuUVDAAAQBAJ",
+   "etag": "eISeQxuvfHA",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/LuUVDAAAQBAJ",
+   "volumeInfo": {
+    "title": "Classics and Comics",
+    "authors": [
+     "George Kovacs",
+     "C. W. Marshall"
+    ],
+    "publisher": "Oxford University Press",
+    "publishedDate": "2011",
+    "description": "Since at least 1939, when daily-strip caveman Alley Oop time-traveled to the Trojan War, comics have been drawing (on) material from Greek and Roman myth, literature and history. At times the connection is cosmetic-as perhaps with Wonder Woman's Amazonian heritage-and at times it is almost irrelevant-as with Hercules' starfaring adventures in the 1982 Marvel miniseries. But all of these make implicit or explicit claims about the place of classics in modern literary culture. Classics and Comics is the first book to explore the engagement of classics with the epitome of modern popular literature, the comic book. This volume collects sixteen articles, all specially commissioned for this volume, that look at how classical content is deployed in comics and reconfigured for a modern audience. It opens with a detailed historical introduction surveying the role of classical material in comics since the 1930s. Subsequent chapters cover a broad range of topics, including the incorporation of modern theories of myth into the creation and interpretation of comic books, the appropriation of characters from classical literature and myth, and the reconfiguration of motif into a modern literary medium. Among the well-known comics considered in the collection are Frank Miller's 300 and Sin City, DC Comics' Wonder Woman, Jack Kirby's The Eternals, Neil Gaiman's Sandman, and examples of Japanese manga. The volume also includes an original 12-page \"comics-essay,\" drawn and written by Eisner Award-winning Eric Shanower, creator of the graphic novel series Age of Bronze.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_13",
+      "identifier": "9780199734191"
+     },
+     {
+      "type": "ISBN_10",
+      "identifier": "0199734194"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": true
+    },
+    "pageCount": 265,
+    "printType": "BOOK",
+    "categories": [
+     "Literary Collections"
+    ],
+    "maturityRating": "NOT_MATURE",
+    "allowAnonLogging": false,
+    "contentVersion": "1.1.1.0.preview.1",
+    "imageLinks": {
+     "smallThumbnail": "http://books.google.com/books/content?id=LuUVDAAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+     "thumbnail": "http://books.google.com/books/content?id=LuUVDAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.fr/books?id=LuUVDAAAQBAJ&printsec=frontcover&dq=comics&hl=&cd=3&source=gbs_api",
+    "infoLink": "http://books.google.fr/books?id=LuUVDAAAQBAJ&dq=comics&hl=&source=gbs_api",
+    "canonicalVolumeLink": "https://books.google.com/books/about/Classics_and_Comics.html?hl=&id=LuUVDAAAQBAJ"
+   },
+   "saleInfo": {
+    "country": "FR",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "FR",
+    "viewability": "PARTIAL",
+    "embeddable": true,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://play.google.com/books/reader?id=LuUVDAAAQBAJ&hl=&printsec=frontcover&source=gbs_api",
+    "accessViewStatus": "SAMPLE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "This volume collects sixteen articles, all specially commissioned for this volume, that look at how classical content is deployed in comics and reconfigured for a modern audience."
+   }
+  },
+  {
+   "kind": "books#volume",
+   "id": "fm8mRsBP3YkC",
+   "etag": "UxofgoxpNBQ",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/fm8mRsBP3YkC",
+   "volumeInfo": {
+    "title": "The Comics",
+    "authors": [
+     "Coulton Waugh"
+    ],
+    "publisher": "Univ. Press of Mississippi",
+    "publishedDate": "1947",
+    "description": "This classic 1947 study, the first of its kind, probes the mass popularity of the comics as well as exploring their evolution, social commentary, art forms, and genres",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_10",
+      "identifier": "0878054995"
+     },
+     {
+      "type": "ISBN_13",
+      "identifier": "9780878054992"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": true
+    },
+    "pageCount": 364,
+    "printType": "BOOK",
+    "categories": [
+     "Antiques & Collectibles"
+    ],
+    "averageRating": 2.5,
+    "ratingsCount": 3,
+    "maturityRating": "NOT_MATURE",
+    "allowAnonLogging": false,
+    "contentVersion": "0.1.3.0.preview.1",
+    "imageLinks": {
+     "smallThumbnail": "http://books.google.com/books/content?id=fm8mRsBP3YkC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+     "thumbnail": "http://books.google.com/books/content?id=fm8mRsBP3YkC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.fr/books?id=fm8mRsBP3YkC&printsec=frontcover&dq=comics&hl=&cd=4&source=gbs_api",
+    "infoLink": "http://books.google.fr/books?id=fm8mRsBP3YkC&dq=comics&hl=&source=gbs_api",
+    "canonicalVolumeLink": "https://books.google.com/books/about/The_Comics.html?hl=&id=fm8mRsBP3YkC"
+   },
+   "saleInfo": {
+    "country": "FR",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "FR",
+    "viewability": "PARTIAL",
+    "embeddable": true,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://play.google.com/books/reader?id=fm8mRsBP3YkC&hl=&printsec=frontcover&source=gbs_api",
+    "accessViewStatus": "SAMPLE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "This classic 1947 study, the first of its kind, probes the mass popularity of the comics as well as exploring their evolution, social commentary, art forms, and genres Insights into the aesthetics of one of popular culture&#39;s favorite art ..."
+   }
+  }
+ ]
+}
