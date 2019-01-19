@@ -29,13 +29,17 @@ import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import co.jlv.livrokaz.model.Author;
+import co.jlv.livrokaz.model.Authorities;
 import co.jlv.livrokaz.model.Gendle;
 import co.jlv.livrokaz.model.GoogleBook;
 import co.jlv.livrokaz.model.Publisher;
+import co.jlv.livrokaz.model.Users;
 import co.jlv.livrokaz.repository.AuthorRepository;
+import co.jlv.livrokaz.repository.AuthoritiesRepository;
 import co.jlv.livrokaz.repository.GendleRepository;
 import co.jlv.livrokaz.repository.GoogleBookRepository;
 import co.jlv.livrokaz.repository.PublisherRepository;
+import co.jlv.livrokaz.repository.UsersRepository;
 
 @SpringBootApplication
 public class LivrokazApplication implements CommandLineRunner {
@@ -51,6 +55,12 @@ public class LivrokazApplication implements CommandLineRunner {
 
 	@Autowired
 	private AuthorRepository authorRepo;
+	
+	@Autowired
+	private AuthoritiesRepository authoritiesRepo;
+	
+	@Autowired
+	private UsersRepository usersRepo;
 
 	public static void main(String[] args) {
 		SpringApplication.run(LivrokazApplication.class, args);
@@ -76,6 +86,15 @@ public class LivrokazApplication implements CommandLineRunner {
 		double price;
 		String textSnippet;
 		String title;
+		Users users;
+		Authorities authorities;
+		
+		users = new Users("dbuser", "{noop}password", true);
+		usersRepo.save(users);
+		
+		authorities = new Authorities(users, "USER");
+		authoritiesRepo.save(authorities);
+		
 
 		List<String> listCat = Arrays.asList("cooking", "thriller", "economics", "novels", "comics");
 		for (String entryCat : listCat) {
