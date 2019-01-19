@@ -1,0 +1,296 @@
+{
+ "kind": "books#volumes",
+ "totalItems": 1854,
+ "items": [
+  {
+   "kind": "books#volume",
+   "id": "35RWXPhl1n0C",
+   "etag": "gWPz7qyTYoY",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/35RWXPhl1n0C",
+   "volumeInfo": {
+    "title": "Comment écrire un thriller",
+    "subtitle": "L'art et la manière de le composer et de réussir à le publier",
+    "authors": [
+     "André Jute"
+    ],
+    "publisher": "Gremese Editore",
+    "publishedDate": "2004",
+    "description": "Enseigne les techniques les plus efficaces pour écrire un thriller. Il constitue un guide optimal dans le choix du thème de départ, et indispensable pour la phase de recherches et le classement des données, l'étude et la création des personnages, le développement de la trame, et enfin la révision de l'oeuvre complète.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_10",
+      "identifier": "8873015484"
+     },
+     {
+      "type": "ISBN_13",
+      "identifier": "9788873015482"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": true
+    },
+    "pageCount": 188,
+    "printType": "BOOK",
+    "averageRating": 5.0,
+    "ratingsCount": 2,
+    "maturityRating": "NOT_MATURE",
+    "allowAnonLogging": false,
+    "contentVersion": "1.1.1.0.preview.1",
+    "imageLinks": {
+     "smallThumbnail": "http://books.google.com/books/content?id=35RWXPhl1n0C&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+     "thumbnail": "http://books.google.com/books/content?id=35RWXPhl1n0C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    },
+    "language": "fr",
+    "previewLink": "http://books.google.fr/books?id=35RWXPhl1n0C&pg=PA14&dq=thriller&hl=&cd=1&source=gbs_api",
+    "infoLink": "http://books.google.fr/books?id=35RWXPhl1n0C&dq=thriller&hl=&source=gbs_api",
+    "canonicalVolumeLink": "https://books.google.com/books/about/Comment_%C3%A9crire_un_thriller.html?hl=&id=35RWXPhl1n0C"
+   },
+   "saleInfo": {
+    "country": "FR",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "FR",
+    "viewability": "PARTIAL",
+    "embeddable": true,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://play.google.com/books/reader?id=35RWXPhl1n0C&hl=&printsec=frontcover&source=gbs_api",
+    "accessViewStatus": "SAMPLE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "Pourquoi écrire un \u003cb\u003ethriller\u003c/b\u003e ? Je l&#39;avoue je suis un insatiable lecteur de \u003cb\u003ethrillers\u003c/b\u003e. Je \u003cbr\u003e\nlis les bons, les mauvais, tous ceux que je trouve sur les rayons des \u003cbr\u003e\nbibliothèques. Je lis aussi toutes sortes de livres: des biographies, des textes \u003cbr\u003e\ntechniques,&nbsp;..."
+   }
+  },
+  {
+   "kind": "books#volume",
+   "id": "-fljDwAAQBAJ",
+   "etag": "bOAgbw091rA",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/-fljDwAAQBAJ",
+   "volumeInfo": {
+    "title": "Stratégie de sortie épisode 1",
+    "subtitle": "Crimes et enquêtes : Thrillers judiciaires de Katerina Carter",
+    "authors": [
+     "Colleen Cross"
+    ],
+    "publisher": "Slice Thrillers",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_13",
+      "identifier": "9781988272870"
+     },
+     {
+      "type": "ISBN_10",
+      "identifier": "1988272874"
+     }
+    ],
+    "readingModes": {
+     "text": true,
+     "image": false
+    },
+    "printType": "BOOK",
+    "categories": [
+     "Biography & Autobiography"
+    ],
+    "maturityRating": "NOT_MATURE",
+    "allowAnonLogging": true,
+    "contentVersion": "1.1.1.0.preview.2",
+    "panelizationSummary": {
+     "containsEpubBubbles": false,
+     "containsImageBubbles": false
+    },
+    "imageLinks": {
+     "smallThumbnail": "http://books.google.com/books/content?id=-fljDwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+     "thumbnail": "http://books.google.com/books/content?id=-fljDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    },
+    "language": "fr",
+    "previewLink": "http://books.google.fr/books?id=-fljDwAAQBAJ&printsec=frontcover&dq=thriller&hl=&cd=2&source=gbs_api",
+    "infoLink": "https://play.google.com/store/books/details?id=-fljDwAAQBAJ&source=gbs_api",
+    "canonicalVolumeLink": "https://market.android.com/details?id=book--fljDwAAQBAJ"
+   },
+   "saleInfo": {
+    "country": "FR",
+    "saleability": "FOR_SALE",
+    "isEbook": true,
+    "listPrice": {
+     "amount": 0.0,
+     "currencyCode": "EUR"
+    },
+    "retailPrice": {
+     "amount": 0.0,
+     "currencyCode": "EUR"
+    },
+    "buyLink": "https://play.google.com/store/books/details?id=-fljDwAAQBAJ&rdid=book--fljDwAAQBAJ&rdot=1&source=gbs_api"
+   },
+   "accessInfo": {
+    "country": "FR",
+    "viewability": "ALL_PAGES",
+    "embeddable": true,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": true,
+     "acsTokenLink": "http://books.google.fr/books/download/Strat%C3%A9gie_de_sortie_%C3%A9pisode_1-sample-epub.acsm?id=-fljDwAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://play.google.com/books/reader?id=-fljDwAAQBAJ&hl=&printsec=frontcover&source=gbs_api",
+    "accessViewStatus": "SAMPLE",
+    "quoteSharingAllowed": false
+   }
+  },
+  {
+   "kind": "books#volume",
+   "id": "G7mBDwAAQBAJ",
+   "etag": "zFHaxvtiaBs",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/G7mBDwAAQBAJ",
+   "volumeInfo": {
+    "title": "Le Quartier Idéal (Un thriller psychologique avec Jessie Hunt, tome n 2)",
+    "authors": [
+     "Blake Pierce"
+    ],
+    "publisher": "Blake Pierce",
+    "publishedDate": "2019-03-12",
+    "description": "Dans LE QUARTIER IDÉAL (tome n°2), la profileuse criminelle Jessie Hunt, âgée de 29 ans, se remet de sa vie brisée et quitte une banlieue chic pour commencer une nouvelle vie dans le centre de Los Angeles. Cependant, quand un riche mondain est assassiné, Jessie, à qui l'on a attribué le cas, se retrouve dans le monde d'une banlieue apparemment idéale où elle traque un tueur dément derrière les façades trompeuses de la normalité et des femmes sociopathes. A nouveau heureuse dans le centre de Los Angeles, Jessie est sûre d'avoir laissé derrière elle le cauchemar qu'elle a vécu en banlieue. Prête à oublier l'échec de son couple, elle se trouve un travail à la police locale, remettant ainsi à plus tard sa candidature à l'Académie du FBI. On lui attribue un meurtre standard dans un quartier chic, un cas simple pour qu'elle commence sa carrière. Cependant, malgré ce que croient ses chefs, ce cas est plus complexe que quiconque ne le soupçonne. Rien ne peut préparer Jessie à son premier cas, qui la forcera à sonder l'esprit des riches couples de banlieue, d’un type de personnes qu'elle avait cru ne jamais revoir. Derrière leurs photos de famille idéalisées et leurs haies taillées au cordeau, Jessie se rend compte que des choses fort éloignées de la perfection se trament en sourdine. Thriller psychologique à suspense au rythme haletant, aux personnages inoubliables et au suspense palpitant, LE QUARTIER IDÉAL est le tome n°2 d'une nouvelle série captivante qui vous fera tourner les pages jusque tard dans la nuit. A présent, le tome n°3 de la série Jessie Hunt, LA MAISON IDÉALE, est lui aussi disponible en précommande.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_13",
+      "identifier": "9781640297043"
+     },
+     {
+      "type": "ISBN_10",
+      "identifier": "1640297049"
+     }
+    ],
+    "readingModes": {
+     "text": true,
+     "image": false
+    },
+    "pageCount": 250,
+    "printType": "BOOK",
+    "categories": [
+     "Fiction"
+    ],
+    "maturityRating": "NOT_MATURE",
+    "allowAnonLogging": false,
+    "contentVersion": "1.1.1.0.preview.2",
+    "panelizationSummary": {
+     "containsEpubBubbles": false,
+     "containsImageBubbles": false
+    },
+    "imageLinks": {
+     "smallThumbnail": "http://books.google.com/books/content?id=G7mBDwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+     "thumbnail": "http://books.google.com/books/content?id=G7mBDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    },
+    "language": "fr",
+    "previewLink": "http://books.google.fr/books?id=G7mBDwAAQBAJ&printsec=frontcover&dq=thriller&hl=&cd=3&source=gbs_api",
+    "infoLink": "http://books.google.fr/books?id=G7mBDwAAQBAJ&dq=thriller&hl=&source=gbs_api",
+    "canonicalVolumeLink": "https://books.google.com/books/about/Le_Quartier_Id%C3%A9al_Un_thriller_psycholog.html?hl=&id=G7mBDwAAQBAJ"
+   },
+   "saleInfo": {
+    "country": "FR",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "FR",
+    "viewability": "PARTIAL",
+    "embeddable": true,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": true
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://play.google.com/books/reader?id=G7mBDwAAQBAJ&hl=&printsec=frontcover&source=gbs_api",
+    "accessViewStatus": "SAMPLE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "Dans LE QUARTIER IDÉAL (tome n°2), la profileuse criminelle Jessie Hunt, âgée de 29 ans, se remet de sa vie brisée et quitte une banlieue chic pour commencer une nouvelle vie dans le centre de Los Angeles."
+   }
+  },
+  {
+   "kind": "books#volume",
+   "id": "dcBD5y5z9BUC",
+   "etag": "srzlR5bR2RA",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/dcBD5y5z9BUC",
+   "volumeInfo": {
+    "title": "Les écrans meurtriers",
+    "subtitle": "essais sur les scènes spéculaires du thriller",
+    "authors": [
+     "Denis Mellier"
+    ],
+    "publisher": "Editions du CEFAL",
+    "publishedDate": "2002-01-01",
+    "description": "D. Mellier propose de s'interroger sur le fait que les formes du thriller s'organisent le plus souvent comme des scènes spéculaires : jeux de miroirs, reflets déformés, citations, etc.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_10",
+      "identifier": "2871300976"
+     },
+     {
+      "type": "ISBN_13",
+      "identifier": "9782871300977"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": true
+    },
+    "pageCount": 314,
+    "printType": "BOOK",
+    "categories": [
+     "Thrillers (Motion pictures)"
+    ],
+    "maturityRating": "NOT_MATURE",
+    "allowAnonLogging": false,
+    "contentVersion": "0.0.1.0.preview.1",
+    "imageLinks": {
+     "smallThumbnail": "http://books.google.com/books/content?id=dcBD5y5z9BUC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+     "thumbnail": "http://books.google.com/books/content?id=dcBD5y5z9BUC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    },
+    "language": "fr",
+    "previewLink": "http://books.google.fr/books?id=dcBD5y5z9BUC&printsec=frontcover&dq=thriller&hl=&cd=4&source=gbs_api",
+    "infoLink": "http://books.google.fr/books?id=dcBD5y5z9BUC&dq=thriller&hl=&source=gbs_api",
+    "canonicalVolumeLink": "https://books.google.com/books/about/Les_%C3%A9crans_meurtriers.html?hl=&id=dcBD5y5z9BUC"
+   },
+   "saleInfo": {
+    "country": "FR",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "FR",
+    "viewability": "PARTIAL",
+    "embeddable": true,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://play.google.com/books/reader?id=dcBD5y5z9BUC&hl=&printsec=frontcover&source=gbs_api",
+    "accessViewStatus": "SAMPLE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "D. Mellier propose de s&#39;interroger sur le fait que les formes du thriller s&#39;organisent le plus souvent comme des scènes spéculaires : jeux de miroirs, reflets déformés, citations, etc."
+   }
+  }
+ ]
+}

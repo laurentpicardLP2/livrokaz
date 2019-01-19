@@ -1,0 +1,325 @@
+{
+ "kind": "books#volumes",
+ "totalItems": 2562,
+ "items": [
+  {
+   "kind": "books#volume",
+   "id": "Gda6hbVaxqUC",
+   "etag": "PBCMEDbW+N4",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/Gda6hbVaxqUC",
+   "volumeInfo": {
+    "title": "The Spread of Novels",
+    "subtitle": "Translation and Prose Fiction in the Eighteenth Century",
+    "authors": [
+     "Mary Helen McMurran"
+    ],
+    "publisher": "Princeton University Press",
+    "publishedDate": "2009-08-24",
+    "description": "Fiction has always been in a state of transformation and circulation: how does this history of mobility inform the emergence of the novel? The Spread of Novels explores the active movements of English and French fiction in the eighteenth century and argues that the new literary form of the novel was the result of a shift in translation. Demonstrating that translation was both the cause and means by which the novel attained success, Mary Helen McMurran shows how this period was a watershed in translation history, signaling the end of a premodern system of translation and the advent of modern literary exchange. McMurran illuminates aspects of prose fiction translation history, including the radical revision of fiction's origins from that of cross-cultural transfer to one rooted by nation; the contradictory pressures of the book trade, which relied on translators to energize the market, despite the increasing devaluation of their labor; and the dynamic role played by prose fiction translation in Anglo-French relations across the Channel and in the New World. McMurran examines French and British novels, as well as fiction that circulated in colonial North America, and she considers primary source materials by writers as varied as Frances Brooke, Daniel Defoe, Samuel Richardson, and Françoise Graffigny. The Spread of Novels reassesses the novel's embodiment of modernity and individualism, discloses the novel's surprisingly unmodern characteristics, and recasts the genre's rise as part of a burgeoning vernacular cosmopolitanism.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_10",
+      "identifier": "1400831377"
+     },
+     {
+      "type": "ISBN_13",
+      "identifier": "9781400831371"
+     }
+    ],
+    "readingModes": {
+     "text": true,
+     "image": true
+    },
+    "pageCount": 272,
+    "printType": "BOOK",
+    "categories": [
+     "Literary Criticism"
+    ],
+    "maturityRating": "NOT_MATURE",
+    "allowAnonLogging": false,
+    "contentVersion": "1.3.4.0.preview.3",
+    "panelizationSummary": {
+     "containsEpubBubbles": false,
+     "containsImageBubbles": false
+    },
+    "imageLinks": {
+     "smallThumbnail": "http://books.google.com/books/content?id=Gda6hbVaxqUC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+     "thumbnail": "http://books.google.com/books/content?id=Gda6hbVaxqUC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.fr/books?id=Gda6hbVaxqUC&printsec=frontcover&dq=novels&hl=&cd=1&source=gbs_api",
+    "infoLink": "https://play.google.com/store/books/details?id=Gda6hbVaxqUC&source=gbs_api",
+    "canonicalVolumeLink": "https://market.android.com/details?id=book-Gda6hbVaxqUC"
+   },
+   "saleInfo": {
+    "country": "FR",
+    "saleability": "FOR_SALE",
+    "isEbook": true,
+    "listPrice": {
+     "amount": 33.75,
+     "currencyCode": "EUR"
+    },
+    "retailPrice": {
+     "amount": 20.46,
+     "currencyCode": "EUR"
+    },
+    "buyLink": "https://play.google.com/store/books/details?id=Gda6hbVaxqUC&rdid=book-Gda6hbVaxqUC&rdot=1&source=gbs_api",
+    "offers": [
+     {
+      "finskyOfferType": 1,
+      "listPrice": {
+       "amountInMicros": 3.375E7,
+       "currencyCode": "EUR"
+      },
+      "retailPrice": {
+       "amountInMicros": 2.046E7,
+       "currencyCode": "EUR"
+      },
+      "giftable": true
+     }
+    ]
+   },
+   "accessInfo": {
+    "country": "FR",
+    "viewability": "PARTIAL",
+    "embeddable": true,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": true,
+     "acsTokenLink": "http://books.google.fr/books/download/The_Spread_of_Novels-sample-epub.acsm?id=Gda6hbVaxqUC&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+    },
+    "pdf": {
+     "isAvailable": true,
+     "acsTokenLink": "http://books.google.fr/books/download/The_Spread_of_Novels-sample-pdf.acsm?id=Gda6hbVaxqUC&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+    },
+    "webReaderLink": "http://play.google.com/books/reader?id=Gda6hbVaxqUC&hl=&printsec=frontcover&source=gbs_api",
+    "accessViewStatus": "SAMPLE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "The Spread of Novels reassesses the novel&#39;s embodiment of modernity and individualism, discloses the novel&#39;s surprisingly unmodern characteristics, and recasts the genre&#39;s rise as part of a burgeoning vernacular cosmopolitanism."
+   }
+  },
+  {
+   "kind": "books#volume",
+   "id": "AZT8fEYMKBwC",
+   "etag": "eLPUIt2LRB8",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/AZT8fEYMKBwC",
+   "volumeInfo": {
+    "title": "Collected Ancient Greek Novels",
+    "authors": [
+     "B. P. Reardon"
+    ],
+    "publisher": "Univ of California Press",
+    "publishedDate": "2008-07-08",
+    "description": "Prose fiction, although not always associated with classical antiquity, did in fact flourish in the early Roman Empire, not only in realistic Latin novels but also and indeed principally in the Greek ideal romance of love and adventure to which they are related. Popular in the Renaissance, these stories have been less familiar in later centuries. Translations of the Greek stories were not readily available in English before B.P. Reardon’s excellent volume. Nine complete stories are included here as well as ten others, encompassing the whole range of classical themes: ideal romance, travel adventure, historical fiction, and comic parody. A new foreword by J.R. Morgan examines the enormous impact this groundbreaking collection has had on our understanding of classical thought and our concept of the novel.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_10",
+      "identifier": "0520256557"
+     },
+     {
+      "type": "ISBN_13",
+      "identifier": "9780520256552"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": true
+    },
+    "pageCount": 827,
+    "printType": "BOOK",
+    "categories": [
+     "History"
+    ],
+    "averageRating": 4.5,
+    "ratingsCount": 2,
+    "maturityRating": "NOT_MATURE",
+    "allowAnonLogging": false,
+    "contentVersion": "0.0.1.0.preview.1",
+    "panelizationSummary": {
+     "containsEpubBubbles": false,
+     "containsImageBubbles": false
+    },
+    "imageLinks": {
+     "smallThumbnail": "http://books.google.com/books/content?id=AZT8fEYMKBwC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+     "thumbnail": "http://books.google.com/books/content?id=AZT8fEYMKBwC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.fr/books?id=AZT8fEYMKBwC&pg=PR9&dq=novels&hl=&cd=2&source=gbs_api",
+    "infoLink": "http://books.google.fr/books?id=AZT8fEYMKBwC&dq=novels&hl=&source=gbs_api",
+    "canonicalVolumeLink": "https://books.google.com/books/about/Collected_Ancient_Greek_Novels.html?hl=&id=AZT8fEYMKBwC"
+   },
+   "saleInfo": {
+    "country": "FR",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "FR",
+    "viewability": "PARTIAL",
+    "embeddable": true,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://play.google.com/books/reader?id=AZT8fEYMKBwC&hl=&printsec=frontcover&source=gbs_api",
+    "accessViewStatus": "SAMPLE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "The publication of the first edition of this collection of translations in 1989 was a \u003cbr\u003e\nmajor turning point in the study of the ancient Greek \u003cb\u003enovel\u003c/b\u003e. Its success was not \u003cbr\u003e\npredicted, by either its editor or its publisher: a volume that was projected to sell \u003cbr\u003e\nno&nbsp;..."
+   }
+  },
+  {
+   "kind": "books#volume",
+   "id": "goudm9isdE4C",
+   "etag": "w8kUdWJQvmw",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/goudm9isdE4C",
+   "volumeInfo": {
+    "title": "Novels, Novelists, and Readers",
+    "subtitle": "Toward a Phenomenological Sociology of Literature",
+    "authors": [
+     "Mary Frances Rogers"
+    ],
+    "publisher": "SUNY Press",
+    "publishedDate": "1991",
+    "description": "Focusing on British and American novels, Rogers takes a sociological look at the business of literature, the book industry, and the experiences of novelists and readers. Viewing the novel as a vehicle of cultural meaning, the author shows how the literary canon overlooks substantial similarities among novels in favor of restrictive codes based on social as well as literary considerations. She emphasizes the kinship between the social sciences and humanities in her analysis, by reinvigorating affection for the novel and also establishing its rich cultural significance.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_10",
+      "identifier": "0791406024"
+     },
+     {
+      "type": "ISBN_13",
+      "identifier": "9780791406021"
+     }
+    ],
+    "readingModes": {
+     "text": true,
+     "image": true
+    },
+    "pageCount": 324,
+    "printType": "BOOK",
+    "categories": [
+     "Literary Criticism"
+    ],
+    "maturityRating": "NOT_MATURE",
+    "allowAnonLogging": false,
+    "contentVersion": "0.0.2.0.preview.3",
+    "panelizationSummary": {
+     "containsEpubBubbles": false,
+     "containsImageBubbles": false
+    },
+    "imageLinks": {
+     "smallThumbnail": "http://books.google.com/books/content?id=goudm9isdE4C&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+     "thumbnail": "http://books.google.com/books/content?id=goudm9isdE4C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.fr/books?id=goudm9isdE4C&printsec=frontcover&dq=novels&hl=&cd=3&source=gbs_api",
+    "infoLink": "http://books.google.fr/books?id=goudm9isdE4C&dq=novels&hl=&source=gbs_api",
+    "canonicalVolumeLink": "https://books.google.com/books/about/Novels_Novelists_and_Readers.html?hl=&id=goudm9isdE4C"
+   },
+   "saleInfo": {
+    "country": "FR",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "FR",
+    "viewability": "PARTIAL",
+    "embeddable": true,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": true,
+     "acsTokenLink": "http://books.google.fr/books/download/Novels_Novelists_and_Readers-sample-epub.acsm?id=goudm9isdE4C&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+    },
+    "pdf": {
+     "isAvailable": true,
+     "acsTokenLink": "http://books.google.fr/books/download/Novels_Novelists_and_Readers-sample-pdf.acsm?id=goudm9isdE4C&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+    },
+    "webReaderLink": "http://play.google.com/books/reader?id=goudm9isdE4C&hl=&printsec=frontcover&source=gbs_api",
+    "accessViewStatus": "SAMPLE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "Focusing on British and American novels, Rogers takes a sociological look at the business of literature, the book industry, and the experiences of novelists and readers."
+   }
+  },
+  {
+   "kind": "books#volume",
+   "id": "VPJ7jqVSl34C",
+   "etag": "DWJXZDJswk0",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/VPJ7jqVSl34C",
+   "volumeInfo": {
+    "title": "Early Novels in India",
+    "authors": [
+     "Meenakshi Mukherjee"
+    ],
+    "publisher": "Sahitya Akademi",
+    "publishedDate": "2002-01-01",
+    "description": "This Volume Brings Together Fourteen Essays Written By Literary Critics, Historians And Political Theorists Which Look At The Early Novels In Different Indian Languages And The Circumstances Of Their Production. Most Of The Essays Challenge The Old Assumption That The Novel In India Was A Genre Directly Imported From The West, And Address The Issues Of Plural Heritage And The Economic And Social Determinants That Interacted To Make The Shaping Of This Literary Form A Tangled And Complex Process In Our Languages.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_10",
+      "identifier": "8126013427"
+     },
+     {
+      "type": "ISBN_13",
+      "identifier": "9788126013425"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": true
+    },
+    "pageCount": 278,
+    "printType": "BOOK",
+    "categories": [
+     "Indic fiction"
+    ],
+    "maturityRating": "NOT_MATURE",
+    "allowAnonLogging": false,
+    "contentVersion": "0.2.2.0.preview.1",
+    "imageLinks": {
+     "smallThumbnail": "http://books.google.com/books/content?id=VPJ7jqVSl34C&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+     "thumbnail": "http://books.google.com/books/content?id=VPJ7jqVSl34C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.fr/books?id=VPJ7jqVSl34C&printsec=frontcover&dq=novels&hl=&cd=4&source=gbs_api",
+    "infoLink": "http://books.google.fr/books?id=VPJ7jqVSl34C&dq=novels&hl=&source=gbs_api",
+    "canonicalVolumeLink": "https://books.google.com/books/about/Early_Novels_in_India.html?hl=&id=VPJ7jqVSl34C"
+   },
+   "saleInfo": {
+    "country": "FR",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "FR",
+    "viewability": "PARTIAL",
+    "embeddable": true,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://play.google.com/books/reader?id=VPJ7jqVSl34C&hl=&printsec=frontcover&source=gbs_api",
+    "accessViewStatus": "SAMPLE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "This Volume Brings Together Fourteen Essays Written By Literary Critics, Historians And Political Theorists Which Look At The Early Novels In Different Indian Languages And The Circumstances Of Their Production."
+   }
+  }
+ ]
+}
