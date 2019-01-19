@@ -24,6 +24,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -62,7 +63,7 @@ public class LivrokazApplication implements CommandLineRunner {
 	@Autowired
 	private UsersRepository usersRepo;
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception, JSONException, MalformedURLException, IOException, ClassNotFoundException, SQLException {
 		SpringApplication.run(LivrokazApplication.class, args);
 	}
 
@@ -89,33 +90,35 @@ public class LivrokazApplication implements CommandLineRunner {
 		Users users;
 		Authorities authorities;
 		
-		users = new Users("dbuser", "{noop}books", true);
+		BCryptPasswordEncoder bcrypt = new BCryptPasswordEncoder();
+		
+		users = new Users("dbuser","{noop}books", true);
 		usersRepo.save(users);
-		authorities = new Authorities(users, "USER");
+		authorities = new Authorities(users, "ROLE_USER");
 		try {
 			authoritiesRepo.save(authorities);
 		} catch(Exception e) {
 			//TODO : gestion d'un utilisateur déjà existant
 		}
-		users = new Users("dbdevelopper", "{noop}books", true);
+		users = new Users("dbdevelopper", "{bcrypt}" + bcrypt.encode("books"), true);
 		usersRepo.save(users);
-		authorities = new Authorities(users, "DEVELOPPER");
+		authorities = new Authorities(users, "ROLE_DEVELOPPER");
 		try {
 			authoritiesRepo.save(authorities);
 		} catch(Exception e) {
 			//TODO : gestion d'un utilisateur déjà existant
 		}
-		users = new Users("dbmanager", "{noop}books", true);
+		users = new Users("dbmanager", "{bcrypt}" + bcrypt.encode("books"), true);
 		usersRepo.save(users);
-		authorities = new Authorities(users, "MANAGER");
+		authorities = new Authorities(users, "ROLE_MANAGER");
 		try {
 			authoritiesRepo.save(authorities);
 		} catch(Exception e) {
 			//TODO : gestion d'un utilisateur déjà existant
 		}
-		users = new Users("dbadmin", "{bcrypt}$2a$10$OhwFVfhBW0Rv2TUtS4UFSOtvMFbGnPPEFkFcKnXif9bBAfWFnKm16", true);
+		users = new Users("dbadmin", "{bcrypt}" + bcrypt.encode("books"), true);
 		usersRepo.save(users);
-		authorities = new Authorities(users, "ADMIN");
+		authorities = new Authorities(users, "ROLEADMIN");
 		try {
 			authoritiesRepo.save(authorities);
 		} catch(Exception e) {

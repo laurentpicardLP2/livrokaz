@@ -1,18 +1,16 @@
-package co.jlv.livrokaz.controller;
-
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.core.Ordered;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-
-@EnableWebMvc
-@ComponentScan("org.springframework.security.samples.mvc")
-public class WebMvcConfiguration implements WebMvcConfigurer {
-
-   @Override
-    public void addViewControllers(ViewControllerRegistry registry) {
-        //registry.addViewController("/login1").setViewName("login1");
-        registry.setOrder(Ordered.HIGHEST_PRECEDENCE);
-    }
-}
+//package co.jlv.livrokaz.controller;
+//
+//import org.springframework.web.bind.annotation.RequestMapping;
+//import org.springframework.web.bind.annotation.RequestMethod;
+//import org.springframework.web.bind.annotation.RestController;
+//
+//@RestController
+//public class WebMvcConfiguration {
+//
+//
+//    @RequestMapping(path = "/gestionbooks",method = RequestMethod.GET)
+//    public String adminResource() {
+//        return "This resource is available for admins (Admin role)!";
+//    }
+//
+//}

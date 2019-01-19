@@ -9,12 +9,14 @@ import org.springframework.core.env.Environment;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
@@ -42,24 +44,45 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 //    	.permitAll();
 //
 //	}
+	
+//	@Override
+//    public void configure(WebSecurity web) throws Exception {
+//        web.ignoring().antMatchers("/register");
+//    }
+	
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-    	//antMatchers("/", "/home").permitAll()
         http
         	.csrf().disable()
             .authorizeRequests()
-                .antMatchers("/home").permitAll()
-                .anyRequest().authenticated()
+                .antMatchers("/").permitAll()
+                .antMatchers("/register").permitAll()
+                .antMatchers("/web/**").hasAnyRole("ADMIN", "MANAGER")
+                .antMatchers("/web/gestionbooks").hasAnyRole("ADMIN", "MANAGER")
+                //.anyRequest().authenticated()
                 .and()
             .formLogin()
-                .loginPage("/login")
+                .loginPage("/login") //.successHandler(successHandler)
                 .permitAll()
+                //.and()
+                //.antMatcher("/register").anonymous()
                 .and()
-            .logout()
-                .permitAll();
+                .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/login");
     }
     
-	
+//    @Autowired
+//    public void configAuthentication(AuthenticationManagerBuilder auth) throws Exception {
+//		auth.inMemoryAuthentication()
+//			.withUser("user").password("{noop}simplon").roles("USER")
+//			.and()
+//			.withUser("developper").password("{noop}simplon").roles("DEVELOPPER")
+//			.and()
+//			.withUser("manager").password("{noop}simplon").roles("MANAGER")
+//			.and()
+//			.withUser("admin").password("{bcrypt}$2a$10$OhwFVfhBW0Rv2TUtS4UFSOtvMFbGnPPEFkFcKnXif9bBAfWFnKm16").roles("ADMIN");
+//    }
+   
+    
 	
 	@Bean
 	public DataSource dataSource() {
@@ -79,6 +102,17 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 }	
 	
 	
+//.antMatchers("/web/admin/**").hasAnyRole(ADMIN.toString(), GUEST.toString())
+//.anyRequest().permitAll()
+//.and()
+//.formLogin().loginPage("/web/login").permitAll()
+//.and()
+//.csrf().ignoringAntMatchers("/contact-email")
+//.and()
+//.logout().logoutUrl("/web/logout").logoutSuccessUrl("/web/").permitAll();
+
+
+
 	
 //
 //    @Bean
