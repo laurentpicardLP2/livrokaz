@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <head>
+        <title>Spring Security Example </title>
+    </head>
+    <body>
+        <h1>Bienvenue sur le site de Julien, Vincent et Laurent</h1>
+        id : user, pwd : simplon
+        <form class="form-signin" action="/login" method="post">
+        
+            <div><label> User Name : <input type="text" name="username"/> </label></div>
+            <div><label> Password: <input type="password" name="password"/> </label></div>
+            <div><input type="submit" value="Sign In"/></div>
+            <!--  input name="_csrf" type="hidden" value="66ea3891-6836-4aee-869b-f58875357216" -->
+        </form>
+    </body>
+</html>
+
