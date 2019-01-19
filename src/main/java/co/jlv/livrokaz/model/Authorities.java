@@ -56,11 +56,6 @@ public class Authorities implements Serializable {
 
 	public Authorities() {
 	}
-
-	
-	public String getAuthority() {
-		return this.authority;
-	}
 	
 	public int getAuthorityId() {
 		return this.authorityId;
@@ -70,6 +65,11 @@ public class Authorities implements Serializable {
 		this.authorityId = authorityId;
 	}
 
+	
+	
+	public String getAuthority() {
+		return this.authority;
+	}
 
 	public void setAuthority(String authority) {
 		this.authority = authority;

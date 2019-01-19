@@ -89,20 +89,46 @@ public class LivrokazApplication implements CommandLineRunner {
 		Users users;
 		Authorities authorities;
 		
-		users = new Users("dbuser", "{noop}password", true);
+		users = new Users("dbuser", "{noop}books", true);
 		usersRepo.save(users);
-		
 		authorities = new Authorities(users, "USER");
-		authoritiesRepo.save(authorities);
+		try {
+			authoritiesRepo.save(authorities);
+		} catch(Exception e) {
+			//TODO : gestion d'un utilisateur déjà existant
+		}
+		users = new Users("dbdevelopper", "{noop}books", true);
+		usersRepo.save(users);
+		authorities = new Authorities(users, "DEVELOPPER");
+		try {
+			authoritiesRepo.save(authorities);
+		} catch(Exception e) {
+			//TODO : gestion d'un utilisateur déjà existant
+		}
+		users = new Users("dbmanager", "{noop}books", true);
+		usersRepo.save(users);
+		authorities = new Authorities(users, "MANAGER");
+		try {
+			authoritiesRepo.save(authorities);
+		} catch(Exception e) {
+			//TODO : gestion d'un utilisateur déjà existant
+		}
+		users = new Users("dbadmin", "{bcrypt}$2a$10$OhwFVfhBW0Rv2TUtS4UFSOtvMFbGnPPEFkFcKnXif9bBAfWFnKm16", true);
+		usersRepo.save(users);
+		authorities = new Authorities(users, "ADMIN");
+		try {
+			authoritiesRepo.save(authorities);
+		} catch(Exception e) {
+			//TODO : gestion d'un utilisateur déjà existant
+		}
 		
-
 		List<String> listCat = Arrays.asList("cooking", "thriller", "economics", "novels", "comics");
 		for (String entryCat : listCat) {
 
 			//String url = "https://www.googleapis.com/books/v1/volumes?q=" + entryCat
 					//+ "&maxResults=4&key=AIzaSyAPOsreRHHdYcdZ4pX7YNXBujTndpGJF9k";
 			
-			String url ="file:///home/laurent/eclipse-workspace/livrokaz/src/main/resources/" + entryCat + ".json";
+			String url ="file:///home/laurent/eclipse-workspace/livrokaz/src/main/resources/json/" + entryCat + ".json";
 
 			String jsonText = IOUtils.toString(new URL(url), Charset.forName("UTF-8"));
 
