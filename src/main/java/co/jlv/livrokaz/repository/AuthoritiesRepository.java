@@ -5,6 +5,6 @@ import org.springframework.data.jpa.repository.Query;
 
 import co.jlv.livrokaz.model.Authorities;
 
-public interface AuthoritiesRepository extends JpaRepository<Authorities, Integer>{
+public interface AuthoritiesRepository extends JpaRepository<Authorities, String>{
 
 }

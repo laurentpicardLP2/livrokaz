@@ -32,8 +32,8 @@ public class Users implements Serializable {
 	private String username;
 
 	//bi-directional many-to-one association to Authorities
-	@OneToMany(mappedBy="users")
-	private List<Authorities> authorities;
+//	@OneToMany(mappedBy="users")
+//	private List<Authorities> authorities;
 	
 	//bi-directional many-to-one association to Ordering
 	@OneToMany(mappedBy="users")
@@ -103,14 +103,6 @@ public class Users implements Serializable {
 		this.enabled = enabled;
 	}
 
-	public List<Authorities> getAuthorities() {
-		return this.authorities;
-	}
-
-	public void setAuthorities(List<Authorities> authorities) {
-		this.authorities = authorities;
-	}
-	
 	public String getCivility() {
 		return this.civility;
 	}
@@ -150,21 +142,31 @@ public class Users implements Serializable {
 	public void setTel(String tel) {
 		this.tel = tel;
 	}
-
-	public Authorities addAuthorities(Authorities authorities) {
-		getAuthorities().add(authorities);
-		authorities.setUsers(this);
-
-		return authorities;
-	}
-
-	public Authorities removeAuthorities(Authorities authorities) {
-		getAuthorities().remove(authorities);
-		authorities.setUsers(null);
-
-		return authorities;
-	}
 	
+//	public List<Authorities> getAuthorities() {
+//	return this.authorities;
+//}
+//
+//public void setAuthorities(List<Authorities> authorities) {
+//	this.authorities = authorities;
+//}
+
+
+
+//	public Authorities addAuthorities(Authorities authorities) {
+//		getAuthorities().add(authorities);
+//		authorities.setUsers(this);
+//
+//		return authorities;
+//	}
+//
+//	public Authorities removeAuthorities(Authorities authorities) {
+//		getAuthorities().remove(authorities);
+//		authorities.setUsers(null);
+//
+//		return authorities;
+//	}
+//	
 	public List<Ordering> getOrderings() {
 		return this.orderings;
 	}
