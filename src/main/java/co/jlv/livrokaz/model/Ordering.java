@@ -41,8 +41,8 @@ public class Ordering implements Serializable {
 
 	//bi-directional many-to-one association to User
 	@ManyToOne
-	@JoinColumn(name="userId_R_Ordering_User")
-	private User user;
+	@JoinColumn(name="mail")
+	private Users users;
 
 	//bi-directional many-to-one association to R_Ordering_GoogleBook
 	@OneToMany(mappedBy="ordering")
@@ -91,12 +91,12 @@ public class Ordering implements Serializable {
 		this.totalAmount = totalAmount;
 	}
 
-	public User getUser() {
-		return this.user;
+	public Users getUsers() {
+		return this.users;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setUsers(Users users) {
+		this.users = users;
 	}
 
 	public List<R_Ordering_GoogleBook> getROrderingGoogleBooks() {

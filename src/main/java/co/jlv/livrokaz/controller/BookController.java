@@ -21,10 +21,7 @@ import co.jlv.livrokaz.repository.AdresseRepository;
 import co.jlv.livrokaz.repository.AuthorRepository;
 import co.jlv.livrokaz.repository.GendleRepository;
 import co.jlv.livrokaz.repository.GoogleBookRepository;
-import co.jlv.livrokaz.repository.ProfilAccessRepository;
 import co.jlv.livrokaz.repository.PublisherRepository;
-import co.jlv.livrokaz.repository.UserRepository;
-
 
 
 @RestController
@@ -32,31 +29,25 @@ import co.jlv.livrokaz.repository.UserRepository;
 public class BookController {
 
 	@Autowired
-	AdresseRepository AdresseRepo;
+	AdresseRepository adresseRepo;
 
 	@Autowired
-	AuthorRepository AuthorRepo;
+	AuthorRepository authorRepo;
 
 	@Autowired
-	GendleRepository GendleRepo;
+	GendleRepository gendleRepo;
 
 	@Autowired
-	GoogleBookRepository GoogleBookRepo;
+	GoogleBookRepository googleBookRepo;
 
 	@Autowired
-	ProfilAccessRepository ProfilAccessRepo;
-
-	@Autowired
-	PublisherRepository PublisherRepo;
-
-	@Autowired
-	UserRepository UserRepo;
+	PublisherRepository publisherRepo;
 
 	@GetMapping("/books")
 	public ResponseEntity<?> getAllBooks() {
 		List<GoogleBook> listeLivres = null;
 		try {
-			listeLivres = (List<GoogleBook>) GoogleBookRepo.findAll();
+			listeLivres = (List<GoogleBook>) googleBookRepo.findAll();
 
 		} catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
@@ -68,7 +59,7 @@ public class BookController {
 	public ResponseEntity<?> getAuthorsByBook(@PathVariable Integer bookId) {
 		List<Author> listeLivres = null;
 		try {
-			Optional<GoogleBook> gbOpt = GoogleBookRepo.findById(bookId);
+			Optional<GoogleBook> gbOpt = googleBookRepo.findById(bookId);
 			if(gbOpt.isPresent()) {
 				GoogleBook gbEff = gbOpt.get();
 				listeLivres = gbEff.getAuthors();
@@ -82,16 +73,16 @@ public class BookController {
 	}
 	
 	/**
-	 * supprimer jedi
+	 * supprimer une référence d'un livre
 	 */
 	@DeleteMapping("/delbook/{delId}")
     public ResponseEntity<?> delUser(@PathVariable Integer delId) {
        
-        GoogleBookRepo.deleteById(delId);
+        googleBookRepo.deleteById(delId);
         
         List<GoogleBook> listeLivres = null;
 		try {
-			listeLivres = (List<GoogleBook>) GoogleBookRepo.findAll();
+			listeLivres = (List<GoogleBook>) googleBookRepo.findAll();
 
 		} catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
@@ -123,7 +114,7 @@ public class BookController {
                 price = Double.parseDouble(subParts[1]);
             } else if(subParts[0].equals("id")) {
                 id = Integer.valueOf(subParts[1]);
-                gbOpt = GoogleBookRepo.findById(id);
+                gbOpt = googleBookRepo.findById(id);
             }
         }
         
@@ -135,7 +126,7 @@ public class BookController {
 		
 		try {
 		
-			gbEff = GoogleBookRepo.save(gbOpt.get());
+			gbEff = googleBookRepo.save(gbOpt.get());
 			
 		} catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());

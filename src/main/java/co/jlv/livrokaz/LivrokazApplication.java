@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
 import org.apache.commons.io.IOUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -16,18 +17,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
-import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import co.jlv.livrokaz.model.Author;
 import co.jlv.livrokaz.model.Authorities;
@@ -63,6 +54,7 @@ public class LivrokazApplication implements CommandLineRunner {
 	@Autowired
 	private UsersRepository usersRepo;
 
+
 	public static void main(String[] args) throws Exception, JSONException, MalformedURLException, IOException, ClassNotFoundException, SQLException {
 		SpringApplication.run(LivrokazApplication.class, args);
 	}
@@ -93,45 +85,72 @@ public class LivrokazApplication implements CommandLineRunner {
 		BCryptPasswordEncoder bcrypt = new BCryptPasswordEncoder();
 		
 		users = new Users("dbuser","{noop}books", true);
-		usersRepo.save(users);
+		try {
+			usersRepo.save(users);
+		} catch(Exception e) {
+			//TODO : gestion d'un utilisateur déjà existant
+		} 
 		authorities = new Authorities(users, "ROLE_USER");
 		try {
 			authoritiesRepo.save(authorities);
 		} catch(Exception e) {
 			//TODO : gestion d'un utilisateur déjà existant
 		}
+		
+		
 		users = new Users("dbdevelopper", "{bcrypt}" + bcrypt.encode("books"), true);
-		usersRepo.save(users);
+		try {
+			usersRepo.save(users);
+		} catch(Exception e) {
+			//TODO : gestion d'un utilisateur déjà existant
+		} 
 		authorities = new Authorities(users, "ROLE_DEVELOPPER");
 		try {
 			authoritiesRepo.save(authorities);
 		} catch(Exception e) {
 			//TODO : gestion d'un utilisateur déjà existant
 		}
+		
+		
 		users = new Users("dbmanager", "{bcrypt}" + bcrypt.encode("books"), true);
-		usersRepo.save(users);
+		try {
+			usersRepo.save(users);
+		} catch(Exception e) {
+			//TODO : gestion d'un utilisateur déjà existant
+		} 
 		authorities = new Authorities(users, "ROLE_MANAGER");
 		try {
 			authoritiesRepo.save(authorities);
 		} catch(Exception e) {
 			//TODO : gestion d'un utilisateur déjà existant
 		}
+		
 		users = new Users("dbadmin", "{bcrypt}" + bcrypt.encode("books"), true);
-		usersRepo.save(users);
+		try {
+			usersRepo.save(users);
+		} catch(Exception e) {
+			//TODO : gestion d'un utilisateur déjà existant
+		}
 		authorities = new Authorities(users, "ROLE_ADMIN");
 		try {
 			authoritiesRepo.save(authorities);
 		} catch(Exception e) {
 			//TODO : gestion d'un utilisateur déjà existant
 		}
+//		authorities = new Authorities(users, "ROLE_MANAGER");
+//		try {
+//			authoritiesRepo.save(authorities);
+//		} catch(Exception e) {
+//			//TODO : gestion d'un utilisateur déjà existant
+//		}
 		
 		List<String> listCat = Arrays.asList("cooking", "thriller", "economics", "novels", "comics");
 		for (String entryCat : listCat) {
 
-			String url = "https://www.googleapis.com/books/v1/volumes?q=" + entryCat
-					+ "&maxResults=4&key=AIzaSyAPOsreRHHdYcdZ4pX7YNXBujTndpGJF9k";
+			//String url = "https://www.googleapis.com/books/v1/volumes?q=" + entryCat
+					//+ "&maxResults=4&key=AIzaSyAPOsreRHHdYcdZ4pX7YNXBujTndpGJF9k";
 			
-			//String url ="file:///home/laurent/eclipse-workspace/livrokaz/src/main/resources/json/" + entryCat + ".json";
+			String url ="file:///home/laurent/eclipse-workspace/livrokaz/src/main/resources/json/" + entryCat + ".json";
 
 			String jsonText = IOUtils.toString(new URL(url), Charset.forName("UTF-8"));
 

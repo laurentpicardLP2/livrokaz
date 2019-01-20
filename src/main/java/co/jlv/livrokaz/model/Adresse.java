@@ -37,7 +37,7 @@ public class Adresse implements Serializable {
 
 	//bi-directional many-to-many association to User
 	@ManyToMany(mappedBy="adresses")
-	private List<User> users;
+	private List<Users> users;
 
 	public Adresse() {
 	}
@@ -90,11 +90,11 @@ public class Adresse implements Serializable {
 		this.numVoie = numVoie;
 	}
 
-	public List<User> getUsers() {
+	public List<Users> getUsers() {
 		return this.users;
 	}
 
-	public void setUsers(List<User> users) {
+	public void setUsers(List<Users> users) {
 		this.users = users;
 	}
 
