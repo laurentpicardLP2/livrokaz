@@ -118,7 +118,7 @@ public class LivrokazApplication implements CommandLineRunner {
 		}
 		users = new Users("dbadmin", "{bcrypt}" + bcrypt.encode("books"), true);
 		usersRepo.save(users);
-		authorities = new Authorities(users, "ROLEADMIN");
+		authorities = new Authorities(users, "ROLE_ADMIN");
 		try {
 			authoritiesRepo.save(authorities);
 		} catch(Exception e) {
@@ -128,10 +128,10 @@ public class LivrokazApplication implements CommandLineRunner {
 		List<String> listCat = Arrays.asList("cooking", "thriller", "economics", "novels", "comics");
 		for (String entryCat : listCat) {
 
-			//String url = "https://www.googleapis.com/books/v1/volumes?q=" + entryCat
-					//+ "&maxResults=4&key=AIzaSyAPOsreRHHdYcdZ4pX7YNXBujTndpGJF9k";
+			String url = "https://www.googleapis.com/books/v1/volumes?q=" + entryCat
+					+ "&maxResults=4&key=AIzaSyAPOsreRHHdYcdZ4pX7YNXBujTndpGJF9k";
 			
-			String url ="file:///home/laurent/eclipse-workspace/livrokaz/src/main/resources/json/" + entryCat + ".json";
+			//String url ="file:///home/laurent/eclipse-workspace/livrokaz/src/main/resources/json/" + entryCat + ".json";
 
 			String jsonText = IOUtils.toString(new URL(url), Charset.forName("UTF-8"));
 

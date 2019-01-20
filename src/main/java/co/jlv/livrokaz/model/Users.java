@@ -29,6 +29,8 @@ public class Users implements Serializable {
 	private  String password;
 	
 	private boolean enabled;
+	
+	private String civility;
 
 	public Users() {
 	}
@@ -62,6 +64,14 @@ public class Users implements Serializable {
 	
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
+	}
+	
+	public String getCivility() {
+		return this.civility;
+	}
+
+	public void setCivility(String civility) {
+		this.civility = civility;
 	}
 
 	public List<Authorities> getAuthorities() {
