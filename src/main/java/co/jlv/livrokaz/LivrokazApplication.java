@@ -19,12 +19,14 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import co.jlv.livrokaz.model.Adresse;
 import co.jlv.livrokaz.model.Author;
 import co.jlv.livrokaz.model.Authorities;
 import co.jlv.livrokaz.model.Gendle;
 import co.jlv.livrokaz.model.GoogleBook;
 import co.jlv.livrokaz.model.Publisher;
 import co.jlv.livrokaz.model.Users;
+import co.jlv.livrokaz.repository.AdresseRepository;
 import co.jlv.livrokaz.repository.AuthorRepository;
 import co.jlv.livrokaz.repository.AuthoritiesRepository;
 import co.jlv.livrokaz.repository.GendleRepository;
@@ -52,6 +54,9 @@ public class LivrokazApplication implements CommandLineRunner {
 	
 	@Autowired
 	private UsersRepository usersRepo;
+	
+	@Autowired
+	private AdresseRepository adresseRepo;
 
 
 	public static void main(String[] args) throws Exception, JSONException, MalformedURLException, IOException, ClassNotFoundException, SQLException {
@@ -80,10 +85,19 @@ public class LivrokazApplication implements CommandLineRunner {
 		String title;
 		Users users;
 		Authorities authorities;
+		Adresse adresse, newAdresse;
+		List<Adresse> adresses = new ArrayList<Adresse>();
 		
 		BCryptPasswordEncoder bcrypt = new BCryptPasswordEncoder();
 		
-		users = new Users("dbuser","{noop}books", true);
+		newAdresse = new Adresse("50", "Rue Marx Dormoy", 92260, "Fontenay-aux-roses", "France");
+		adresse = adresseRepo.findByAdresse(newAdresse.getNumVoie(), newAdresse.getNomVoie(), newAdresse.getCodePostal(), newAdresse.getCity(), newAdresse.getCountry());
+		if (adresse == null) {
+			adresseRepo.save(newAdresse);
+			adresse = adresseRepo.findByAdresse(newAdresse.getNumVoie(), newAdresse.getNomVoie(), newAdresse.getCodePostal(), newAdresse.getCity(), newAdresse.getCountry());
+		}
+		adresses.add(adresse);
+		users = new Users("dbuser","{noop}books", true, adresses);
 		try {
 			usersRepo.save(users);
 		} catch(Exception e) {
@@ -97,7 +111,7 @@ public class LivrokazApplication implements CommandLineRunner {
 		}
 		
 		
-		users = new Users("dbdevelopper", "{bcrypt}" + bcrypt.encode("books"), true);
+		users = new Users("dbdevelopper", "{bcrypt}" + bcrypt.encode("books"), true, adresses);
 		try {
 			usersRepo.save(users);
 		} catch(Exception e) {
@@ -110,8 +124,22 @@ public class LivrokazApplication implements CommandLineRunner {
 			//TODO : gestion d'un utilisateur déjà existant
 		}
 		
-		
-		users = new Users("dbmanager", "{bcrypt}" + bcrypt.encode("books"), true);
+		adresses.clear();
+		newAdresse = new Adresse("50", "Rue Marx Dormoy", 92260, "Fontenay-aux-roses", "France");
+		adresse = adresseRepo.findByAdresse(newAdresse.getNumVoie(), newAdresse.getNomVoie(), newAdresse.getCodePostal(), newAdresse.getCity(), newAdresse.getCountry());
+		if (adresse == null) {
+			adresseRepo.save(newAdresse);
+			adresse = adresseRepo.findByAdresse(newAdresse.getNumVoie(), newAdresse.getNomVoie(), newAdresse.getCodePostal(), newAdresse.getCity(), newAdresse.getCountry());
+		}
+		adresses.add(adresse);		
+		newAdresse = new Adresse("6", "Chemin de l'étang", 45260, "Châtenoy", "France");
+		adresse = adresseRepo.findByAdresse(newAdresse.getNumVoie(), newAdresse.getNomVoie(), newAdresse.getCodePostal(), newAdresse.getCity(), newAdresse.getCountry());
+		if (adresse == null) {
+			adresseRepo.save(newAdresse);
+			adresse = adresseRepo.findByAdresse(newAdresse.getNumVoie(), newAdresse.getNomVoie(), newAdresse.getCodePostal(), newAdresse.getCity(), newAdresse.getCountry());
+		}
+		adresses.add(adresse);		
+		users = new Users("dbmanager", "{bcrypt}" + bcrypt.encode("books"), true, adresses);
 		try {
 			usersRepo.save(users);
 		} catch(Exception e) {
@@ -124,7 +152,15 @@ public class LivrokazApplication implements CommandLineRunner {
 			//TODO : gestion d'un utilisateur déjà existant
 		}
 		
-		users = new Users("dbadmin", "{bcrypt}" + bcrypt.encode("books"), true);
+		adresses.clear();
+		newAdresse = new Adresse("5", "Rue Molière", 92400, "Courbevoie", "France");
+		adresse = adresseRepo.findByAdresse(newAdresse.getNumVoie(), newAdresse.getNomVoie(), newAdresse.getCodePostal(), newAdresse.getCity(), newAdresse.getCountry());
+		if (adresse == null) {
+			adresseRepo.save(newAdresse);
+			adresse = adresseRepo.findByAdresse(newAdresse.getNumVoie(), newAdresse.getNomVoie(), newAdresse.getCodePostal(), newAdresse.getCity(), newAdresse.getCountry());
+		}
+		adresses.add(adresse);		
+		users = new Users("dbadmin", "{bcrypt}" + bcrypt.encode("books"), true, adresses);
 		try {
 			usersRepo.save(users);
 		} catch(Exception e) {

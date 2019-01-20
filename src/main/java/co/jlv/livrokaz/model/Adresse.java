@@ -22,24 +22,32 @@ public class Adresse implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int adresseId;
 
-	private String city;
-
-	private BigInteger codePostal;
-
-	private String country;
+	private String numVoie;
 
 	private String nomVoie;
 
-	private String numVoie;
+	private int codePostal;
+
+	private String city;
+
+	private String country;
 
 	//bi-directional many-to-many association to User
 	@ManyToMany(mappedBy="adresses")
 	private List<Users> users;
 
 	public Adresse() {
+	}
+	
+	public Adresse( String numVoie, String nomVoie, int codePostal, String city, String country) {
+		this.numVoie = numVoie;
+		this.nomVoie = nomVoie;
+		this.codePostal = codePostal;
+		this.city = city;
+		this.country = country;
 	}
 
 	public int getAdresseId() {
@@ -49,29 +57,13 @@ public class Adresse implements Serializable {
 	public void setAdresseId(int adresseId) {
 		this.adresseId = adresseId;
 	}
-
-	public String getCity() {
-		return this.city;
+	
+	public String getNumVoie() {
+		return this.numVoie;
 	}
 
-	public void setCity(String city) {
-		this.city = city;
-	}
-
-	public BigInteger getCodePostal() {
-		return this.codePostal;
-	}
-
-	public void setCodePostal(BigInteger codePostal) {
-		this.codePostal = codePostal;
-	}
-
-	public String getCountry() {
-		return this.country;
-	}
-
-	public void setCountry(String country) {
-		this.country = country;
+	public void setNumVoie(String numVoie) {
+		this.numVoie = numVoie;
 	}
 
 	public String getNomVoie() {
@@ -82,12 +74,28 @@ public class Adresse implements Serializable {
 		this.nomVoie = nomVoie;
 	}
 
-	public String getNumVoie() {
-		return this.numVoie;
+	public int getCodePostal() {
+		return this.codePostal;
 	}
 
-	public void setNumVoie(String numVoie) {
-		this.numVoie = numVoie;
+	public void setCodePostal(int codePostal) {
+		this.codePostal = codePostal;
+	}
+
+	public String getCity() {
+		return this.city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getCountry() {
+		return this.country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
 	}
 
 	public List<Users> getUsers() {

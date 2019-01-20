@@ -72,10 +72,11 @@ public class Users implements Serializable {
 	public Users() {
 	}
 	
-	public Users(String username, String password, boolean enabled) {
+	public Users(String username, String password, boolean enabled, List<Adresse> adresses) {
 		this.username = username;
 		this.password = password;
-		this.enabled = enabled; 
+		this.enabled = enabled;
+		this.adresses = adresses;
 	}
 
 
