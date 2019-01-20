@@ -4,7 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import co.jlv.livrokaz.model.Adresse;
-import co.jlv.livrokaz.model.Gendle;
 
 public interface AdresseRepository extends JpaRepository<Adresse, Integer>{
 	@Query("SELECT a FROM Adresse a WHERE a.numVoie LIKE %?1% and a.nomVoie LIKE %?2%  and a.codePostal = ?3  and a.city LIKE %?4%  and a.country LIKE %?5%")

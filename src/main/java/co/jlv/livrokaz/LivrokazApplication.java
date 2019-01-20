@@ -5,8 +5,11 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.Charset;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 import org.apache.commons.io.IOUtils;
@@ -87,6 +90,7 @@ public class LivrokazApplication implements CommandLineRunner {
 		Authorities authorities;
 		Adresse adresse, newAdresse;
 		List<Adresse> adresses = new ArrayList<Adresse>();
+		Date dateBirthday;
 		
 		BCryptPasswordEncoder bcrypt = new BCryptPasswordEncoder();
 		
@@ -97,7 +101,8 @@ public class LivrokazApplication implements CommandLineRunner {
 			adresse = adresseRepo.findByAdresse(newAdresse.getNumVoie(), newAdresse.getNomVoie(), newAdresse.getCodePostal(), newAdresse.getCity(), newAdresse.getCountry());
 		}
 		adresses.add(adresse);
-		users = new Users("dbuser","{noop}books", true, adresses);
+		dateBirthday = Date.from((LocalDate.of(1972, 5, 22).atStartOfDay(ZoneId.systemDefault()).toInstant()));
+		users = new Users("dbuser","{noop}books", true, adresses, dateBirthday);
 		try {
 			usersRepo.save(users);
 		} catch(Exception e) {
@@ -110,8 +115,8 @@ public class LivrokazApplication implements CommandLineRunner {
 			//TODO : gestion d'un utilisateur déjà existant
 		}
 		
-		
-		users = new Users("dbdevelopper", "{bcrypt}" + bcrypt.encode("books"), true, adresses);
+		dateBirthday = Date.from((LocalDate.of(2010, 8, 5).atStartOfDay(ZoneId.systemDefault()).toInstant()));
+		users = new Users("dbdevelopper", "{bcrypt}" + bcrypt.encode("books"), true, adresses, dateBirthday);
 		try {
 			usersRepo.save(users);
 		} catch(Exception e) {
@@ -138,8 +143,9 @@ public class LivrokazApplication implements CommandLineRunner {
 			adresseRepo.save(newAdresse);
 			adresse = adresseRepo.findByAdresse(newAdresse.getNumVoie(), newAdresse.getNomVoie(), newAdresse.getCodePostal(), newAdresse.getCity(), newAdresse.getCountry());
 		}
-		adresses.add(adresse);		
-		users = new Users("dbmanager", "{bcrypt}" + bcrypt.encode("books"), true, adresses);
+		adresses.add(adresse);
+		dateBirthday = Date.from((LocalDate.of(2012, 1, 9).atStartOfDay(ZoneId.systemDefault()).toInstant()));
+		users = new Users("dbmanager", "{bcrypt}" + bcrypt.encode("books"), true, adresses, dateBirthday);
 		try {
 			usersRepo.save(users);
 		} catch(Exception e) {
@@ -159,8 +165,9 @@ public class LivrokazApplication implements CommandLineRunner {
 			adresseRepo.save(newAdresse);
 			adresse = adresseRepo.findByAdresse(newAdresse.getNumVoie(), newAdresse.getNomVoie(), newAdresse.getCodePostal(), newAdresse.getCity(), newAdresse.getCountry());
 		}
-		adresses.add(adresse);		
-		users = new Users("dbadmin", "{bcrypt}" + bcrypt.encode("books"), true, adresses);
+		adresses.add(adresse);
+		dateBirthday = Date.from((LocalDate.of(2013, 12, 1).atStartOfDay(ZoneId.systemDefault()).toInstant()));
+		users = new Users("dbadmin", "{bcrypt}" + bcrypt.encode("books"), true, adresses, dateBirthday);
 		try {
 			usersRepo.save(users);
 		} catch(Exception e) {
@@ -178,7 +185,7 @@ public class LivrokazApplication implements CommandLineRunner {
 //		} catch(Exception e) {
 //			//TODO : gestion d'un utilisateur déjà existant
 //		}
-		
+
 		List<String> listCat = Arrays.asList("cooking", "thriller", "economics", "novels", "comics");
 		for (String entryCat : listCat) {
 

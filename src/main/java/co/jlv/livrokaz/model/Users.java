@@ -1,6 +1,7 @@
 package co.jlv.livrokaz.model;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -72,11 +73,12 @@ public class Users implements Serializable {
 	public Users() {
 	}
 	
-	public Users(String username, String password, boolean enabled, List<Adresse> adresses) {
+	public Users(String username, String password, boolean enabled, List<Adresse> adresses, Date dateBirthday) {
 		this.username = username;
 		this.password = password;
 		this.enabled = enabled;
 		this.adresses = adresses;
+		this.dateBirthday = dateBirthday;
 	}
 
 
