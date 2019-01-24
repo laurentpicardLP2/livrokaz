@@ -53,6 +53,8 @@ $(document).ready(function(){
  */
 function loadDatatable() {
 	$('#livrokazTable').DataTable({
+		"searching": false,
+		"info": false,
 		"columnDefs": [
 	            {
 	                "targets": [ 0 ],
