@@ -51,6 +51,7 @@ public class Authorities implements Serializable {
 	@Column(name = "username")
 	private String username;
 
+	//one-to-one-directional association to User
 	@MapsId()
 	@OneToOne(optional=true, cascade=CascadeType.REMOVE)
 	@JoinColumn(name="username", unique=true, nullable=false, updatable=false)
@@ -70,17 +71,7 @@ public class Authorities implements Serializable {
 
 	public Authorities() {
 	}
-	
-//	public int getAuthorityId() {
-//		return this.authorityId;
-//	}
-//
-//	public void setAuthorityId(int authorityId) {
-//		this.authorityId = authorityId;
-//	}
-
-	
-	
+		
 	public String getAuthority() {
 		return this.authority;
 	}

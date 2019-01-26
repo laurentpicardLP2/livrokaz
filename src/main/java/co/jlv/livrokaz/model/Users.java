@@ -31,10 +31,6 @@ public class Users implements Serializable {
 	
 	@Id
 	private String username;
-
-	//bi-directional many-to-one association to Authorities
-//	@OneToMany(mappedBy="users")
-//	private List<Authorities> authorities;
 	
 	//bi-directional many-to-one association to Ordering
 	@OneToMany(mappedBy="users")
@@ -56,28 +52,14 @@ public class Users implements Serializable {
 
 	private String tel;
 	
-	//bi-directional many-to-many association to Adresse
-	@ManyToMany
-	@JoinTable(
-		name="R_Users_Adresse"
-		, joinColumns={
-			@JoinColumn(name="username")
-			}
-		, inverseJoinColumns={
-			@JoinColumn(name="adresseId")
-			}
-		)
-	private List<Adresse> adresses;
-
 
 	public Users() {
 	}
 	
-	public Users(String username, String password, boolean enabled, List<Adresse> adresses, Date dateBirthday) {
+	public Users(String username, String password, boolean enabled, Date dateBirthday) {
 		this.username = username;
 		this.password = password;
 		this.enabled = enabled;
-		this.adresses = adresses;
 		this.dateBirthday = dateBirthday;
 	}
 
@@ -146,30 +128,6 @@ public class Users implements Serializable {
 		this.tel = tel;
 	}
 	
-//	public List<Authorities> getAuthorities() {
-//	return this.authorities;
-//}
-//
-//public void setAuthorities(List<Authorities> authorities) {
-//	this.authorities = authorities;
-//}
-
-
-
-//	public Authorities addAuthorities(Authorities authorities) {
-//		getAuthorities().add(authorities);
-//		authorities.setUsers(this);
-//
-//		return authorities;
-//	}
-//
-//	public Authorities removeAuthorities(Authorities authorities) {
-//		getAuthorities().remove(authorities);
-//		authorities.setUsers(null);
-//
-//		return authorities;
-//	}
-//	
 	public List<Ordering> getOrderings() {
 		return this.orderings;
 	}
@@ -191,15 +149,5 @@ public class Users implements Serializable {
 
 		return ordering;
 	}
-
-	public List<Adresse> getAdresses() {
-		return this.adresses;
-	}
-
-	public void setAdresses(List<Adresse> adresses) {
-		this.adresses = adresses;
-	}
-	
-
 
 }

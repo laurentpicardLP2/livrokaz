@@ -16,11 +16,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import co.jlv.livrokaz.model.Adresse;
+import co.jlv.livrokaz.model.AdresseDomicile;
+import co.jlv.livrokaz.model.AdresseLivraison;
 import co.jlv.livrokaz.model.Authorities;
 import co.jlv.livrokaz.model.Gendle;
 import co.jlv.livrokaz.model.Users;
-import co.jlv.livrokaz.repository.AdresseRepository;
+import co.jlv.livrokaz.repository.AdresseDomicileRepository;
+import co.jlv.livrokaz.repository.AdresseLivraisonRepository;
 import co.jlv.livrokaz.repository.AuthoritiesRepository;
 import co.jlv.livrokaz.repository.UsersRepository;
 
@@ -35,28 +37,44 @@ public class UserController {
 	UsersRepository usersRepo;
 	
 	@Autowired
-	AdresseRepository adresseRepo;
+	AdresseDomicileRepository adresseDomicileRepo;
+	
+	@Autowired
+	AdresseLivraisonRepository adresseLivraisonRepo;
 	
 	@PostMapping("/users")
-	public ResponseEntity<?> addUsers(@Valid String numVoie, @Valid String nomVoie, @Valid int cp, @Valid String city, @Valid String country, 
+	public ResponseEntity<?> addUsers(@Valid String numVoieDomicile, @Valid String nomVoieDomicile, @Valid int cpDomicile,
+		@Valid String cityDomicile, @Valid String countryDomicile, @Valid String numVoieLivraison,
+		@Valid String nomVoieLivraison, @Valid int cpLivraison, @Valid String cityLivraison, @Valid String countryLivraison,
 		@Valid int yyyy, @Valid int mm, @Valid int dd, @Valid String nameUser, @Valid String pwd, @Valid String typeRole) {
 		Users users;
 		Authorities authorities;
-		Adresse adresse, newAdresse;
-		List<Adresse> adresses = new ArrayList<Adresse>();
+		AdresseDomicile adresseDomicile;
+		AdresseLivraison adresseLivraison;
 		Date dateBirthday;
 
 		BCryptPasswordEncoder bcrypt = new BCryptPasswordEncoder();
 		
-		newAdresse = new Adresse(numVoie, nomVoie, cp, city, country);
-		adresse = adresseRepo.findByAdresse(newAdresse.getNumVoie(), newAdresse.getNomVoie(), newAdresse.getCodePostal(), newAdresse.getCity(), newAdresse.getCountry());
-		if (adresse == null) {
-			adresseRepo.save(newAdresse);
-			adresse = adresseRepo.findByAdresse(newAdresse.getNumVoie(), newAdresse.getNomVoie(), newAdresse.getCodePostal(), newAdresse.getCity(), newAdresse.getCountry());
-		}
-		adresses.add(adresse);
+		
 		dateBirthday = Date.from((LocalDate.of(yyyy, mm, dd).atStartOfDay(ZoneId.systemDefault()).toInstant()));
-		users = new Users(nameUser,"{bcrypt}" + bcrypt.encode(pwd) , true, adresses, dateBirthday);
+		users = new Users(nameUser,"{bcrypt}" + bcrypt.encode(pwd) , true, dateBirthday);
+		
+		
+		adresseDomicile = new AdresseDomicile(users, numVoieDomicile, nomVoieDomicile, cpDomicile, cityDomicile, countryDomicile);
+		try {
+			adresseDomicileRepo.save(adresseDomicile);
+		} catch (Exception e) {
+			
+		}
+
+		adresseLivraison = new AdresseLivraison(users, numVoieLivraison, nomVoieLivraison, cpLivraison, cityLivraison, countryLivraison);
+		try {
+			adresseLivraisonRepo.save(adresseLivraison);
+		} catch (Exception e) {
+			
+		}
+
+		
 		authorities = new Authorities(users, typeRole);
 		try {
 			authoritiesRepo.save(authorities);
