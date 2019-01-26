@@ -62,12 +62,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 //.anyRequest().authenticated()
                 .and()
             .formLogin()
-                .loginPage("/signin") //.successHandler(successHandler)
+                .loginPage("/login") //.successHandler(successHandler)
                 .permitAll()
                 //.and()
                 //.antMatcher("/register").anonymous()
                 .and()
-                .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/signin");
+                .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/login");
     }
     
 //    @Autowired
