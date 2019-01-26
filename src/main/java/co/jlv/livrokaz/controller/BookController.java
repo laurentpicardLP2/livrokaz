@@ -26,6 +26,7 @@ import co.jlv.livrokaz.repository.AuthorRepository;
 import co.jlv.livrokaz.repository.GendleRepository;
 import co.jlv.livrokaz.repository.GoogleBookRepository;
 import co.jlv.livrokaz.repository.PublisherRepository;
+import co.jlv.livrokaz.services.GestionCategories;
 
 
 @RestController
@@ -78,16 +79,29 @@ public class BookController {
 		return ResponseEntity.status(HttpStatus.OK).body(listeLivres);
 	}
 	
-	@PostMapping("/gendle")
-	public ResponseEntity<?> addGendle(@Valid String gendleType1, @Valid String gendleType2) {
-		Gendle gendle = gendleRepo.findByGendle(gendleType1);
+	@PostMapping("/addgendle")
+	public ResponseEntity<?> addGendle(@Valid String entryCat, @Valid int nbBooks) {
+		
+		try {
+			GestionCategories.addCategrorie(entryCat, nbBooks, authorRepo, gendleRepo, googleBookRepo, publisherRepo);
+			return ResponseEntity.status(HttpStatus.OK).body(null);
+		} catch (Exception e) {
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+		}
+		
+		/*Gendle gendle = gendleRepo.findByGendle(gendleType1);
 		if (gendle == null) {
 			gendleRepo.save(new Gendle(gendleType1));
 			gendleRepo.save(new Gendle(gendleType2));
 			return ResponseEntity.status(HttpStatus.OK).body(gendleRepo.findByGendle(gendleType1));
 		} else {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
-		}
+		}*/
+		
+		/*
+		 * 
+		 * entCat, nbBooks, 
+		 */
 	}
 	
 	/**

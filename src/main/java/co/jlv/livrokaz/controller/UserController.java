@@ -38,7 +38,8 @@ public class UserController {
 	AdresseRepository adresseRepo;
 	
 	@PostMapping("/users")
-	public ResponseEntity<?> addUsers(@Valid String gendleType1, @Valid String gendleType2) {
+	public ResponseEntity<?> addUsers(@Valid String numVoie, @Valid String nomVoie, @Valid int cp, @Valid String city, @Valid String country, 
+		@Valid int yyyy, @Valid int mm, @Valid int dd, @Valid String nameUser, @Valid String pwd, @Valid String typeRole) {
 		Users users;
 		Authorities authorities;
 		Adresse adresse, newAdresse;
@@ -47,36 +48,35 @@ public class UserController {
 
 		BCryptPasswordEncoder bcrypt = new BCryptPasswordEncoder();
 		
-		newAdresse = new Adresse("50", "Rue Marx Dormoy", 92260, "Fontenay-aux-roses", "France");
+		newAdresse = new Adresse(numVoie, nomVoie, cp, city, country);
 		adresse = adresseRepo.findByAdresse(newAdresse.getNumVoie(), newAdresse.getNomVoie(), newAdresse.getCodePostal(), newAdresse.getCity(), newAdresse.getCountry());
 		if (adresse == null) {
 			adresseRepo.save(newAdresse);
 			adresse = adresseRepo.findByAdresse(newAdresse.getNumVoie(), newAdresse.getNomVoie(), newAdresse.getCodePostal(), newAdresse.getCity(), newAdresse.getCountry());
 		}
 		adresses.add(adresse);
-		dateBirthday = Date.from((LocalDate.of(1972, 5, 22).atStartOfDay(ZoneId.systemDefault()).toInstant()));
-		users = new Users("dbuser","{noop}books", true, adresses, dateBirthday);
-		try {
-			usersRepo.save(users);
-		} catch(Exception e) {
-			//TODO : gestion d'un utilisateur déjà existant
-		} 
-		authorities = new Authorities(users, "ROLE_USER");
+		dateBirthday = Date.from((LocalDate.of(yyyy, mm, dd).atStartOfDay(ZoneId.systemDefault()).toInstant()));
+		users = new Users(nameUser,"{bcrypt}" + bcrypt.encode(pwd) , true, adresses, dateBirthday);
+		authorities = new Authorities(users, typeRole);
 		try {
 			authoritiesRepo.save(authorities);
+			int x=1;
+			
 		} catch(Exception e) {
 			//TODO : gestion d'un utilisateur déjà existant
+			
 		}
 		
-		/*if (gendle == null) {
-			gendleRepo.save(new Gendle(gendleType1));
-			gendleRepo.save(new Gendle(gendleType2));
-			return ResponseEntity.status(HttpStatus.OK).body(gendleRepo.findByGendle(gendleType1));
-		} else {
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
-		}*/
 		
-		return ResponseEntity.status(HttpStatus.OK).body(null);
+		try {
+			usersRepo.save(users);
+			return ResponseEntity.status(HttpStatus.OK).body(null);
+		} catch(Exception e) {
+			//TODO : gestion d'un utilisateur déjà existant
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+		} 
+	
+		
 	}
 	
 
