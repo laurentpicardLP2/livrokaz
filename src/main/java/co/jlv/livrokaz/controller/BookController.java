@@ -21,7 +21,6 @@ import org.springframework.web.bind.annotation.RestController;
 import co.jlv.livrokaz.model.Author;
 import co.jlv.livrokaz.model.Gendle;
 import co.jlv.livrokaz.model.GoogleBook;
-import co.jlv.livrokaz.repository.AdresseDomicileRepository;
 import co.jlv.livrokaz.repository.AuthorRepository;
 import co.jlv.livrokaz.repository.GendleRepository;
 import co.jlv.livrokaz.repository.GoogleBookRepository;
@@ -32,9 +31,6 @@ import co.jlv.livrokaz.services.GestionCategories;
 @RestController
 @RequestMapping("/livrokaz")
 public class BookController {
-
-	@Autowired
-	AdresseDomicileRepository adresseRepo;
 
 	@Autowired
 	AuthorRepository authorRepo;

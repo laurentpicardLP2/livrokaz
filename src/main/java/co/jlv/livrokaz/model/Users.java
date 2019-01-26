@@ -17,6 +17,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.Valid;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -52,15 +53,56 @@ public class Users implements Serializable {
 
 	private String tel;
 	
+	private String numVoieDomicile;
+
+	private String nomVoieDomicile;
+
+	private int cpDomicile;
+
+	private String cityDomicile;
+
+	private String countryDomicile;
+	
+	private String numVoieLivraison;
+
+
+	private String nomVoieLivraison;
+
+	private int cpLivraison;
+
+	private String cityLivraison;
+
+	private String countryLivraison;
+
+
+	
 
 	public Users() {
 	}
 	
-	public Users(String username, String password, boolean enabled, Date dateBirthday) {
+	public Users(String username, String password, boolean enabled, 
+			String civility, String firstName, String lastName, String tel, Date dateBirthday,
+			String numVoieDomicile, String nomVoieDomicile, int cpDomicile, String cityDomicile, String countryDomicile,
+			String numVoieLivraison, String nomVoieLivraison, int cpLivraison, String cityLivraison, String countryLivraison
+			) {
 		this.username = username;
 		this.password = password;
 		this.enabled = enabled;
+		this.civility = civility;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.tel = tel;
 		this.dateBirthday = dateBirthday;
+		this.numVoieDomicile = numVoieDomicile;
+		this.nomVoieDomicile = nomVoieDomicile;
+		this.cpDomicile = cpDomicile;
+		this.cityDomicile = cityDomicile;
+		this.countryDomicile = countryDomicile;
+		this.numVoieLivraison = numVoieLivraison;
+		this.nomVoieLivraison = nomVoieLivraison;
+		this.cpLivraison = cpLivraison;
+		this.cityLivraison = cityLivraison;
+		this.countryLivraison = countryLivraison;
 	}
 
 
@@ -128,6 +170,86 @@ public class Users implements Serializable {
 		this.tel = tel;
 	}
 	
+	public String getNumVoieDomicile() {
+		return numVoieDomicile;
+	}
+
+	public void setNumVoieDomicile(String numVoieDomicile) {
+		this.numVoieDomicile = numVoieDomicile;
+	}
+
+	public String getNomVoieDomicile() {
+		return nomVoieDomicile;
+	}
+
+	public void setNomVoieDomicile(String nomVoieDomicile) {
+		this.nomVoieDomicile = nomVoieDomicile;
+	}
+
+	public int getCpDomicile() {
+		return cpDomicile;
+	}
+
+	public void setCpDomicile(int cpDomicile) {
+		this.cpDomicile = cpDomicile;
+	}
+
+	public String getCityDomicile() {
+		return cityDomicile;
+	}
+
+	public void setCityDomicile(String cityDomicile) {
+		this.cityDomicile = cityDomicile;
+	}
+
+	public String getCountryDomicile() {
+		return countryDomicile;
+	}
+
+	public void setCountryDomicile(String countryDomicile) {
+		this.countryDomicile = countryDomicile;
+	}
+
+	public String getNumVoieLivraison() {
+		return numVoieLivraison;
+	}
+
+	public void setNumVoieLivraison(String numVoieLivraison) {
+		this.numVoieLivraison = numVoieLivraison;
+	}
+
+	public String getNomVoieLivraison() {
+		return nomVoieLivraison;
+	}
+
+	public void setNomVoieLivraison(String nomVoieLivraison) {
+		this.nomVoieLivraison = nomVoieLivraison;
+	}
+
+	public int getCpLivraison() {
+		return cpLivraison;
+	}
+
+	public void setCpLivraison(int cpLivraison) {
+		this.cpLivraison = cpLivraison;
+	}
+
+	public String getCityLivraison() {
+		return cityLivraison;
+	}
+
+	public void setCityLivraison(String cityLivraison) {
+		this.cityLivraison = cityLivraison;
+	}
+
+	public String getCountryLivraison() {
+		return countryLivraison;
+	}
+
+	public void setCountryLivraison(String countryLivraison) {
+		this.countryLivraison = countryLivraison;
+	}
+
 	public List<Ordering> getOrderings() {
 		return this.orderings;
 	}

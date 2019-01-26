@@ -61,11 +61,7 @@ public class Authorities implements Serializable {
 	private String authority;
 	
 	
-	public Authorities( 
-			Users users, String authority) {
-		super();
-		
-		this.users = users;
+	public Authorities(String authority) {
 		this.authority = authority;
 	}
 
