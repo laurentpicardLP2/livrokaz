@@ -68,6 +68,24 @@ public class UserController {
 				
 	}
 	
+	
+	@PostMapping("/login")
+	public ResponseEntity<?> login() {
+		System.out.println("****************************************");
+		
+		try {
+			//authoritiesRepo.save(authorities);
+			return ResponseEntity.status(HttpStatus.OK).body("<html> Session</html>");
+			
+		} catch(Exception e) {
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+			
+		}
+		
+				
+	}
+	
+	
 
 	
 }
