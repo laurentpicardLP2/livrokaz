@@ -35,7 +35,7 @@ public class GestionCategories {
 	Gendle gendle;
 	Publisher publisher = null;
 	Author author;
-	List<Author> authors = new ArrayList<Author>();
+	
 	String sDate;
 	int availableQuantity;
 	String categorie;
@@ -77,6 +77,7 @@ public class GestionCategories {
 		System.out.println(authorRepo);
 
 		for (int v = 0; v < json.getJSONArray("items").length(); v++) {
+			List<Author> authors = new ArrayList<Author>();
 			try {
 				items = json.getJSONArray("items");
 				item = (JSONObject) items.get(v);
@@ -336,7 +337,6 @@ public class GestionCategories {
 			gb = new GoogleBook(gendle, publisher, authors, sDate, availableQuantity, categorie, codeISBN,
 					description, imgThumbnail, isEbook, langage, pageCount, price, textSnippet, title);
 			googleBookRepo.save(gb);
-
 			}
 		}
 	//}
