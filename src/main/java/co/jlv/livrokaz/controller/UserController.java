@@ -15,6 +15,13 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import co.jlv.livrokaz.model.Authorities;
 import co.jlv.livrokaz.model.Gendle;
@@ -31,6 +38,8 @@ public class UserController {
 	
 	@Autowired
 	UsersRepository usersRepo;
+	
+	public static HttpSession sessionUser;
 	
 	@PostMapping("/users")
 	public ResponseEntity<?> addUsers(@Valid String numVoieDomicile, @Valid String nomVoieDomicile, @Valid int cpDomicile,
@@ -63,19 +72,45 @@ public class UserController {
 		} catch(Exception e) {
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
 			
-		}
-		
+		}	
 				
 	}
 	
 	
-	@PostMapping("/login")
-	public ResponseEntity<?> login() {
-		System.out.println("****************************************");
+	@GetMapping("/test")
+    public void uid(HttpSession session) {
 		
+		
+		
+		
+    }
+	
+	
+	
+	@GetMapping("/login")
+	public ResponseEntity<?> login(HttpSession session,  HttpServletResponse httpResponse) {
+		System.out.println("sessionUser : " + sessionUser);
+		if (sessionUser == null) {
+			sessionUser = session;
+		}
+		
+		System.out.println("+++++++++++++++++ session.getId() " + session.getId());
+		
+		sessionUser = session;
+		sessionUser.setAttribute("livre",new Integer(1));
+		
+		Integer i = (Integer)sessionUser.getAttribute("livre");
+		System.out.println(" --------- i : " + i.intValue());
+		sessionUser.setMaxInactiveInterval(10);
+
+		//sessionUser.invalidate();
+		
+		
+        
 		try {
-			//authoritiesRepo.save(authorities);
-			return ResponseEntity.status(HttpStatus.OK).body("<html> Session</html>");
+			httpResponse.sendRedirect("/");
+			return null;
+			//return ResponseEntity.status(HttpStatus.OK).body("<html> Session</html>");
 			
 		} catch(Exception e) {
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);

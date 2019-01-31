@@ -12,11 +12,14 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @Configuration
 @EnableWebSecurity
@@ -59,6 +62,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/register").permitAll()
                 .antMatchers("/web/**").hasAnyRole("ADMIN", "MANAGER")
                 .antMatchers("/web/gestionbooks").hasAnyRole("ADMIN", "MANAGER")
+                .antMatchers("/livrokaz/**").hasAnyRole("ADMIN", "USER")
                 //.anyRequest().authenticated()
                 .and()
             .formLogin()
@@ -67,23 +71,21 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 //.and()
                 //.antMatcher("/register").anonymous()
                 .and()
-                .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/login");
+                .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/login")
+                .and()
+                .sessionManagement().maximumSessions(1).expiredUrl("/login");
+        
+	       http
+	        .sessionManagement()
+	        .maximumSessions(1)
+	        .expiredUrl("/login?expired")
+	        .maxSessionsPreventsLogin(true)
+	        .and()
+	        .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
+	        .invalidSessionUrl("/logout");
     }
+
     
-//    @Autowired
-//    public void configAuthentication(AuthenticationManagerBuilder auth) throws Exception {
-//		auth.inMemoryAuthentication()
-//			.withUser("user").password("{noop}simplon").roles("USER")
-//			.and()
-//			.withUser("developper").password("{noop}simplon").roles("DEVELOPPER")
-//			.and()
-//			.withUser("manager").password("{noop}simplon").roles("MANAGER")
-//			.and()
-//			.withUser("admin").password("{bcrypt}$2a$10$OhwFVfhBW0Rv2TUtS4UFSOtvMFbGnPPEFkFcKnXif9bBAfWFnKm16").roles("ADMIN");
-//    }
-   
-    
-	
 	@Bean
 	public DataSource dataSource() {
 		    final DriverManagerDataSource dataSource = new DriverManagerDataSource();
@@ -99,7 +101,23 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		    auth.jdbcAuthentication().dataSource(dataSource());
 		}
 	
-}	
+}
+    
+//    @Autowired
+//    public void configAuthentication(AuthenticationManagerBuilder auth) throws Exception {
+//		auth.inMemoryAuthentication()
+//			.withUser("user").password("{noop}simplon").roles("USER")
+//			.and()
+//			.withUser("developper").password("{noop}simplon").roles("DEVELOPPER")
+//			.and()
+//			.withUser("manager").password("{noop}simplon").roles("MANAGER")
+//			.and()
+//			.withUser("admin").password("{bcrypt}$2a$10$OhwFVfhBW0Rv2TUtS4UFSOtvMFbGnPPEFkFcKnXif9bBAfWFnKm16").roles("ADMIN");
+//    }
+   
+    
+	
+	
 	
 	
 //.antMatchers("/web/admin/**").hasAnyRole(ADMIN.toString(), GUEST.toString())
@@ -114,7 +132,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 
 	
-//
+
 //    @Bean
 //    @Override
 //    public UserDetailsService userDetailsService() {
@@ -138,19 +156,34 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 //				.and()
 //				.withUser("admin").password("{bcrypt}$2a$10$OhwFVfhBW0Rv2TUtS4UFSOtvMFbGnPPEFkFcKnXif9bBAfWFnKm16").roles("ADMIN");
 //	    }
+	
+//	@Bean
+//	public DataSource dataSource() {
+//		    final DriverManagerDataSource dataSource = new DriverManagerDataSource();
+//		    dataSource.setDriverClassName(env.getProperty("spring.datasource.driver-class-name"));
+//		    dataSource.setUrl(env.getProperty("spring.datasource.url"));
+//		    dataSource.setUsername(env.getProperty("spring.datasource.username"));
+//		    dataSource.setPassword(env.getProperty("spring.dasource.password"));
+//		    return dataSource;
+//		}
+//
+//		@Autowired
+//		public void configAuthentication(AuthenticationManagerBuilder auth) throws Exception {
+//		    auth.jdbcAuthentication().dataSource(dataSource());
+//		}
+//
 //		@Override
 //		protected void configure(HttpSecurity http) throws Exception {
-//	        http.authorizeRequests()
+//			http
+//        	.csrf().disable()
+//            .authorizeRequests()
 //	    	.antMatchers("/").permitAll()
-//	    	.antMatchers("/public").permitAll()
-//	    	.antMatchers("/deny").denyAll()
-//	    	.antMatchers("/developper").hasAnyAuthority("DEVELOPPER", "ADMIN")
-//	    	.antMatchers("/manager").hasAnyAuthority("MANAGER", "ADMIN")
-//	    	.antMatchers("/admin").hasAnyAuthority("ADMIN")
-//	    	.antMatchers("/error").hasAnyAuthority("ADMIN")
+//	    	.antMatchers("/web/**").hasAnyRole("ADMIN", "MANAGER")
 //	    	.anyRequest().authenticated()
 //	    	.and()
-//	    	.formLogin().permitAll()
+//          .formLogin()
+//              .loginPage("/login").permitAll()
 //	    	.and()
 //		    .exceptionHandling().accessDeniedPage("/error");
 //		}
+//}
