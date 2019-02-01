@@ -79,7 +79,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
      // postman : mettre  .antMatchers("/**").permitAll() + commenter le bloc ci-dessous
 	       http
 	        .sessionManagement()
-	        .maximumSessions(2) //.maximumSessions(Integer.MAX_VALUE)
+	        .maximumSessions(1) //.maximumSessions(Integer.MAX_VALUE)
 	        .expiredUrl("/login?expired")
 	        .maxSessionsPreventsLogin(true)
 	        .and()
