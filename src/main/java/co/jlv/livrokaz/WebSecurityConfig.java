@@ -60,7 +60,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .authorizeRequests() 
                 .antMatchers("/").permitAll()
                 .antMatchers("/userctrl/**").permitAll()
-                .antMatchers("/register").permitAll()
+                //.antMatchers("/register").permitAll()
                 .antMatchers("/web/**").hasAnyRole("ADMIN", "MANAGER")
                 .antMatchers("/web/gestionbooks").hasAnyRole("ADMIN", "MANAGER")
                 .antMatchers("/livrokaz/**").hasAnyRole("ADMIN", "USER", "MANAGER")
@@ -79,7 +79,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
      // postman : mettre  .antMatchers("/**").permitAll() + commenter le bloc ci-dessous
 	       http
 	        .sessionManagement()
-	        .maximumSessions(1)
+	        .maximumSessions(2) //.maximumSessions(Integer.MAX_VALUE)
 	        .expiredUrl("/login?expired")
 	        .maxSessionsPreventsLogin(true)
 	        .and()

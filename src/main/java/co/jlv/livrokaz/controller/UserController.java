@@ -101,12 +101,14 @@ public class UserController {
 	public ResponseEntity<?> login(HttpSession session,  HttpServletResponse httpResponse) {
 		System.out.println("sessionUser : " + sessionUser);
 		if (sessionUser == null) {
+			System.out.println("sessionUser == null");
 			sessionUser = session;
 			Authentication authentication = authenticationFacade.getAuthentication();
 			username = authentication.getName();
 		} 
 		
-		 
+		System.out.println("Integer.MAX_VALUE : " + Integer.MAX_VALUE);
+		
 		 
 		    
 		        
