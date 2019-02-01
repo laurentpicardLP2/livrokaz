@@ -126,7 +126,6 @@ public class UserController {
 
 		//sessionUser.invalidate();
 		
-		
         
 		try {
 			//httpResponse.sendRedirect("/livrokaz/username");
