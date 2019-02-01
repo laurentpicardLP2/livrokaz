@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
@@ -34,7 +35,7 @@ import co.jlv.livrokaz.repository.UsersRepository;
 import co.jlv.livrokaz.services.IAuthenticationFacade;
 
 @RestController
-@RequestMapping("/livrokaz")
+@RequestMapping("/userctrl")
 public class UserController {
 	
 	@Autowired
@@ -63,6 +64,7 @@ public class UserController {
 		BCryptPasswordEncoder bcrypt = new BCryptPasswordEncoder();
 		
 		
+		
 		dateBirthday = Date.from((LocalDate.of(yyyy, mm, dd).atStartOfDay(ZoneId.systemDefault()).toInstant()));
 		users = new Users(userName,"{bcrypt}" + bcrypt.encode(pwd) , true, 
 				civility, firstName, lastName, tel, dateBirthday, 
@@ -86,11 +88,10 @@ public class UserController {
 	}
 	
 	
-	@GetMapping("/test")
-    public void uid(HttpSession session) {
+	@GetMapping("/test/{name}")
+    public void uid(@PathVariable String name) {
 		
-		
-		
+		System.out.println(name);
 		
     }
 	

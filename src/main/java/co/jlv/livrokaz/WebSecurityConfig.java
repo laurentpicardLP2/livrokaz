@@ -57,13 +57,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
         	.csrf().disable()
-            .authorizeRequests() // postman : mettre  .antMatchers("/**").permitAll() + commenter le reste
+            .authorizeRequests() 
                 .antMatchers("/").permitAll()
-                .antMatchers("/livrokaz/users").permitAll()
+                .antMatchers("/userctrl/**").permitAll()
                 .antMatchers("/register").permitAll()
                 .antMatchers("/web/**").hasAnyRole("ADMIN", "MANAGER")
                 .antMatchers("/web/gestionbooks").hasAnyRole("ADMIN", "MANAGER")
                 .antMatchers("/livrokaz/**").hasAnyRole("ADMIN", "USER", "MANAGER")
+                
                 //.anyRequest().authenticated()
                 .and()
             .formLogin()
@@ -75,7 +76,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/login")
                 .and()
                 .sessionManagement().maximumSessions(1).expiredUrl("/login");
-        
+     // postman : mettre  .antMatchers("/**").permitAll() + commenter le bloc ci-dessous
 	       http
 	        .sessionManagement()
 	        .maximumSessions(1)
