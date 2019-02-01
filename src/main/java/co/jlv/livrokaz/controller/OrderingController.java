@@ -25,7 +25,7 @@ import co.jlv.livrokaz.services.IAuthenticationFacade;
 public class OrderingController {
 	
 	@Autowired
-	GoogleBookRepository googleBookRepo;
+	GoogleBookRepository googleBookRepo; 
 	
 	@Autowired
 	OrderingRepository orderingRepo;
