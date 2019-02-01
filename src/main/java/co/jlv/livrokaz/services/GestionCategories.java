@@ -52,10 +52,10 @@ public class GestionCategories {
 	//List<String> listCat = Arrays.asList("cooking", "thriller", "economics", "novels", "comics");
 	//for (String entryCat : listCat) {
 
-		//String url = "https://www.googleapis.com/books/v1/volumes?q=" + entryCat
-				//+ "&maxResults=" + nbBooks + "&key=AIzaSyAPOsreRHHdYcdZ4pX7YNXBujTndpGJF9k";
+		String url = "https://www.googleapis.com/books/v1/volumes?q=" + entryCat
+				+ "&maxResults=" + nbBooks + "&key=AIzaSyAPOsreRHHdYcdZ4pX7YNXBujTndpGJF9k";
 		
-		String url ="file:///home/laurent/eclipse-workspace/livrokaz/src/main/resources/json/" + entryCat + ".json";
+		//String url ="file:///home/laurent/eclipse-workspace/livrokaz/src/main/resources/json/" + entryCat + ".json";
 
 		String jsonText = IOUtils.toString(new URL(url), Charset.forName("UTF-8"));
 

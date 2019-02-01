@@ -28,7 +28,6 @@ public class SecurityController {
     public ResponseEntity<?> currentUserNameSimple( HttpServletResponse httpResponse) {
         Authentication authentication = authenticationFacade.getAuthentication();
         System.out.println(authentication.getName());
-       
         try {
         	httpResponse.sendRedirect("/");
             return null;

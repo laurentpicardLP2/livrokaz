@@ -11,9 +11,12 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,6 +31,7 @@ import co.jlv.livrokaz.model.Gendle;
 import co.jlv.livrokaz.model.Users;
 import co.jlv.livrokaz.repository.AuthoritiesRepository;
 import co.jlv.livrokaz.repository.UsersRepository;
+import co.jlv.livrokaz.services.IAuthenticationFacade;
 
 @RestController
 @RequestMapping("/livrokaz")
@@ -40,6 +44,11 @@ public class UserController {
 	UsersRepository usersRepo;
 	
 	public static HttpSession sessionUser;
+	
+	public static String username;
+	
+	@Autowired
+    private IAuthenticationFacade authenticationFacade;
 	
 	@PostMapping("/users")
 	public ResponseEntity<?> addUsers(@Valid String numVoieDomicile, @Valid String nomVoieDomicile, @Valid int cpDomicile,
@@ -92,7 +101,15 @@ public class UserController {
 		System.out.println("sessionUser : " + sessionUser);
 		if (sessionUser == null) {
 			sessionUser = session;
+			Authentication authentication = authenticationFacade.getAuthentication();
+			username = authentication.getName();
 		} 
+		
+		 
+		 
+		    
+		        
+		        System.out.println("username - autentication : " + username);
 		
 		System.out.println("+++++++++++++++++ session.getId() " + session.getId());
 		
@@ -108,7 +125,8 @@ public class UserController {
 		
         
 		try {
-			httpResponse.sendRedirect("/livrokaz/username");
+			//httpResponse.sendRedirect("/livrokaz/username");
+			httpResponse.sendRedirect("/");
 			return null;
 			//return ResponseEntity.status(HttpStatus.OK).body("<html> Session</html>");
 			
