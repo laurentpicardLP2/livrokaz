@@ -59,10 +59,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         	.csrf().disable()
             .authorizeRequests() // postman : mettre  .antMatchers("/**").permitAll() + commenter le reste
                 .antMatchers("/").permitAll()
+                .antMatchers("/livrokaz/users").permitAll()
                 .antMatchers("/register").permitAll()
                 .antMatchers("/web/**").hasAnyRole("ADMIN", "MANAGER")
                 .antMatchers("/web/gestionbooks").hasAnyRole("ADMIN", "MANAGER")
-                .antMatchers("/livrokaz/**").hasAnyRole("ADMIN", "USER")
+                .antMatchers("/livrokaz/**").hasAnyRole("ADMIN", "USER", "MANAGER")
                 //.anyRequest().authenticated()
                 .and()
             .formLogin()
