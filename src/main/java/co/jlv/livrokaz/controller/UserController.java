@@ -92,7 +92,7 @@ public class UserController {
 		System.out.println("sessionUser : " + sessionUser);
 		if (sessionUser == null) {
 			sessionUser = session;
-		}
+		} 
 		
 		System.out.println("+++++++++++++++++ session.getId() " + session.getId());
 		
@@ -101,14 +101,14 @@ public class UserController {
 		
 		Integer i = (Integer)sessionUser.getAttribute("livre");
 		System.out.println(" --------- i : " + i.intValue());
-		sessionUser.setMaxInactiveInterval(10);
+		//sessionUser.setMaxInactiveInterval(10);
 
 		//sessionUser.invalidate();
 		
 		
         
 		try {
-			httpResponse.sendRedirect("/");
+			httpResponse.sendRedirect("/livrokaz/username");
 			return null;
 			//return ResponseEntity.status(HttpStatus.OK).body("<html> Session</html>");
 			
