@@ -1,0 +1,736 @@
+{
+	"info": {
+		"_postman_id": "2cdd9d69-0920-451e-ac35-afe6dfc2e018",
+		"name": "userController",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "role_julien",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "numVoieDomicile",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "nomVoieDomicile",
+							"value": "Avenue Foch",
+							"type": "text"
+						},
+						{
+							"key": "cpDomicile",
+							"value": "92260",
+							"type": "text"
+						},
+						{
+							"key": "cityDomicile",
+							"value": "Fontenay-aux-roses",
+							"type": "text"
+						},
+						{
+							"key": "countryDomicile",
+							"value": "France",
+							"type": "text"
+						},
+						{
+							"key": "numVoieLivraison",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "nomVoieLivraison",
+							"value": "Avenue Foch",
+							"type": "text"
+						},
+						{
+							"key": "cpLivraison",
+							"value": "92260",
+							"type": "text"
+						},
+						{
+							"key": "cityLivraison",
+							"value": "Fontenay-aux-roses",
+							"type": "text"
+						},
+						{
+							"key": "countryLivraison",
+							"value": "France",
+							"type": "text"
+						},
+						{
+							"key": "yyyy",
+							"value": "1971",
+							"type": "text"
+						},
+						{
+							"key": "mm",
+							"value": "10",
+							"type": "text"
+						},
+						{
+							"key": "dd",
+							"value": "17",
+							"type": "text"
+						},
+						{
+							"key": "userName",
+							"value": "julien",
+							"type": "text"
+						},
+						{
+							"key": "pwd",
+							"value": "books",
+							"type": "text"
+						},
+						{
+							"key": "typeRole",
+							"value": "ROLE_ADMIN",
+							"type": "text"
+						},
+						{
+							"key": "civility",
+							"value": "M.",
+							"type": "text"
+						},
+						{
+							"key": "firstName",
+							"value": "florian",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "Kuzoma",
+							"type": "text"
+						},
+						{
+							"key": "tel",
+							"value": "06.14.66.73.24",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/userctrl/adduser",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"userctrl",
+						"adduser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "role_developper",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "numVoieDomicile",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "nomVoieDomicile",
+							"value": "Avenue Foch",
+							"type": "text"
+						},
+						{
+							"key": "cpDomicile",
+							"value": "92260",
+							"type": "text"
+						},
+						{
+							"key": "cityDomicile",
+							"value": "Fontenay-aux-roses",
+							"type": "text"
+						},
+						{
+							"key": "countryDomicile",
+							"value": "France",
+							"type": "text"
+						},
+						{
+							"key": "numVoieLivraison",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "nomVoieLivraison",
+							"value": "Avenue Foch",
+							"type": "text"
+						},
+						{
+							"key": "cpLivraison",
+							"value": "92260",
+							"type": "text"
+						},
+						{
+							"key": "cityLivraison",
+							"value": "Fontenay-aux-roses",
+							"type": "text"
+						},
+						{
+							"key": "countryLivraison",
+							"value": "France",
+							"type": "text"
+						},
+						{
+							"key": "yyyy",
+							"value": "1971",
+							"type": "text"
+						},
+						{
+							"key": "mm",
+							"value": "10",
+							"type": "text"
+						},
+						{
+							"key": "dd",
+							"value": "17",
+							"type": "text"
+						},
+						{
+							"key": "userName",
+							"value": "developper",
+							"type": "text"
+						},
+						{
+							"key": "pwd",
+							"value": "books",
+							"type": "text"
+						},
+						{
+							"key": "typeRole",
+							"value": "ROLE_DEVELOPPER",
+							"type": "text"
+						},
+						{
+							"key": "civility",
+							"value": "M.",
+							"type": "text"
+						},
+						{
+							"key": "firstName",
+							"value": "florian",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "Kuzoma",
+							"type": "text"
+						},
+						{
+							"key": "tel",
+							"value": "06.14.66.73.24",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/userctrl/adduser",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"userctrl",
+						"adduser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "role_manager",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "numVoieDomicile",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "nomVoieDomicile",
+							"value": "Avenue Foch",
+							"type": "text"
+						},
+						{
+							"key": "cpDomicile",
+							"value": "92260",
+							"type": "text"
+						},
+						{
+							"key": "cityDomicile",
+							"value": "Fontenay-aux-roses",
+							"type": "text"
+						},
+						{
+							"key": "countryDomicile",
+							"value": "France",
+							"type": "text"
+						},
+						{
+							"key": "numVoieLivraison",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "nomVoieLivraison",
+							"value": "Avenue Foch",
+							"type": "text"
+						},
+						{
+							"key": "cpLivraison",
+							"value": "92260",
+							"type": "text"
+						},
+						{
+							"key": "cityLivraison",
+							"value": "Fontenay-aux-roses",
+							"type": "text"
+						},
+						{
+							"key": "countryLivraison",
+							"value": "France",
+							"type": "text"
+						},
+						{
+							"key": "yyyy",
+							"value": "1971",
+							"type": "text"
+						},
+						{
+							"key": "mm",
+							"value": "10",
+							"type": "text"
+						},
+						{
+							"key": "dd",
+							"value": "17",
+							"type": "text"
+						},
+						{
+							"key": "userName",
+							"value": "manager",
+							"type": "text"
+						},
+						{
+							"key": "pwd",
+							"value": "books",
+							"type": "text"
+						},
+						{
+							"key": "typeRole",
+							"value": "ROLE_MANAGER",
+							"type": "text"
+						},
+						{
+							"key": "civility",
+							"value": "M.",
+							"type": "text"
+						},
+						{
+							"key": "firstName",
+							"value": "florian",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "Kuzoma",
+							"type": "text"
+						},
+						{
+							"key": "tel",
+							"value": "06.14.66.73.24",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/userctrl/adduser",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"userctrl",
+						"adduser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "role_admin",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "numVoieDomicile",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "nomVoieDomicile",
+							"value": "Avenue Foch",
+							"type": "text"
+						},
+						{
+							"key": "cpDomicile",
+							"value": "92260",
+							"type": "text"
+						},
+						{
+							"key": "cityDomicile",
+							"value": "Fontenay-aux-roses",
+							"type": "text"
+						},
+						{
+							"key": "countryDomicile",
+							"value": "France",
+							"type": "text"
+						},
+						{
+							"key": "numVoieLivraison",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "nomVoieLivraison",
+							"value": "Avenue Foch",
+							"type": "text"
+						},
+						{
+							"key": "cpLivraison",
+							"value": "92260",
+							"type": "text"
+						},
+						{
+							"key": "cityLivraison",
+							"value": "Fontenay-aux-roses",
+							"type": "text"
+						},
+						{
+							"key": "countryLivraison",
+							"value": "France",
+							"type": "text"
+						},
+						{
+							"key": "yyyy",
+							"value": "1971",
+							"type": "text"
+						},
+						{
+							"key": "mm",
+							"value": "10",
+							"type": "text"
+						},
+						{
+							"key": "dd",
+							"value": "17",
+							"type": "text"
+						},
+						{
+							"key": "userName",
+							"value": "admin",
+							"type": "text"
+						},
+						{
+							"key": "pwd",
+							"value": "books",
+							"type": "text"
+						},
+						{
+							"key": "typeRole",
+							"value": "ROLE_ADMIN",
+							"type": "text"
+						},
+						{
+							"key": "civility",
+							"value": "M.",
+							"type": "text"
+						},
+						{
+							"key": "firstName",
+							"value": "florian",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "Kuzoma",
+							"type": "text"
+						},
+						{
+							"key": "tel",
+							"value": "06.14.66.73.24",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/userctrl/adduser",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"userctrl",
+						"adduser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "role_user",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "numVoieDomicile",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "nomVoieDomicile",
+							"value": "Avenue Foch",
+							"type": "text"
+						},
+						{
+							"key": "cpDomicile",
+							"value": "92260",
+							"type": "text"
+						},
+						{
+							"key": "cityDomicile",
+							"value": "Fontenay-aux-roses",
+							"type": "text"
+						},
+						{
+							"key": "countryDomicile",
+							"value": "France",
+							"type": "text"
+						},
+						{
+							"key": "numVoieLivraison",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "nomVoieLivraison",
+							"value": "Avenue Foch",
+							"type": "text"
+						},
+						{
+							"key": "cpLivraison",
+							"value": "92260",
+							"type": "text"
+						},
+						{
+							"key": "cityLivraison",
+							"value": "Fontenay-aux-roses",
+							"type": "text"
+						},
+						{
+							"key": "countryLivraison",
+							"value": "France",
+							"type": "text"
+						},
+						{
+							"key": "yyyy",
+							"value": "1971",
+							"type": "text"
+						},
+						{
+							"key": "mm",
+							"value": "10",
+							"type": "text"
+						},
+						{
+							"key": "dd",
+							"value": "17",
+							"type": "text"
+						},
+						{
+							"key": "userName",
+							"value": "user",
+							"type": "text"
+						},
+						{
+							"key": "pwd",
+							"value": "books",
+							"type": "text"
+						},
+						{
+							"key": "typeRole",
+							"value": "ROLE_USER",
+							"type": "text"
+						},
+						{
+							"key": "civility",
+							"value": "M.",
+							"type": "text"
+						},
+						{
+							"key": "firstName",
+							"value": "florian",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "Kuzoma",
+							"type": "text"
+						},
+						{
+							"key": "tel",
+							"value": "06.14.66.73.24",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/userctrl/adduser",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"userctrl",
+						"adduser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "role_test",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "gendleType1",
+							"value": "geography",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "gendleType2",
+							"value": "history",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/userctrl/test/dsl",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"userctrl",
+						"test",
+						"dsl"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

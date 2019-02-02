@@ -51,7 +51,7 @@ public class UserController {
 	@Autowired
     private IAuthenticationFacade authenticationFacade;
 	
-	@PostMapping("/users")
+	@PostMapping("/adduser")
 	public ResponseEntity<?> addUsers(@Valid String numVoieDomicile, @Valid String nomVoieDomicile, @Valid int cpDomicile,
 		@Valid String cityDomicile, @Valid String countryDomicile, @Valid String numVoieLivraison,
 		@Valid String nomVoieLivraison, @Valid int cpLivraison, @Valid String cityLivraison, @Valid String countryLivraison,

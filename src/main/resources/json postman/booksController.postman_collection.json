@@ -1,0 +1,199 @@
+{
+	"info": {
+		"_postman_id": "1d6db563-3b14-4efc-ae84-2558809beeac",
+		"name": "booksController",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "cooking",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "entryCat",
+							"value": "cooking",
+							"type": "text"
+						},
+						{
+							"key": "nbBooks",
+							"value": "4",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/livrokaz/addgendle",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"livrokaz",
+						"addgendle"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "thriller",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "entryCat",
+							"value": "thriller",
+							"type": "text"
+						},
+						{
+							"key": "nbBooks",
+							"value": "4",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/livrokaz/addgendle",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"livrokaz",
+						"addgendle"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "economics",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "entryCat",
+							"value": "economics",
+							"type": "text"
+						},
+						{
+							"key": "nbBooks",
+							"value": "4",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/livrokaz/addgendle",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"livrokaz",
+						"addgendle"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "novels",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "entryCat",
+							"value": "novels",
+							"type": "text"
+						},
+						{
+							"key": "nbBooks",
+							"value": "4",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/livrokaz/addgendle",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"livrokaz",
+						"addgendle"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "comics",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "entryCat",
+							"value": "comics",
+							"type": "text"
+						},
+						{
+							"key": "nbBooks",
+							"value": "4",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/livrokaz/addgendle",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"livrokaz",
+						"addgendle"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

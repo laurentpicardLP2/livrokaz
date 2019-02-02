@@ -21,7 +21,7 @@ import co.jlv.livrokaz.repository.OrderingRepository;
 import co.jlv.livrokaz.services.IAuthenticationFacade;
 
 @RestController
-@RequestMapping("/livrokaz")
+@RequestMapping("/orderctrl")
 public class OrderingController {
 	
 	@Autowired
@@ -34,8 +34,8 @@ public class OrderingController {
     private IAuthenticationFacade authenticationFacade;
 
 	
-	@GetMapping("/orderbook/{idBook}")
-	public ResponseEntity<?> orderBook(@PathVariable int idBook, HttpSession session) throws Exception {
+	@PostMapping("/book")
+	public ResponseEntity<?> orderBook(@Valid int idBook, HttpSession session) throws Exception {
 		if (UserController.sessionUser == null) {
 			UserController.sessionUser = session;
 			Authentication authentication = authenticationFacade.getAuthentication();

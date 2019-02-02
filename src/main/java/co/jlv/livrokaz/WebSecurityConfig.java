@@ -58,14 +58,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
         	.csrf().disable()
             .authorizeRequests() 
+         // postman BookController et orderingController: mettre .antMatchers("/**").permitAll()
                 .antMatchers("/").permitAll()
                 .antMatchers("/userctrl/**").permitAll()
-                //.antMatchers("/register").permitAll()
+                //.antMatchers("/userctrl/test").permitAll()
+                .antMatchers("/orderctrl/**").hasAnyRole("ADMIN", "DEVELOPPER", "MANAGER", "USER")
                 .antMatchers("/web/**").hasAnyRole("ADMIN", "MANAGER")
                 .antMatchers("/web/gestionbooks").hasAnyRole("ADMIN", "MANAGER")
                 .antMatchers("/livrokaz/**").hasAnyRole("ADMIN", "USER", "MANAGER")
                 
-                //.anyRequest().authenticated()
+                .anyRequest().authenticated()
                 .and()
             .formLogin()
                 .loginPage("/login") //.successHandler(successHandler)
@@ -76,15 +78,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/login")
                 .and()
                 .sessionManagement().maximumSessions(1).expiredUrl("/login");
-     // postman : mettre  .antMatchers("/**").permitAll() + commenter le bloc ci-dessous
+    
 	       http
 	        .sessionManagement()
-	        .maximumSessions(1) //.maximumSessions(Integer.MAX_VALUE)
+	        .maximumSessions(2) //.maximumSessions(Integer.MAX_VALUE)
 	        .expiredUrl("/login?expired")
 	        .maxSessionsPreventsLogin(true)
 	        .and()
 	        .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
-	        .invalidSessionUrl("/logout");
+	       // postman : commenter la ligne ci-dessous
+	       .invalidSessionUrl("/logout");
     }
 
     
