@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
@@ -59,18 +60,21 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         	.csrf().disable()
             .authorizeRequests() 
          // postman BookController et orderingController: mettre .antMatchers("/**").permitAll()
-                .antMatchers("/").permitAll()
+                	.antMatchers("/").permitAll()
+                	.antMatchers("/login").permitAll()
                 .antMatchers("/userctrl/**").permitAll()
                 //.antMatchers("/userctrl/test").permitAll()
-                .antMatchers("/orderctrl/**").hasAnyRole("ADMIN", "DEVELOPPER", "MANAGER", "USER")
-                .antMatchers("/web/**").hasAnyRole("ADMIN", "MANAGER")
-                .antMatchers("/web/gestionbooks").hasAnyRole("ADMIN", "MANAGER")
-                .antMatchers("/livrokaz/**").hasAnyRole("ADMIN", "USER", "MANAGER")
+                .antMatchers("/orderctrl/**").hasAnyRole("ADMIN", "DEVELOPPER", "MANAGER")
+                .antMatchers("/web/**").hasAnyRole("ADMIN")
+                //.antMatchers("/web/gestionbooks").hasAnyRole("ADMIN", "MANAGER")
+                .antMatchers("/livrokaz/**").hasAnyRole("ADMIN", "MANAGER")
                 
                 .anyRequest().authenticated()
                 .and()
             .formLogin()
-                .loginPage("/login") //.successHandler(successHandler)
+                .loginPage("/login") 
+                .loginProcessingUrl("/loginsecure")
+                .defaultSuccessUrl("/index", true)
                 .permitAll()
                 //.and()
                 //.antMatcher("/register").anonymous()
@@ -88,6 +92,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	        .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
 	       // postman : commenter la ligne ci-dessous
 	       .invalidSessionUrl("/logout");
+    }
+    
+    @Override
+    @Bean
+    public AuthenticationManager authenticationManagerBean() throws Exception {
+        return super.authenticationManagerBean();
     }
 
     

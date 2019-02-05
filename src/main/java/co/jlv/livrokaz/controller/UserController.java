@@ -9,11 +9,16 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -43,6 +48,9 @@ public class UserController {
 	
 	@Autowired
 	UsersRepository usersRepo;
+	
+	@Autowired
+	AuthenticationManager authenticationManager;
 	
 	public static HttpSession sessionUser;
 	
@@ -95,6 +103,39 @@ public class UserController {
 		
     }
 	
+	@PostMapping("/loginsecure")
+    public String loginSecure(@Valid String username, @Valid  String password, HttpSession session,  HttpServletResponse httpResponse) {
+		System.out.println("username " + username + " password " + password);
+        //does the authentication
+		if(username.contains(",")) {
+			username = username.split(",")[0];
+		}
+		if(password.contains(",")) {
+			password = password.split(",")[0];
+		}
+        final Authentication authentication = authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(
+                        username,
+                        password
+                )
+        );
+        System.out.println("security username " + username + " password " + password);
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+        
+        
+        if (sessionUser == null) {
+			System.out.println("sessionUser == null");
+			sessionUser = session;
+			Authentication authenticationGetUsername = authenticationFacade.getAuthentication();
+			
+			username = authenticationGetUsername.getName();
+		} 
+        System.out.println("username - autentication : " + username);
+		System.out.println("+++++++++++++++++ session.getId() " + session.getId());
+        return "index";
+    }
+	
+
 	
 	
 	@GetMapping("/login")
