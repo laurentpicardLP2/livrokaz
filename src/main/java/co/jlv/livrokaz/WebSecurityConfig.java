@@ -60,7 +60,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         	.csrf().disable()
             .authorizeRequests() 
          // postman BookController et orderingController: mettre .antMatchers("/**").permitAll()
-                	.antMatchers("/").permitAll()
+                	.antMatchers("/**").permitAll()
                 	.antMatchers("/login").permitAll()
                 .antMatchers("/userctrl/**").permitAll()
                 //.antMatchers("/userctrl/test").permitAll()
@@ -89,9 +89,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	        .expiredUrl("/login?expired")
 	        .maxSessionsPreventsLogin(true)
 	        .and()
-	        .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
+	        .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED);
 	       // postman : commenter la ligne ci-dessous
-	       .invalidSessionUrl("/logout");
+//	       .invalidSessionUrl("/logout");
     }
     
     @Override
