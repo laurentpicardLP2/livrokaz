@@ -22,4 +22,10 @@ public class AuthorServiceImpl implements AuthorService {
         // TODO Auto-generated method stub
         return this.authorRepo.findAll();
     }
+    
+    public Author saveAuthor(Author author) {
+		return this.authorRepo.save(author);
+	}
+    
+   
 }
