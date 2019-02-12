@@ -12,15 +12,15 @@ public class GendleServiceImpl implements GendleService {
 
 
 
-    private GendleRepository gendleRepo;
+	private GendleRepository gendleRepo;
 
-    public GendleServiceImpl(GendleRepository gendleRepository) {
-        this.gendleRepo = gendleRepository;
-    }
+	public GendleServiceImpl(GendleRepository gendleRepository) {
+		this.gendleRepo = gendleRepository;
+	}
 
 
-    public List<Gendle> getAllGendles() {
-   
-        return this.gendleRepo.findAll();
-    }
+	public List<Gendle> getAllGendles() {
+
+		return this.gendleRepo.findAll();
+	}
 }

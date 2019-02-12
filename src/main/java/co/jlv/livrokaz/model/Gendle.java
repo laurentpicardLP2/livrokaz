@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 /**
  * The persistent class for the Gendle database table.
@@ -53,7 +55,7 @@ public class Gendle implements Serializable {
 	public void setTypeGendle(String typeGendle) {
 		this.typeGendle = typeGendle;
 	}
-
+	@JsonIgnore
 	public List<GoogleBook> getGoogleBooks() {
 		return this.googleBooks;
 	}
