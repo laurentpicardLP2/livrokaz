@@ -27,5 +27,9 @@ public class AuthorServiceImpl implements AuthorService {
 		return this.authorRepo.save(author);
 	}
     
+    public void deleteAuthor(Author author) {
+    	this.authorRepo.deleteById(Integer.valueOf(author.getAuthorId()));
+    }
+    
    
 }

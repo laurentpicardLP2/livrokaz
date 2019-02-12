@@ -9,5 +9,7 @@ public interface AuthorService {
 	public List<Author> getAllAuthors();
 	
 	public Author saveAuthor(Author author);
+	
+	public void deleteAuthor(Author author);
 
 }
