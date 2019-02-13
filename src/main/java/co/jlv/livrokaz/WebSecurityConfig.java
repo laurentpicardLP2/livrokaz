@@ -60,14 +60,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         	.csrf().disable()
             .authorizeRequests() 
          // postman BookController et orderingController: mettre .antMatchers("/**").permitAll()
-                	.antMatchers("/**").permitAll()
-                	.antMatchers("/login").permitAll()
+                	//.antMatchers("/**").hasAnyRole("ADMIN", "DEVELOPPER", "MANAGER", "USER")
+            	.antMatchers("/**").permitAll()
+                .antMatchers("/login").permitAll()
                 .antMatchers("/userctrl/**").permitAll()
                 //.antMatchers("/userctrl/test").permitAll()
-                .antMatchers("/orderctrl/**").hasAnyRole("ADMIN", "DEVELOPPER", "MANAGER")
+                .antMatchers("/orderctrl/**").hasAnyRole("ADMIN", "DEVELOPPER", "MANAGER", "ANONYMOUS")
                 .antMatchers("/web/**").hasAnyRole("ADMIN")
                 //.antMatchers("/web/gestionbooks").hasAnyRole("ADMIN", "MANAGER")
-                .antMatchers("/livrokaz/**").hasAnyRole("ADMIN", "MANAGER")
+                .antMatchers("/livrokaz/**").hasAnyRole("ADMIN", "DEVELOPPER", "MANAGER", "ANONYMOUS")
                 
                 .anyRequest().authenticated()
                 .and()
@@ -91,7 +92,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	        .and()
 	        .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED);
 	       // postman : commenter la ligne ci-dessous
-//	       .invalidSessionUrl("/logout");
+	       //.invalidSessionUrl("/logout");
     }
     
     @Override
