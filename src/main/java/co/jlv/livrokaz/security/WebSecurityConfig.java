@@ -108,7 +108,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/orderctrl/**").hasAnyRole("ADMIN", "DEVELOPPER", "MANAGER", "ANONYMOUS")
                 .antMatchers("/web/**").hasAnyRole("ADMIN")
                 //.antMatchers("/web/gestionbooks").hasAnyRole("ADMIN", "MANAGER")
-                .antMatchers("/livrokaz/**").hasAnyRole("ADMIN", "DEVELOPPER", "MANAGER", "ANONYMOUS")
+                .antMatchers("/livrokaz/**").hasAnyRole("ADMIN", "DEVELOPPER", "MANAGER")
                 
                 
                 .antMatchers(SIGN_UP_URLS).permitAll()

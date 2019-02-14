@@ -78,7 +78,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                 SecurityContextHolder.getContext().setAuthentication(authenticationToken);
                 
                 
-                SimpleGrantedAuthority authority = new SimpleGrantedAuthority("ROLE_ADMIN");
+                SimpleGrantedAuthority authority = new SimpleGrantedAuthority("ROLE_USER");
                 List<SimpleGrantedAuthority> updatedAuthorities = new ArrayList<SimpleGrantedAuthority>();
                 updatedAuthorities.add(authority);
 

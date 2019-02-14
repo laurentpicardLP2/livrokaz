@@ -91,7 +91,7 @@ public class UserController {
 		
 		
 		dateBirthday = Date.from((LocalDate.of(yyyy, mm, dd).atStartOfDay(ZoneId.systemDefault()).toInstant()));		
-		id =  LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant().toEpochMilli();
+		id =  (LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant().toEpochMilli())/100;
 		users = new Users(id, userName,"{bcrypt}" + bcrypt.encode(pwd) , true, 
 				civility, firstName, lastName, tel, dateBirthday, 
 				numVoieDomicile, nomVoieDomicile, cpDomicile, cityDomicile, countryDomicile,
