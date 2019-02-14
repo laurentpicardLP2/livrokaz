@@ -59,19 +59,20 @@ public class BookController {
 	
 	@GetMapping("/authors/{bookId}")
 	public ResponseEntity<?> getAuthorsByBook(@PathVariable Integer bookId) {
-		List<Author> listeLivres = null;
+		List<Author> listeAuteurs = null;
 		try {
 			Optional<GoogleBook> gbOpt = googleBookRepo.findById(bookId);
 			if(gbOpt.isPresent()) {
 				GoogleBook gbEff = gbOpt.get();
-				listeLivres = gbEff.getAuthors();
+				listeAuteurs = gbEff.getAuthors();
 			}
-			//listeLivres = (List<GoogleBook>) GoogleBookRepo.findAll();
+			
 
 		} catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
 		}
-		return ResponseEntity.status(HttpStatus.OK).body(listeLivres);
+		System.out.println("************************" + listeAuteurs);
+		return ResponseEntity.status(HttpStatus.OK).body(listeAuteurs);//listeLivres = (List<GoogleBook>) GoogleBookRepo.findAll();
 	}
 	
 	@PostMapping("/addgendle")

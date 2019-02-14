@@ -83,17 +83,17 @@ public class UserController {
 		@Valid String civility, @Valid String firstName, @Valid String lastName, @Valid String tel) {
 		Users users;
 		Authorities authorities;
-		Date dateBirthday;
+		
 		Long id;
 
 		BCryptPasswordEncoder bcrypt = new BCryptPasswordEncoder();
 		
 		
 		
-		dateBirthday = Date.from((LocalDate.of(yyyy, mm, dd).atStartOfDay(ZoneId.systemDefault()).toInstant()));		
-		id =  (LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant().toEpochMilli())/100;
+			
+		id =  (LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant().toEpochMilli())/1000;
 		users = new Users(id, userName,"{bcrypt}" + bcrypt.encode(pwd) , true, 
-				civility, firstName, lastName, tel, dateBirthday, 
+				civility, firstName, lastName, tel, yyyy,mm, dd, 
 				numVoieDomicile, nomVoieDomicile, cpDomicile, cityDomicile, countryDomicile,
 				numVoieLivraison, nomVoieLivraison, cpLivraison, cityLivraison, countryLivraison
 				);
@@ -204,15 +204,6 @@ public class UserController {
         System.out.println(authentication.toString());
         
        
-        /*if (sessionUser == null) {
-			System.out.println("sessionUser == null");
-			sessionUser = session;
-			Authentication authenticationGetUsername = authenticationFacade.getAuthentication();
-			
-			username = authenticationGetUsername.getName();
-		} 
-        System.out.println("username - autentication : " + username);
-		System.out.println("+++++++++++++++++ session.getId() " + session.getId());*/
         return "index";
     }
 	

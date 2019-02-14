@@ -39,14 +39,12 @@ public class AuthorController {
 	}
 	
 	@PostMapping("/addauthor")
-	public ResponseEntity<?> creataAuthor(@RequestBody Author newAuthor) {
-				
+	public ResponseEntity<?> creataAuthor(@RequestBody Author newAuthor) {				
 		try {
 			return ResponseEntity.ok(this.authorService.saveAuthor(newAuthor)) ;
 		} catch (Exception e) {
 			return ResponseEntity.badRequest().build();
 		}
-				
 	}
 	
 	/**

@@ -54,8 +54,13 @@ public class Users implements Serializable, UserDetails {
 	
 	private String civility;
 
-	@Temporal(TemporalType.DATE)
-	private Date dateBirthday;
+	
+	private int yyyy;
+	
+
+	private int mm;
+	
+	private int dd;
 
 	private String firstName;
 
@@ -91,7 +96,7 @@ public class Users implements Serializable, UserDetails {
 	}
 	
 	public Users(Long id, String username, String password, boolean enabled, 
-			String civility, String firstName, String lastName, String tel, Date dateBirthday,
+			String civility, String firstName, String lastName, String tel, int yyyy,int mm, int dd,
 			String numVoieDomicile, String nomVoieDomicile, int cpDomicile, String cityDomicile, String countryDomicile,
 			String numVoieLivraison, String nomVoieLivraison, int cpLivraison, String cityLivraison, String countryLivraison
 			) {
@@ -103,7 +108,9 @@ public class Users implements Serializable, UserDetails {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.tel = tel;
-		this.dateBirthday = dateBirthday;
+		this.yyyy = yyyy;
+		this.mm= mm;
+		this.dd=dd;
 		this.numVoieDomicile = numVoieDomicile;
 		this.nomVoieDomicile = nomVoieDomicile;
 		this.cpDomicile = cpDomicile;
@@ -157,13 +164,6 @@ public class Users implements Serializable, UserDetails {
 		this.civility = civility;
 	}
 
-	public Date getDateBirthday() {
-		return this.dateBirthday;
-	}
-
-	public void setDateBirthday(Date dateBirthday) {
-		this.dateBirthday = dateBirthday;
-	}
 
 	public String getFirstName() {
 		return this.firstName;
@@ -269,6 +269,31 @@ public class Users implements Serializable, UserDetails {
 		this.countryLivraison = countryLivraison;
 	}
 
+	public int getYyyy() {
+		return yyyy;
+	}
+
+	public void setYyyy(int yyyy) {
+		this.yyyy = yyyy;
+	}
+
+	public int getMm() {
+		return mm;
+	}
+
+	public void setMm(int mm) {
+		this.mm = mm;
+	}
+
+	public int getDd() {
+		return dd;
+	}
+
+	public void setDd(int dd) {
+		this.dd = dd;
+	}
+
+	
 	public List<Ordering> getOrderings() {
 		return this.orderings;
 	}

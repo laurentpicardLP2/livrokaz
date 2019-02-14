@@ -1,31 +1,27 @@
 package co.jlv.livrokaz.security;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
-import org.springframework.util.StringUtils;
-import org.springframework.web.filter.OncePerRequestFilter;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import static co.jlv.livrokaz.security.SecurityConstants.HEADER_STRING;
+import static co.jlv.livrokaz.security.SecurityConstants.TOKEN_PREFIX;
 
-import co.jlv.livrokaz.model.Users;
-import co.jlv.livrokaz.services.CustomUserDetailsService;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
 
-import static co.jlv.livrokaz.security.SecurityConstants.HEADER_STRING;
-import static co.jlv.livrokaz.security.SecurityConstants.TOKEN_PREFIX;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.util.StringUtils;
+import org.springframework.web.filter.OncePerRequestFilter;
+
+import co.jlv.livrokaz.model.Users;
+import co.jlv.livrokaz.services.CustomUserDetailsService;
 
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
