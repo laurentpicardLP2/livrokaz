@@ -1,10 +1,32 @@
 package co.jlv.livrokaz.model;
 
+
+
 public class UserFront {
-	private String username;
-	private String password;
 	
-	
+	private long id;
+    public String username;
+    public String password;
+    public String role;
+    public String token;
+    
+    
+    
+    
+	public UserFront(long id, String username, String password, String role, String token) {
+		super();
+		this.id = id;
+		this.username = username;
+		this.password = password;
+		this.role = role;
+		this.token = token;
+	}
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
 	public String getUsername() {
 		return username;
 	}
@@ -17,5 +39,19 @@ public class UserFront {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	public String getRole() {
+		return role;
+	}
+	public void setRole(String role) {
+		this.role = role;
+	}
+	public String getToken() {
+		return token;
+	}
+	public void setToken(String token) {
+		this.token = token;
+	}
+	
+	
 	
 }

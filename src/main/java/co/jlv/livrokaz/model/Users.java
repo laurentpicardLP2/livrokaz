@@ -1,23 +1,22 @@
 package co.jlv.livrokaz.model;
 
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -28,16 +27,27 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
  */
 @Entity
 @NamedQuery(name="Users.findAll", query="SELECT u FROM Users u")
-public class Users implements Serializable {
+public class Users implements Serializable, UserDetails {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@NotNull
+	@Column(name = "id", unique = true)
+    private long id;
 	
 	@Id
+	@Column(unique=true)
+	@NotBlank(message = "Login ne doit pas être vide")
 	private String username;
 	
 	//bi-directional many-to-one association to Ordering
 	@OneToMany(mappedBy="users")
 	private List<Ordering> orderings;
 	
-	
+	@NotBlank(message = "Mot de passe ne doit pas être vide")
 	private  String password;
 	
 	private boolean enabled;
@@ -80,11 +90,12 @@ public class Users implements Serializable {
 	public Users() {
 	}
 	
-	public Users(String username, String password, boolean enabled, 
+	public Users(Long id, String username, String password, boolean enabled, 
 			String civility, String firstName, String lastName, String tel, Date dateBirthday,
 			String numVoieDomicile, String nomVoieDomicile, int cpDomicile, String cityDomicile, String countryDomicile,
 			String numVoieLivraison, String nomVoieLivraison, int cpLivraison, String cityLivraison, String countryLivraison
 			) {
+		this.id = id;
 		this.username = username;
 		this.password = password;
 		this.enabled = enabled;
@@ -105,6 +116,14 @@ public class Users implements Serializable {
 		this.countryLivraison = countryLivraison;
 	}
 
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
 
 	public String getUsername() {
 		return this.username;
@@ -271,5 +290,35 @@ public class Users implements Serializable {
 
 		return ordering;
 	}
+	
+	@Override
+    @JsonIgnore
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return null;
+    }
+
+    @Override
+    @JsonIgnore
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    @JsonIgnore
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    @JsonIgnore
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    @JsonIgnore
+    public boolean isEnabled() {
+        return true;
+    }
 
 }

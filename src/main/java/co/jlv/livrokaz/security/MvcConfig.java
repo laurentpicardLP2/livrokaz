@@ -1,4 +1,4 @@
-package co.jlv.livrokaz;
+package co.jlv.livrokaz.security;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
