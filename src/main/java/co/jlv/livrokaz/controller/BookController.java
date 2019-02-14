@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import co.jlv.livrokaz.model.Author;
+import co.jlv.livrokaz.model.Gendle;
 import co.jlv.livrokaz.model.GoogleBook;
 import co.jlv.livrokaz.repository.AuthorRepository;
 import co.jlv.livrokaz.repository.GendleRepository;
@@ -56,6 +57,24 @@ public class BookController {
 		}
 		return ResponseEntity.status(HttpStatus.OK).body(listeLivres);
 	}
+	              
+	@GetMapping("/googlebooksbygendle/{gendleId}")
+	public ResponseEntity<?> getBooksByGendle(@PathVariable Integer gendleId) {
+				
+		List<GoogleBook> listeGoogleBooks = null;
+		try {
+			Optional<Gendle> gbOpt = gendleRepo.findById(gendleId.intValue());
+			if(gbOpt.isPresent()) {
+				listeGoogleBooks = (List<GoogleBook>) gbOpt.get().getGoogleBooks();
+				
+			}
+		} catch (Exception e) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+		}
+		return ResponseEntity.status(HttpStatus.OK).body(listeGoogleBooks);
+	}
+	
+	
 	
 	@GetMapping("/authors/{bookId}")
 	public ResponseEntity<?> getAuthorsByBook(@PathVariable Integer bookId) {
@@ -71,7 +90,6 @@ public class BookController {
 		} catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
 		}
-		System.out.println("************************" + listeAuteurs);
 		return ResponseEntity.status(HttpStatus.OK).body(listeAuteurs);//listeLivres = (List<GoogleBook>) GoogleBookRepo.findAll();
 	}
 	
