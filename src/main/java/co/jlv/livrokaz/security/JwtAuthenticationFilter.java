@@ -62,13 +62,8 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                 
                 List<?> role = tokenProvider.getAuthoritariesFroJWT(jwt);
                 for (int i=0; i< role.size();i++) {
-                	System.out.println("JwtAuthenticationFilter ---------role " + role.get(i));
-                	typeRole = role.get(i);
+                	typeRole = role.get(i).toString();
                 }
-               /* Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-                if (principal instanceof UserDetails) {
-                    ((UserDetails) principal).getAuthorities().add(New GrantedAuthorityImpl("ROLE_FOO"));
-                }*/
                 
                 UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(
                 		users.getUsername(),
@@ -77,8 +72,10 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                 
                 SecurityContextHolder.getContext().setAuthentication(authenticationToken);
                 
-                
-                SimpleGrantedAuthority authority = new SimpleGrantedAuthority("ROLE_USER");
+                typeRole = typeRole.toString().split("=")[1];
+                typeRole = typeRole.toString().substring(0, typeRole.toString().length() - 1);
+                		
+                SimpleGrantedAuthority authority = new SimpleGrantedAuthority(typeRole.toString());
                 List<SimpleGrantedAuthority> updatedAuthorities = new ArrayList<SimpleGrantedAuthority>();
                 updatedAuthorities.add(authority);
 
@@ -91,15 +88,6 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                                 updatedAuthorities)
                 );
     	        
-                
-//                UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(
-//                		users, null, Collections.emptyList()
-//                );
-                
-                
-                
-                //authenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(httpServletRequest));
-                //SecurityContextHolder.getContext().setAuthentication(authenticationToken);
                 System.out.println("JwtAuthenticationFilter --------- authenticationToken " + authenticationToken.getName());
                 System.out.println("JwtAuthenticationFilter --------- getCredentials " + authenticationToken.getCredentials());
                 System.out.println("JwtAuthenticationFilter --------- getAuthorities " + authenticationToken.getAuthorities());
