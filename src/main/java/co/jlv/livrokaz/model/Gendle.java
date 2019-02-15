@@ -27,6 +27,8 @@ public class Gendle implements Serializable {
 	private int gendleId;
 
 	private String typeGendle;
+	
+	private int nbBooks;
 
 	//bi-directional many-to-one association to GoogleBook
 	@OneToMany(mappedBy="gendle")
@@ -37,6 +39,11 @@ public class Gendle implements Serializable {
 	
 	public Gendle(String typeGendle) {
 		this.typeGendle = typeGendle;
+	}
+	
+	public Gendle(String typeGendle, int nbBooks) {
+		this.typeGendle = typeGendle;
+		this.nbBooks = nbBooks;
 	}
 
 
@@ -55,6 +62,16 @@ public class Gendle implements Serializable {
 	public void setTypeGendle(String typeGendle) {
 		this.typeGendle = typeGendle;
 	}
+	
+	
+	public int getNbBooks() {
+		return nbBooks;
+	}
+
+	public void setNbBooks(int nbBooks) {
+		this.nbBooks = nbBooks;
+	}
+
 	@JsonIgnore
 	public List<GoogleBook> getGoogleBooks() {
 		return this.googleBooks;

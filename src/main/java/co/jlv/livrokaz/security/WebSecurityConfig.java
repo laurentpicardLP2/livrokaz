@@ -110,7 +110,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 //.antMatchers("/web/gestionbooks").hasAnyRole("ADMIN", "MANAGER")
                 .antMatchers("/livrokaz/**").hasAnyRole("ADMIN", "DEVELOPPER", "MANAGER")
                 
-                
                 .antMatchers(SIGN_UP_URLS).permitAll()
                 .anyRequest().authenticated();
 

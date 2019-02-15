@@ -102,20 +102,6 @@ public class BookController {
 		} catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
 		}
-		
-		/*Gendle gendle = gendleRepo.findByGendle(gendleType1);
-		if (gendle == null) {
-			gendleRepo.save(new Gendle(gendleType1));
-			gendleRepo.save(new Gendle(gendleType2));
-			return ResponseEntity.status(HttpStatus.OK).body(gendleRepo.findByGendle(gendleType1));
-		} else {
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
-		}*/
-		
-		/*
-		 * 
-		 * entCat, nbBooks, 
-		 */
 	}
 	
 	/**

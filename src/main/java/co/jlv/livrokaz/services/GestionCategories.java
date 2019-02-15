@@ -119,7 +119,7 @@ public class GestionCategories {
 
 			gendle = gendleRepo.findByGendle(entryCat);
 			if (gendle == null) {
-				gendleRepo.save(new Gendle(entryCat));
+				gendleRepo.save(new Gendle(entryCat, nbBooks));
 				gendle = gendleRepo.findByGendle(entryCat);
 			}
 
