@@ -52,9 +52,9 @@ public class GendleController {
 	
 	@PostMapping("/newgendle")
 	public ResponseEntity<?> createGendle(@RequestBody Gendle newGendle) {
-		System.out.println(" ùùùùùùùùùù newGendle" + newGendle);
 		try {
-			GestionCategories.addCategrorie(newGendle.getTypeGendle(), newGendle.getNbBooks(), authorRepo, gendleRepo, googleBookRepo, publisherRepo);
+			// par isbn : GestionCategories.addCategrorie(entryCat, nbBooks, "1439149739",  authorRepo, gendleRepo, googleBookRepo, publisherRepo);
+			GestionCategories.addCategrorie(newGendle.getTypeGendle(), newGendle.getNbBooks(), "", authorRepo, gendleRepo, googleBookRepo, publisherRepo);
 			return ResponseEntity.status(HttpStatus.OK).body(newGendle);
 		} catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);

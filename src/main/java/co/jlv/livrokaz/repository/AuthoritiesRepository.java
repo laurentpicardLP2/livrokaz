@@ -7,4 +7,6 @@ import co.jlv.livrokaz.model.Authorities;
 
 public interface AuthoritiesRepository extends JpaRepository<Authorities, String>{
 
+	void deleteByUsername(String username);
+
 }

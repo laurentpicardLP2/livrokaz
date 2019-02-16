@@ -24,7 +24,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 
     @Transactional
     public Users loadUserById(Long id){
-        Users users = usersRepository.getById(id);
+        Users users = usersRepository.getByUsersId(id);
         if(users == null)
             new UsernameNotFoundException("Utilisateur introuvable !!!");
         return users;

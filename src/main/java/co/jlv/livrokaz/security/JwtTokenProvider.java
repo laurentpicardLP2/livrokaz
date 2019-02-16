@@ -24,7 +24,7 @@ public class JwtTokenProvider {
         Date now = new Date(System.currentTimeMillis());
         Date expireDate = new Date(now.getTime() + TOKEN_EXPIRATION_TIME);
         Map<String, Object>claims = new HashMap<>();
-        claims.put("id", (Long.toString(users.getId())));
+        claims.put("id", (Long.toString(users.getUsersId())));
         claims.put("username", users.getUsername());
         claims.put("role", users.getAuthorities());
         return Jwts.builder()

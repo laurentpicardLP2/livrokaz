@@ -27,7 +27,7 @@ import co.jlv.livrokaz.repository.UsersRepository;
 
 public class GestionCategories {
 	
-	public static void addCategrorie(String entryCat, int nbBooks, AuthorRepository authorRepo, GendleRepository gendleRepo,
+	public static void addCategrorie(String entryCat, int nbBooks, String entryCodeIsbn, AuthorRepository authorRepo, GendleRepository gendleRepo,
 			GoogleBookRepository googleBookRepo, PublisherRepository publisherRepo) throws MalformedURLException, IOException {
 	
 	GoogleBook gb;
@@ -47,22 +47,25 @@ public class GestionCategories {
 	double price;
 	String textSnippet;
 	String title;
+	String url;
 
 
 	//List<String> listCat = Arrays.asList("cooking", "thriller", "economics", "novels", "comics");
 	//for (String entryCat : listCat) {
 
-		String url = "https://www.googleapis.com/books/v1/volumes?q=" + entryCat
-				+ "&maxResults=" + nbBooks + "&key=AIzaSyAPOsreRHHdYcdZ4pX7YNXBujTndpGJF9k";
+		if (entryCodeIsbn.length() == 0) {
+			url = "https://www.googleapis.com/books/v1/volumes?q=" + entryCat
+					+ "&maxResults=" + nbBooks + "&key=AIzaSyAPOsreRHHdYcdZ4pX7YNXBujTndpGJF9k";
+		} else {
+			url = "https://www.googleapis.com/books/v1/volumes?q=" + Character.toString ((char) 34) + "isbn=" + entryCodeIsbn + Character.toString ((char) 34) + "&key=AIzaSyAPOsreRHHdYcdZ4pX7YNXBujTndpGJF9k";
+		}
+					
 		
-		//String url ="file:///home/laurent/eclipse-workspace/livrokaz/src/main/resources/json/" + entryCat + ".json";
-
-		String jsonText = IOUtils.toString(new URL(url), Charset.forName("UTF-8"));
 
 		GoogleBook googleBooks = new GoogleBook();
-
 		String jsonTxt = IOUtils.toString(new URL(url), Charset.forName("UTF-8"));
-
+		
+		
 		JSONObject json = new JSONObject(jsonTxt);
 		JSONArray items = null;
 		JSONObject item = null;

@@ -35,7 +35,6 @@ public class AuthorController {
 	@GetMapping("/authors")
 	public List<Author> getAllAuthors() {
 		return this.authorService.getAllAuthors();
-
 	}
 	
 	@PostMapping("/addauthor")

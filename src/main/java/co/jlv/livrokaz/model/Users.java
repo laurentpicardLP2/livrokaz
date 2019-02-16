@@ -35,8 +35,8 @@ public class Users implements Serializable, UserDetails {
 	private static final long serialVersionUID = 1L;
 
 	@NotNull
-	@Column(name = "id", unique = true)
-    private long id;
+	@Column(name = "usersId", unique = true)
+    private long usersId;
 	
 	@Id
 	@Column(unique=true)
@@ -50,14 +50,14 @@ public class Users implements Serializable, UserDetails {
 	@NotBlank(message = "Mot de passe ne doit pas être vide")
 	private  String password;
 	
+	private String mail;
+	
 	private boolean enabled;
 	
 	private String civility;
 
-	
 	private int yyyy;
 	
-
 	private int mm;
 	
 	private int dd;
@@ -80,7 +80,6 @@ public class Users implements Serializable, UserDetails {
 	
 	private String numVoieLivraison;
 
-
 	private String nomVoieLivraison;
 
 	private int cpLivraison;
@@ -89,20 +88,19 @@ public class Users implements Serializable, UserDetails {
 
 	private String countryLivraison;
 
-
-	
-
 	public Users() {
 	}
 	
-	public Users(Long id, String username, String password, boolean enabled, 
+	public Users(Long usersId, String username, String password, boolean enabled, 
 			String civility, String firstName, String lastName, String tel, int yyyy,int mm, int dd,
 			String numVoieDomicile, String nomVoieDomicile, int cpDomicile, String cityDomicile, String countryDomicile,
-			String numVoieLivraison, String nomVoieLivraison, int cpLivraison, String cityLivraison, String countryLivraison
+			String numVoieLivraison, String nomVoieLivraison, int cpLivraison, String cityLivraison,
+			String countryLivraison, String mail
 			) {
-		this.id = id;
+		this.usersId = usersId;
 		this.username = username;
 		this.password = password;
+		this.mail = mail;
 		this.enabled = enabled;
 		this.civility = civility;
 		this.firstName = firstName;
@@ -124,12 +122,12 @@ public class Users implements Serializable, UserDetails {
 	}
 
 
-	public long getId() {
-		return id;
+	public long getUsersId() {
+		return usersId;
 	}
 
-	public void setId(long id) {
-		this.id = id;
+	public void setUsersId(long userId) {
+		this.usersId = userId;
 	}
 
 	public String getUsername() {
@@ -148,6 +146,14 @@ public class Users implements Serializable, UserDetails {
 		this.password = password;
 	}
 	
+	public String getMail() {
+		return mail;
+	}
+
+	public void setMail(String mail) {
+		this.mail = mail;
+	}
+
 	public boolean getEnabled() {
 		return this.enabled;
 	}

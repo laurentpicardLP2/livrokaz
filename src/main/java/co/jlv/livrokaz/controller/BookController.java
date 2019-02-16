@@ -97,7 +97,8 @@ public class BookController {
 	public ResponseEntity<?> addGendle(@Valid String entryCat, @Valid int nbBooks) {
 		
 		try {
-			GestionCategories.addCategrorie(entryCat, nbBooks, authorRepo, gendleRepo, googleBookRepo, publisherRepo);
+			// par isbn : GestionCategories.addCategrorie(entryCat, nbBooks, "1439149739",  authorRepo, gendleRepo, googleBookRepo, publisherRepo);
+			GestionCategories.addCategrorie(entryCat, nbBooks, "",  authorRepo, gendleRepo, googleBookRepo, publisherRepo);
 			return ResponseEntity.status(HttpStatus.OK).body(null);
 		} catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
