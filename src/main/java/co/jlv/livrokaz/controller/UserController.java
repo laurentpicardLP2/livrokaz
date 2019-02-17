@@ -132,9 +132,8 @@ public class UserController {
 		}
 	
 		//via l'api node.js
-		@PostMapping("/newuser/{authority}")
-		public ResponseEntity<?> createUser(@RequestBody Users newUsers, @PathVariable String authority) {
-			System.out.println("@PostMapping : " + authority);
+		@PostMapping("/newcustomer")
+		public ResponseEntity<?> createCustomer(@RequestBody Users newUsers) {
 			Users users;
 			Authorities authorities;
 			
@@ -149,7 +148,7 @@ public class UserController {
 					newUsers.getNumVoieLivraison(), newUsers.getNomVoieLivraison(), newUsers.getCpLivraison(), newUsers.getCityLivraison(), 
 					newUsers.getCountryLivraison(), newUsers.getMail()
 					);
-			authorities = new Authorities(authority);
+			authorities = new Authorities("ROLE_USER");
 			authorities.setUsers(users);
 			authoritiesRepo.save(authorities);
 				try {
@@ -158,6 +157,34 @@ public class UserController {
 					return ResponseEntity.badRequest().build();
 				}
 		}
+		
+		//via l'api node.js
+				@PostMapping("/newuser/{authority}")
+				public ResponseEntity<?> createUser(@RequestBody Users newUsers, @PathVariable String authority) {
+					System.out.println("@PostMapping : " + authority);
+					Users users;
+					Authorities authorities;
+					
+					Long userId;
+
+					BCryptPasswordEncoder bcrypt = new BCryptPasswordEncoder();
+					
+					userId =  (LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant().toEpochMilli())/1000;
+					users = new Users(userId, newUsers.getUsername(),"{bcrypt}" + bcrypt.encode(newUsers.getPassword()) , true, 
+							newUsers.getCivility(), newUsers.getFirstName(), newUsers.getLastName(), newUsers.getTel(), newUsers.getYyyy(),newUsers.getMm(), newUsers.getDd(), 
+							newUsers.getNomVoieDomicile(), newUsers.getNomVoieDomicile(), newUsers.getCpDomicile(), newUsers.getCityDomicile(), newUsers.getCountryDomicile(),
+							newUsers.getNumVoieLivraison(), newUsers.getNomVoieLivraison(), newUsers.getCpLivraison(), newUsers.getCityLivraison(), 
+							newUsers.getCountryLivraison(), newUsers.getMail()
+							);
+					authorities = new Authorities(authority);
+					authorities.setUsers(users);
+					authoritiesRepo.save(authorities);
+						try {
+							return ResponseEntity.status(HttpStatus.OK).body(newUsers);
+						} catch (Exception e) {
+							return ResponseEntity.badRequest().build();
+						}
+				}
 	
 	@PostMapping("/login")
 	    public ResponseEntity<?> authenticateUser(@Valid @RequestBody Users users, BindingResult result){
@@ -200,6 +227,25 @@ public class UserController {
 	@GetMapping("/authorities")
 	public List<Authorities> getAllAuthorities() {
 		return this.authoritiesService.getAllAuthorities();
+	}
+	
+	@PostMapping("/checkUsernameNotTaken")
+	public ResponseEntity<?> checkUsernameNotTaken(@RequestBody String username) {
+		
+		System.out.println("username " + username);
+		try {
+			if(usersRepo.findByUsername(username).getUsername().isEmpty()) {
+				System.out.println("isEmpty");
+				return ResponseEntity.status(HttpStatus.OK).body(true);
+			} else {
+				System.out.println("is not Empty");
+				return ResponseEntity.status(HttpStatus.OK).body(false);
+			}
+			
+		} catch (Exception e) {
+			System.out.println("catch is Empty");
+			return ResponseEntity.status(HttpStatus.OK).body(true);
+		}
 	}
 
 	
