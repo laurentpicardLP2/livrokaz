@@ -225,8 +225,9 @@ public class UserController {
 	}
 	
 	@GetMapping("/authorities")
-	public List<Authorities> getAllAuthorities() {
-		return this.authoritiesService.getAllAuthorities();
+	public List<Users> getAllAuthorities() {
+		return this.usersRepo.findAll();
+		//return this.authoritiesService.getAllAuthorities();
 	}
 	
 	@PostMapping("/checkUsernameNotTaken")
@@ -247,6 +248,6 @@ public class UserController {
 			return ResponseEntity.status(HttpStatus.OK).body(true);
 		}
 	}
-
+	
 	
 }

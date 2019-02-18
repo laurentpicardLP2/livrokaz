@@ -59,7 +59,6 @@ public class GestionCategories {
 		} else {
 			url = "https://www.googleapis.com/books/v1/volumes?q=" + Character.toString ((char) 34) + "isbn=" + entryCodeIsbn + Character.toString ((char) 34) + "&key=AIzaSyAPOsreRHHdYcdZ4pX7YNXBujTndpGJF9k";
 		}
-					
 		
 
 		GoogleBook googleBooks = new GoogleBook();
