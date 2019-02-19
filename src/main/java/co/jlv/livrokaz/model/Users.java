@@ -50,88 +50,68 @@ public class Users implements Serializable, UserDetails {
 	@NotBlank(message = "Mot de passe ne doit pas être vide")
 	private  String password;
 	
-	private String mail;
+	private String email;
 	
 	private boolean enabled;
+
+	private String fullName;
+
+	private String domesticAddress;
+
+	private String domesticCp;
+
+	private String domesticCity;
+
+	private String domesticCountry;
+
+	private String deliveryAddress;
+
+	private String deliveryCp;
+
+	private String deliveryCity;
+
+	private String deliveryCountry;
+
+	private String telephone;
 	
-	private String civility;
-
-	private int yyyy;
-	
-	private int mm;
-	
-	private int dd;
-
-	private String firstName;
-
-	private String lastName;
-
-	private String tel;
-	
-	private String numVoieDomicile;
-
-	private String nomVoieDomicile;
-
-	private int cpDomicile;
-
-	private String cityDomicile;
-
-	private String countryDomicile;
-	
-	private String numVoieLivraison;
-
-	private String nomVoieLivraison;
-
-	private int cpLivraison;
-
-	private String cityLivraison;
-
-	private String countryLivraison;
+	private Date dateOfBirth;
 
 	public Users() {
 	}
 	
-	public Users(Long usersId, String username, String password, boolean enabled, 
-			String civility, String firstName, String lastName, String tel, int yyyy,int mm, int dd,
-			String numVoieDomicile, String nomVoieDomicile, int cpDomicile, String cityDomicile, String countryDomicile,
-			String numVoieLivraison, String nomVoieLivraison, int cpLivraison, String cityLivraison,
-			String countryLivraison, String mail
+	public Users(Long usersId, boolean enabled, String fullName, String username, String email, String password, 
+			String domesticAddress, String domesticCp, String domesticCity, String domesticCountry,
+			String deliveryAddress, String deliveryCp, String deliveryCity, String deliveryCountry, 
+			String telephone, Date dateOfBirth
 			) {
 		this.usersId = usersId;
-		this.username = username;
-		this.password = password;
-		this.mail = mail;
 		this.enabled = enabled;
-		this.civility = civility;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.tel = tel;
-		this.yyyy = yyyy;
-		this.mm= mm;
-		this.dd=dd;
-		this.numVoieDomicile = numVoieDomicile;
-		this.nomVoieDomicile = nomVoieDomicile;
-		this.cpDomicile = cpDomicile;
-		this.cityDomicile = cityDomicile;
-		this.countryDomicile = countryDomicile;
-		this.numVoieLivraison = numVoieLivraison;
-		this.nomVoieLivraison = nomVoieLivraison;
-		this.cpLivraison = cpLivraison;
-		this.cityLivraison = cityLivraison;
-		this.countryLivraison = countryLivraison;
+		this.fullName = fullName;
+		this.username = username;
+		this.email = email;
+		this.password = password;
+		this.domesticAddress = domesticAddress;
+		this.domesticCp = domesticCp;
+		this.domesticCity = domesticCity;
+		this.domesticCountry = domesticCountry;
+		this.deliveryAddress = deliveryAddress;
+		this.deliveryCp = deliveryCp;
+		this.deliveryCity = deliveryCity;
+		this.deliveryCountry = deliveryCountry;
+		this.telephone = telephone;
+		this.dateOfBirth = dateOfBirth;
 	}
-
-
+	
 	public long getUsersId() {
 		return usersId;
 	}
 
-	public void setUsersId(long userId) {
-		this.usersId = userId;
+	public void setUsersId(long usersId) {
+		this.usersId = usersId;
 	}
 
 	public String getUsername() {
-		return this.username;
+		return username;
 	}
 
 	public void setUsername(String username) {
@@ -139,167 +119,113 @@ public class Users implements Serializable, UserDetails {
 	}
 
 	public String getPassword() {
-		return this.password;
+		return password;
 	}
 
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	public String getMail() {
-		return mail;
+
+	public String getEmail() {
+		return email;
 	}
 
-	public void setMail(String mail) {
-		this.mail = mail;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
-	public boolean getEnabled() {
-		return this.enabled;
+	public String getFullName() {
+		return fullName;
 	}
-	
+
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
+	}
+
+	public String getDomesticAddress() {
+		return domesticAddress;
+	}
+
+	public void setDomesticAddress(String domesticAddress) {
+		this.domesticAddress = domesticAddress;
+	}
+
+	public String getDomesticCp() {
+		return domesticCp;
+	}
+
+	public void setDomesticCp(String domesticCp) {
+		this.domesticCp = domesticCp;
+	}
+
+	public String getDomesticCity() {
+		return domesticCity;
+	}
+
+	public void setDomesticCity(String domesticCity) {
+		this.domesticCity = domesticCity;
+	}
+
+	public String getDomesticCountry() {
+		return domesticCountry;
+	}
+
+	public void setDomesticCountry(String domesticCountry) {
+		this.domesticCountry = domesticCountry;
+	}
+
+	public String getDeliveryAddress() {
+		return deliveryAddress;
+	}
+
+	public void setDeliveryAddress(String deliveryAddress) {
+		this.deliveryAddress = deliveryAddress;
+	}
+
+	public String getDeliveryCp() {
+		return deliveryCp;
+	}
+
+	public void setDeliveryCp(String deliveryCp) {
+		this.deliveryCp = deliveryCp;
+	}
+
+	public String getDeliveryCity() {
+		return deliveryCity;
+	}
+
+	public void setDeliveryCity(String deliveryCity) {
+		this.deliveryCity = deliveryCity;
+	}
+
+	public String getDeliveryCountry() {
+		return deliveryCountry;
+	}
+
+	public void setDeliveryCountry(String deliveryCountry) {
+		this.deliveryCountry = deliveryCountry;
+	}
+
+	public String getTelephone() {
+		return telephone;
+	}
+
+	public void setTelephone(String telephone) {
+		this.telephone = telephone;
+	}
+
+	public Date getDateOfBirth() {
+		return dateOfBirth;
+	}
+
+	public void setDateOfBirth(Date dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
+	}
+
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 	}
 
-	public String getCivility() {
-		return this.civility;
-	}
-
-	public void setCivility(String civility) {
-		this.civility = civility;
-	}
-
-
-	public String getFirstName() {
-		return this.firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return this.lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-	
-	public String getTel() {
-		return this.tel;
-	}
-
-	public void setTel(String tel) {
-		this.tel = tel;
-	}
-	
-	public String getNumVoieDomicile() {
-		return numVoieDomicile;
-	}
-
-	public void setNumVoieDomicile(String numVoieDomicile) {
-		this.numVoieDomicile = numVoieDomicile;
-	}
-
-	public String getNomVoieDomicile() {
-		return nomVoieDomicile;
-	}
-
-	public void setNomVoieDomicile(String nomVoieDomicile) {
-		this.nomVoieDomicile = nomVoieDomicile;
-	}
-
-	public int getCpDomicile() {
-		return cpDomicile;
-	}
-
-	public void setCpDomicile(int cpDomicile) {
-		this.cpDomicile = cpDomicile;
-	}
-
-	public String getCityDomicile() {
-		return cityDomicile;
-	}
-
-	public void setCityDomicile(String cityDomicile) {
-		this.cityDomicile = cityDomicile;
-	}
-
-	public String getCountryDomicile() {
-		return countryDomicile;
-	}
-
-	public void setCountryDomicile(String countryDomicile) {
-		this.countryDomicile = countryDomicile;
-	}
-
-	public String getNumVoieLivraison() {
-		return numVoieLivraison;
-	}
-
-	public void setNumVoieLivraison(String numVoieLivraison) {
-		this.numVoieLivraison = numVoieLivraison;
-	}
-
-	public String getNomVoieLivraison() {
-		return nomVoieLivraison;
-	}
-
-	public void setNomVoieLivraison(String nomVoieLivraison) {
-		this.nomVoieLivraison = nomVoieLivraison;
-	}
-
-	public int getCpLivraison() {
-		return cpLivraison;
-	}
-
-	public void setCpLivraison(int cpLivraison) {
-		this.cpLivraison = cpLivraison;
-	}
-
-	public String getCityLivraison() {
-		return cityLivraison;
-	}
-
-	public void setCityLivraison(String cityLivraison) {
-		this.cityLivraison = cityLivraison;
-	}
-
-	public String getCountryLivraison() {
-		return countryLivraison;
-	}
-
-	public void setCountryLivraison(String countryLivraison) {
-		this.countryLivraison = countryLivraison;
-	}
-
-	public int getYyyy() {
-		return yyyy;
-	}
-
-	public void setYyyy(int yyyy) {
-		this.yyyy = yyyy;
-	}
-
-	public int getMm() {
-		return mm;
-	}
-
-	public void setMm(int mm) {
-		this.mm = mm;
-	}
-
-	public int getDd() {
-		return dd;
-	}
-
-	public void setDd(int dd) {
-		this.dd = dd;
-	}
-
-	
 	public List<Ordering> getOrderings() {
 		return this.orderings;
 	}

@@ -87,11 +87,10 @@ public class UserController {
 	
 	//via Postman
 	@PostMapping("/adduser")
-	public ResponseEntity<?> addUsers(@Valid String numVoieDomicile, @Valid String nomVoieDomicile, @Valid int cpDomicile,
-		@Valid String cityDomicile, @Valid String countryDomicile, @Valid String numVoieLivraison,
-		@Valid String nomVoieLivraison, @Valid int cpLivraison, @Valid String cityLivraison, @Valid String countryLivraison,
-		@Valid int yyyy, @Valid int mm, @Valid int dd, @Valid String userName, @Valid String pwd, @Valid String typeRole,
-		@Valid String civility, @Valid String firstName, @Valid String lastName, @Valid String tel, @Valid String mail) {
+	public ResponseEntity<?> addUsers(@Valid String fullName, @Valid String username, @Valid String email, @Valid String password,
+		@Valid String domesticAddress, @Valid String domesticCp, @Valid String domesticCity, @Valid String domesticCountry,
+		@Valid String deliveryAddress, @Valid String deliveryCp, @Valid String deliveryCity, @Valid String deliveryCountry,
+		@Valid String telephone, @Valid String typeRole) {
 		Users users;
 		Authorities authorities;
 		
@@ -100,12 +99,10 @@ public class UserController {
 		BCryptPasswordEncoder bcrypt = new BCryptPasswordEncoder();
 		
 		userId =  (LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant().toEpochMilli())/1000;
-		users = new Users(userId, userName,"{bcrypt}" + bcrypt.encode(pwd) , true, 
-				civility, firstName, lastName, tel, yyyy,mm, dd, 
-				numVoieDomicile, nomVoieDomicile, cpDomicile, cityDomicile, countryDomicile,
-				numVoieLivraison, nomVoieLivraison, cpLivraison, cityLivraison, 
-				countryLivraison, mail
-				);
+		users = new Users(userId, true, fullName, username, email, "{bcrypt}" + bcrypt.encode(password), 
+				domesticAddress, domesticCp, domesticCity, domesticCountry, 
+				deliveryAddress, deliveryCp, deliveryCity, deliveryCountry,
+				telephone, new Date());
 		
 		authorities = new Authorities(typeRole);
 		authorities.setUsers(users);
@@ -142,12 +139,10 @@ public class UserController {
 			BCryptPasswordEncoder bcrypt = new BCryptPasswordEncoder();
 			
 			userId =  (LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant().toEpochMilli())/1000;
-			users = new Users(userId, newUsers.getUsername(),"{bcrypt}" + bcrypt.encode(newUsers.getPassword()) , true, 
-					newUsers.getCivility(), newUsers.getFirstName(), newUsers.getLastName(), newUsers.getTel(), newUsers.getYyyy(),newUsers.getMm(), newUsers.getDd(), 
-					newUsers.getNomVoieDomicile(), newUsers.getNomVoieDomicile(), newUsers.getCpDomicile(), newUsers.getCityDomicile(), newUsers.getCountryDomicile(),
-					newUsers.getNumVoieLivraison(), newUsers.getNomVoieLivraison(), newUsers.getCpLivraison(), newUsers.getCityLivraison(), 
-					newUsers.getCountryLivraison(), newUsers.getMail()
-					);
+			users = new Users(userId, true, newUsers.getFullName(), newUsers.getUsername(), newUsers.getEmail() ,"{bcrypt}" + bcrypt.encode(newUsers.getPassword()),
+					newUsers.getDomesticAddress(), newUsers.getDomesticCp(), newUsers.getDeliveryCity(), newUsers.getDeliveryCountry(),
+					newUsers.getDeliveryAddress(), newUsers.getDeliveryCp(), newUsers.getDeliveryCity(), newUsers.getDeliveryCountry(),
+					newUsers.getTelephone(), newUsers.getDateOfBirth());
 			authorities = new Authorities("ROLE_USER");
 			authorities.setUsers(users);
 			authoritiesRepo.save(authorities);
@@ -170,12 +165,10 @@ public class UserController {
 					BCryptPasswordEncoder bcrypt = new BCryptPasswordEncoder();
 					
 					userId =  (LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant().toEpochMilli())/1000;
-					users = new Users(userId, newUsers.getUsername(),"{bcrypt}" + bcrypt.encode(newUsers.getPassword()) , true, 
-							newUsers.getCivility(), newUsers.getFirstName(), newUsers.getLastName(), newUsers.getTel(), newUsers.getYyyy(),newUsers.getMm(), newUsers.getDd(), 
-							newUsers.getNomVoieDomicile(), newUsers.getNomVoieDomicile(), newUsers.getCpDomicile(), newUsers.getCityDomicile(), newUsers.getCountryDomicile(),
-							newUsers.getNumVoieLivraison(), newUsers.getNomVoieLivraison(), newUsers.getCpLivraison(), newUsers.getCityLivraison(), 
-							newUsers.getCountryLivraison(), newUsers.getMail()
-							);
+					users = new Users(userId, true, newUsers.getFullName(), newUsers.getUsername(), newUsers.getEmail() ,"{bcrypt}" + bcrypt.encode(newUsers.getPassword()),
+							newUsers.getDomesticAddress(), newUsers.getDomesticCp(), newUsers.getDeliveryCity(), newUsers.getDeliveryCountry(),
+							newUsers.getDeliveryAddress(), newUsers.getDeliveryCp(), newUsers.getDeliveryCity(), newUsers.getDeliveryCountry(),
+							newUsers.getTelephone(), newUsers.getDateOfBirth());
 					authorities = new Authorities(authority);
 					authorities.setUsers(users);
 					authoritiesRepo.save(authorities);
