@@ -40,7 +40,7 @@ public class GoogleBook implements Serializable {
 
 	private String categorie;
 
-	private String codeISBN;
+	private String codeIsbn;
 
 	@Lob
 	private String description;
@@ -118,7 +118,7 @@ public class GoogleBook implements Serializable {
 	
 	public GoogleBook( 
 			Gendle gendle, Publisher publisher, List<Author> authors, String publishReleased,
-			int availableQuantity, String categorie, String codeISBN, String description,
+			int availableQuantity, String categorie, String codeIsbn, String description,
 			String imgThumbnail,boolean isEbook,String langage,int pageCount,double price,
 			String textSnippet, String title/*,
 			List<R_Ordering_GoogleBook> rOrderingGoogleBooks*/) {
@@ -130,7 +130,7 @@ public class GoogleBook implements Serializable {
 		this.publishReleased = publishReleased;
 		this.availableQuantity = availableQuantity;
 		this.categorie = categorie;
-		this.codeISBN = codeISBN;
+		this.codeIsbn = codeIsbn;
 		this.description = description; 
 		this.imgThumbnail = imgThumbnail;
 		this.isEbook = isEbook;
@@ -171,12 +171,12 @@ public class GoogleBook implements Serializable {
 		this.categorie = categorie;
 	}
 
-	public String getCodeISBN() {
-		return this.codeISBN;
+	public String getCodeIsbn() {
+		return this.codeIsbn;
 	}
 
-	public void setCodeISBN(String codeISBN) {
-		this.codeISBN = codeISBN;
+	public void setCodeIsbn(String codeIsbn) {
+		this.codeIsbn = codeIsbn ;
 	}
 
 	public String getDescription() {
@@ -268,7 +268,7 @@ public class GoogleBook implements Serializable {
 	public void setPublisher(Publisher publisher) {
 		this.publisher = publisher;
 	}
-	
+//@JsonIgnoreProperties	
 	@JsonIgnore
 	public List<Author> getAuthors() {
 		return this.authors;

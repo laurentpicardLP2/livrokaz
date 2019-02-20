@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -24,7 +25,9 @@ import co.jlv.livrokaz.repository.AuthorRepository;
 import co.jlv.livrokaz.repository.GendleRepository;
 import co.jlv.livrokaz.repository.GoogleBookRepository;
 import co.jlv.livrokaz.repository.PublisherRepository;
+import co.jlv.livrokaz.services.AuthorService;
 import co.jlv.livrokaz.services.GestionCategories;
+import co.jlv.livrokaz.services.GoogleBookService;
 
 
 @RestController
@@ -43,6 +46,12 @@ public class BookController {
 
 	@Autowired
 	PublisherRepository publisherRepo;
+	
+	private GoogleBookService googleBookService;
+	
+	public BookController(GoogleBookService googleBookService) {
+		this.googleBookService = googleBookService;
+	}
 
 	@GetMapping("/books")
 	public ResponseEntity<?> getAllBooks() {
@@ -102,6 +111,30 @@ public class BookController {
 			return ResponseEntity.status(HttpStatus.OK).body(null);
 		} catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+		}
+	}
+	
+	@PostMapping("/addbook")
+	public ResponseEntity<?> creataAuthor(@RequestBody GoogleBook newBook) {				
+		try {
+			System.out.println("newBook.getAvailableQuantity() : " + newBook.getAvailableQuantity());
+			System.out.println("newBook.getCategorie() : " + newBook.getCategorie());
+			System.out.println("newBook.getCodeIsbn() : " + newBook.getCodeIsbn());
+			System.out.println("newBook.getDescription() : " + newBook.getDescription());
+			System.out.println("newBook.getGendle() : " + newBook.getGendle());
+			System.out.println("newBook.getImgThumbnail() : " + newBook.getImgThumbnail());
+			System.out.println("newBook.getLangage() : " + newBook.getLangage());
+			System.out.println("newBook.getPageCount() : " + newBook.getPageCount());
+			System.out.println("newBook.getPrice() : " + newBook.getPrice());
+			System.out.println("newBook.getPublishReleased() : " + newBook.getPublishReleased());
+			System.out.println("newBook.getTitle() : " + newBook.getTitle());
+			System.out.println("newBook.getAuthors() : " + newBook.getAuthors());
+			System.out.println("newBook.getIsEbook() : " + newBook.getIsEbook());
+			System.out.println("newBook.getPublisher() : " + newBook.getPublisher());
+			//return ResponseEntity.ok(this.googleBookService.saveGoogleBook(newBook)) ;
+			return ResponseEntity.status(HttpStatus.OK).body(null);
+		} catch (Exception e) {
+			return ResponseEntity.badRequest().build();
 		}
 	}
 	
