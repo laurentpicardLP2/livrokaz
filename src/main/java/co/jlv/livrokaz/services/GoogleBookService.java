@@ -8,7 +8,7 @@ public interface GoogleBookService {
 
 	public List<GoogleBook> getAllGoogleBooks();
 	
-	public GoogleBook saveGoogleBook(GoogleBook googleBook);
+	public GoogleBook saveGoogleBook(GoogleBook googleBook, String lstAuthors, String gendle, String publisher);
 	
 	public void deleteGoogleBook(GoogleBook googleBook);
 }

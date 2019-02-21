@@ -9,6 +9,8 @@ import co.jlv.livrokaz.repository.UsersRepository;
 
 @Service
 public class UsersServiceImpl implements UsersService {
+	
+	private String typeRole;
 
     private UsersRepository usersRepo;
 

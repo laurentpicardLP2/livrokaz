@@ -114,8 +114,8 @@ public class BookController {
 		}
 	}
 	
-	@PostMapping("/addbook")
-	public ResponseEntity<?> creataAuthor(@RequestBody GoogleBook newBook) {				
+	@PostMapping("/addbook/{lstAuthors}/{gendle}/{publisher}")
+	public ResponseEntity<?> creataAuthor(@RequestBody GoogleBook newBook, @PathVariable String lstAuthors, @PathVariable String gendle, @PathVariable String publisher) {				
 		try {
 			System.out.println("newBook.getAvailableQuantity() : " + newBook.getAvailableQuantity());
 			System.out.println("newBook.getCategorie() : " + newBook.getCategorie());
@@ -129,10 +129,15 @@ public class BookController {
 			System.out.println("newBook.getPublishReleased() : " + newBook.getPublishReleased());
 			System.out.println("newBook.getTitle() : " + newBook.getTitle());
 			System.out.println("newBook.getAuthors() : " + newBook.getAuthors());
+			System.out.println("lstAuthors : " + lstAuthors);
 			System.out.println("newBook.getIsEbook() : " + newBook.getIsEbook());
-			System.out.println("newBook.getPublisher() : " + newBook.getPublisher());
-			//return ResponseEntity.ok(this.googleBookService.saveGoogleBook(newBook)) ;
-			return ResponseEntity.status(HttpStatus.OK).body(null);
+			System.out.println("gendle : " + gendle);
+			System.out.println("publisher : " + publisher);
+			
+			//googleBookService.saveGoogleBook(newBook, lstAuthors, gendle, publisher);
+			
+			return ResponseEntity.ok(this.googleBookService.saveGoogleBook(newBook, lstAuthors, gendle, publisher)) ;
+			//return ResponseEntity.status(HttpStatus.OK).body(null);
 		} catch (Exception e) {
 			return ResponseEntity.badRequest().build();
 		}

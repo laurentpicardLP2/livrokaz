@@ -36,6 +36,7 @@ import co.jlv.livrokaz.model.AuthToken;
 import co.jlv.livrokaz.model.Author;
 import co.jlv.livrokaz.model.Authorities;
 import co.jlv.livrokaz.model.Gendle;
+import co.jlv.livrokaz.model.Role;
 import co.jlv.livrokaz.model.UserFront;
 import co.jlv.livrokaz.model.Users;
 import co.jlv.livrokaz.payload.JWTLoginSuccessResponse;
@@ -240,6 +241,12 @@ public class UserController {
 			System.out.println("catch is Empty");
 			return ResponseEntity.status(HttpStatus.OK).body(true);
 		}
+	}
+	
+	@GetMapping("/role/{username}")
+	public Role getRole(@PathVariable String username) {
+		System.out.println("authoritiesRepo.findByUsername(username).getAuthority() : " + authoritiesRepo.findByUsername(username).getAuthority());
+		return new Role(this.authoritiesRepo.findByUsername(username).getAuthority());
 	}
 	
 	

@@ -45,6 +45,12 @@ public class Gendle implements Serializable {
 		this.typeGendle = typeGendle;
 		this.nbBooks = nbBooks;
 	}
+	
+	public Gendle(int gendleId, String typeGendle, int nbBooks) {
+		this.gendleId = gendleId;
+		this.typeGendle = typeGendle;
+		this.nbBooks = nbBooks;
+	}
 
 
 	public int getGendleId() {

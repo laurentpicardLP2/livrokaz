@@ -54,9 +54,9 @@ public class GendleController {
 	public ResponseEntity<?> createGendle(@RequestBody Gendle newGendle) {
 		try {
 			// par isbn : GestionCategories.addCategrorie(entryCat, nbBooks, "1439149739",  authorRepo, gendleRepo, googleBookRepo, publisherRepo);
-			System.out.println("Appel avt addCategories");
 			GestionCategories.addCategrorie(newGendle.getTypeGendle(), newGendle.getNbBooks(), "", authorRepo, gendleRepo, googleBookRepo, publisherRepo);
-			return ResponseEntity.status(HttpStatus.OK).body(newGendle);
+			int gendleId = gendleRepo.findByGendle(newGendle.getTypeGendle()).getGendleId();
+			return ResponseEntity.status(HttpStatus.OK).body(new Gendle(gendleId, newGendle.getTypeGendle(), newGendle.getNbBooks()));
 		} catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
 		}

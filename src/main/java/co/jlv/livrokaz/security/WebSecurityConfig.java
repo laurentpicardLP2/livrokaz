@@ -108,7 +108,17 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/orderctrl/**").hasAnyRole("ADMIN", "DEVELOPPER", "MANAGER", "ANONYMOUS")
                 .antMatchers("/web/**").hasAnyRole("ADMIN")
                 //.antMatchers("/web/gestionbooks").hasAnyRole("ADMIN", "MANAGER")
-                .antMatchers("/livrokaz/**").hasAnyRole("ADMIN", "DEVELOPPER", "MANAGER")
+                
+                .antMatchers("/livrokaz/addbook/**").hasAnyRole("ADMIN", "DEVELOPPER", "MANAGER")
+                .antMatchers("/livrokaz/addgendle/**").hasAnyRole("ADMIN", "DEVELOPPER", "MANAGER")
+                .antMatchers("/livrokaz/googlebooksbygendle/**").hasAnyRole("ADMIN", "DEVELOPPER", "MANAGER")
+                .antMatchers("/livrokaz/addbook/**").hasAnyRole("ADMIN", "DEVELOPPER", "MANAGER")
+                .antMatchers("/livrokaz/delbook/**").hasAnyRole("ADMIN", "DEVELOPPER", "MANAGER")
+                .antMatchers("/livrokaz/updateBook/**").hasAnyRole("ADMIN", "DEVELOPPER", "MANAGER")
+                .antMatchers("/livrokaz/newgendle/**").hasAnyRole("ADMIN", "DEVELOPPER", "MANAGER")
+                .antMatchers("/livrokaz/gendles/**").permitAll()
+                .antMatchers("/livrokaz/authors/**").permitAll()
+                .antMatchers("/livrokaz/books/**").permitAll()
                 
                 .antMatchers(SIGN_UP_URLS).permitAll()
                 .anyRequest().authenticated();

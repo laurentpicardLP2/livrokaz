@@ -268,8 +268,8 @@ public class GoogleBook implements Serializable {
 	public void setPublisher(Publisher publisher) {
 		this.publisher = publisher;
 	}
-//@JsonIgnoreProperties	
-	@JsonIgnore
+	
+	@JsonIgnore	
 	public List<Author> getAuthors() {
 		return this.authors;
 	}

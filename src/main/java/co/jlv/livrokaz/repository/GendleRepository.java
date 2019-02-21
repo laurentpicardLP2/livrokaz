@@ -13,4 +13,5 @@ public interface GendleRepository extends JpaRepository<Gendle, Integer>{
 	  public Gendle findByGendle(String name);
 	
 	public List<GoogleBook> findByGendleId(int gendleId);
+	
 }
