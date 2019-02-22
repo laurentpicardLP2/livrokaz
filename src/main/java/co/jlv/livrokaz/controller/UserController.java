@@ -3,6 +3,8 @@ package co.jlv.livrokaz.controller;
 import static co.jlv.livrokaz.security.SecurityConstants.SECRET_KEY;
 import static co.jlv.livrokaz.security.SecurityConstants.TOKEN_EXPIRATION_TIME;
 
+import java.io.File;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -17,6 +19,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -30,8 +33,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
+import co.jlv.livrokaz.domain.FileInformation;
+import co.jlv.livrokaz.domain.exception.UploadFileException;
 import co.jlv.livrokaz.model.AuthToken;
 import co.jlv.livrokaz.model.Author;
 import co.jlv.livrokaz.model.Authorities;
@@ -85,6 +92,12 @@ public class UserController {
 		this.authoritiesService = authoritiesService;
 		this.usersService = usersService;
 	}
+	
+	@GetMapping("/ping")
+	  public String ping() {
+		  System.out.println("ping");
+	    return "ping";
+	  }
 	
 	//via Postman
 	@PostMapping("/adduser")
@@ -223,6 +236,18 @@ public class UserController {
 		return this.usersRepo.findAll();
 		//return this.authoritiesService.getAllAuthorities();
 	}
+	
+	@PostMapping(value = "/upload", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
+	  public ResponseEntity<FileInformation> uploadFile(
+	      @RequestParam("data") MultipartFile multipartFile
+	  ) throws UploadFileException, IllegalStateException, IOException {
+		
+	    if (multipartFile == null || multipartFile.isEmpty()) {
+	      throw new UploadFileException();
+	    }
+	    multipartFile.transferTo(new File("/home/laurent/img.jpeg"));
+	    return new ResponseEntity<>(new FileInformation(multipartFile.getOriginalFilename(), multipartFile.getSize()), HttpStatus.CREATED);
+	  }
 	
 	@PostMapping("/checkUsernameNotTaken")
 	public ResponseEntity<?> checkUsernameNotTaken(@RequestBody String username) {

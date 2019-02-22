@@ -111,14 +111,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 
                 .antMatchers("/livrokaz/addbook/**").hasAnyRole("ADMIN", "DEVELOPPER", "MANAGER")
                 .antMatchers("/livrokaz/addgendle/**").hasAnyRole("ADMIN", "DEVELOPPER", "MANAGER")
-                .antMatchers("/livrokaz/googlebooksbygendle/**").hasAnyRole("ADMIN", "DEVELOPPER", "MANAGER")
                 .antMatchers("/livrokaz/addbook/**").hasAnyRole("ADMIN", "DEVELOPPER", "MANAGER")
                 .antMatchers("/livrokaz/delbook/**").hasAnyRole("ADMIN", "DEVELOPPER", "MANAGER")
                 .antMatchers("/livrokaz/updateBook/**").hasAnyRole("ADMIN", "DEVELOPPER", "MANAGER")
                 .antMatchers("/livrokaz/newgendle/**").hasAnyRole("ADMIN", "DEVELOPPER", "MANAGER")
+                .antMatchers("/livrokaz/googlebooksbygendle/**").permitAll()
                 .antMatchers("/livrokaz/gendles/**").permitAll()
                 .antMatchers("/livrokaz/authors/**").permitAll()
                 .antMatchers("/livrokaz/books/**").permitAll()
+                .antMatchers("/api/**").permitAll()
                 
                 .antMatchers(SIGN_UP_URLS).permitAll()
                 .anyRequest().authenticated();
