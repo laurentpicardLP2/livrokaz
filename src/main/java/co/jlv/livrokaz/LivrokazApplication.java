@@ -11,9 +11,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class LivrokazApplication implements CommandLineRunner {
 
-
-		
-
 	public static void main(String[] args) throws Exception, MalformedURLException, IOException, ClassNotFoundException, SQLException {
 		SpringApplication.run(LivrokazApplication.class, args);
 	}
@@ -22,8 +19,5 @@ public class LivrokazApplication implements CommandLineRunner {
 	public void run(String... args)
 			throws Exception,  MalformedURLException, IOException, ClassNotFoundException, SQLException {
 	}
-		
-
-
 
 }
